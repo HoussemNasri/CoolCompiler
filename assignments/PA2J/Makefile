@@ -1,7 +1,7 @@
 
 ASSN = 2J
 CLASS= cs143
-CLASSDIR= /mnt/c/Users/housi/Desktop/Stanford-Compilers/assets
+CLASSDIR= /mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers
 MAKEFILEDIR = ${CLASSDIR}/assignments/PA2J
 LIB= -L/usr/pubsw/lib -lfl -R/usr/pubsw/lib
 
