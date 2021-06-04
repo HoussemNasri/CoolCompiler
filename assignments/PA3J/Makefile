@@ -1,7 +1,8 @@
 
 ASSN = 3J
 CLASS= cs143
-CLASSDIR= ../..
+CLASSDIR= /mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers
+MAKEFILEDIR = ${CLASSDIR}/assignments/PA3J
 LIB=  -lfl 
 AR= gar
 ARCHIVE_NEW= -cr
@@ -37,11 +38,11 @@ LIBS= lexer semant cgen
 CFIL= ${CSRC} ${CGEN}
 HFIL= cool-tree.h cool-tree.handcode.h 
 LSRC= Makefile
-CLS= ${CFIL:.java=.class}
+CLS= ${CFIL:%.java=./classes/%.class}
 OUTPUT= good.output bad.output
 
 JAVAC := javac
-CUP := /usr/class/cs143/bin/java_cup
+CUP := /mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers/bin/java_cup
 
 CUPCLASSPATH := ${CLASSDIR}/lib
 
@@ -57,11 +58,11 @@ ${OUTPUT}:	parser good.cl bad.cl
 parser: Makefile ${CLS}
 	@rm -f parser
 	echo '#!/bin/sh' >> parser
-	echo 'java -classpath ${CLASSPATH}:`dirname $$0` Parser $$*' >> parser
+	echo 'java -classpath ${CLASSPATH}:${MAKEFILEDIR}/classes/:`dirname $$0` Parser $$*' >> parser
 	chmod 755 parser
 
 CoolParser.java TokenConstants.java: cool.cup
-	${CUP} -parser CoolParser -symbols TokenConstants -expect 10000 -dump -nopositions < $< >cool.output 2>&1 || { egrep '^Error at ' cool.output; false; }
+	${CUP} -parser CoolParser -symbols TokenConstants -expect 10000 -dump < $< >cool.output 2>&1 || { egrep '^Error at ' cool.output; false; }
 
 
 dotest:	parser good.cl bad.cl
@@ -73,7 +74,7 @@ dotest:	parser good.cl bad.cl
 ## cool-tree.class is not a real class file, but we need to have it
 ## for dependency tracking
 ${CLS}: ${CFIL}
-	${JAVAC} -g -nowarn -classpath ${CLASSPATH} ${CFIL}
+	${JAVAC} -d ${MAKEFILEDIR}/classes/ -g -nowarn -classpath ${CLASSPATH} ${CFIL}
 	touch cool-tree.class
 
 ${LIBS}:
@@ -86,4 +87,4 @@ ${HSRC}:
 	-ln -s ${CLASSDIR}/include/PA${ASSN}/$@ $@
 
 clean:
-	-rm -f cool.output *.s core *.class *~ ${CGEN} parser cgen semant lexer ${OUTPUT}
+	-rm -f cool.output *.s core ./classes/* *.class *~ ${CGEN} parser cgen semant ${OUTPUT}

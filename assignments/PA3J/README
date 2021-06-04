@@ -131,3 +131,25 @@ Instructions
 
 Write-up for PA3J
 -----------------
+- I made a custom test case to test the parsing of multiple classes in one file.
+- I noticed the _no_type notation in the output, after investigating the source code it turns out an expression could have a type and if it doesn't we output _no_type .e.g an assign expression doesn't have a type.
+- I made a new script 'bmyparser' to test the model parser.
+- I made two new tests, one for attribute decllaration with initialization and one without.
+- Expressions shouldn't finish with a semicolon unless they are containted in a block expressions.
+- method body takes only ONE EXPRESSION. 
+- The value type of the symbol must match the terminal/nonterminal type in the ".cup" specification .g. BOOL_CONST has a Boolean value therefore "terminal Boolean BOOL_CONST" is legit.
+- The let expression can have multiple identifier in a way that each ID is the body of the one before it
+ e.g. let x:Int, y:Int in {} , the let expression "let x:Int" will have "let y:Int" nested in it like the following 
+ let x:Int in 
+ { 
+	let y:Int in 
+	{
+	} 
+ }
+- All three comparaison operators (LT, EQ, LQ) do not associate. 
+- I attempt to catch bad blocks where a block consist of an illegal expression, I use the panic mode technique to recover from the error by skipping errournes tokens until I find a semicolon(;).
+- I handled errors in class definition by skipping that class and continue from the next class.
+- When an error occur at a class declaration we skip input until we find another class and continue from there.
+- After long hours of debugging to recover errors in expressions I came to realize that I only needed to add "error" at the end of "expr" production, this means that if you find an error in expression skip all of it.  
+- Empty expr list is not valid
+- In "while loops" it's common to mistake "LOOP" and "POOL" where "LOOP" denote the start of the loop and "POOL" the end of it, to recover from this common error I made three error productions for all the cases of misplacing "LOOP" or "POOL", the error will point to the symbol in the wrong place.
