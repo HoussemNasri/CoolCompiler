@@ -1,37 +1,39 @@
 
-ASSN = 5J
+ASSN = 4J
 CLASS= cs143
-CLASSDIR= ../..
+CLASSDIR= /usr/class/cs143/cool
 
-SRC= CgenClassTable.java CgenNode.java CgenSupport.java TreeConstants.java cool-tree.java IntSymbol.java StringSymbol.java BoolConst.java example.cl README
+SRC= ClassTable.java TreeConstants.java cool-tree.java good.cl bad.cl README
 CSRC = \
 	ASTConstants.java \
 	ASTLexer.java \
 	ASTParser.java \
 	AbstractSymbol.java \
 	AbstractTable.java \
+	BoolConst.java \
 	Flags.java \
 	IdSymbol.java \
 	IdTable.java \
+	IntSymbol.java \
 	IntTable.java \
 	ListNode.java \
-	Cgen.java \
+	Semant.java \
+	StringSymbol.java \
 	StringTable.java \
+	CgenSupport.java \
 	SymbolTable.java \
 	SymtabExample.java \
 	TokenConstants.java \
 	TreeNode.java \
-	ClassTable.java \
 	Utilities.java
-
-TSRC= mycoolc cool-tree.aps
+TSRC= mysemant mycoolc cool-tree.aps
 CGEN= 
-LIBS= lexer parser semant
-CFIL= ${CSRC} ${CGEN} CgenClassTable.java CgenNode.java CgenSupport.java TreeConstants.java cool-tree.java IntSymbol.java StringSymbol.java BoolConst.java
+LIBS= lexer parser cgen
+CFIL= ${CSRC} ${CGEN} ClassTable.java TreeConstants.java cool-tree.java 
 HFIL= 
 LSRC= Makefile
 CLS= ${CFIL:.java=.class}
-OUTPUT= example.output
+OUTPUT= good.output bad.output
 
 JAVAC := javac
 
@@ -40,15 +42,16 @@ CLASSPATH := ${CLASSDIR}/lib:.:/usr/java/lib/rt.jar
 
 source: ${SRC} ${TSRC} ${LSRC} ${LIBS} ${CSRC}
 
-${OUTPUT}: cgen
+${OUTPUT}:	semant good.cl bad.cl
 	@rm -f ${OUTPUT}
-	./mycoolc  example.cl >example.output 2>&1 
+	./mysemant good.cl >good.output 2>&1 
+	-./mysemant bad.cl >bad.output 2>&1 
 
-cgen: Makefile ${CLS}
-	@rm -f cgen
-	echo '#!/bin/sh' >> cgen
-	echo 'java -classpath ${CLASSPATH} Cgen $$*' >> cgen
-	chmod 755 cgen
+semant: Makefile ${CLS}
+	@rm -f semant
+	echo '#!/bin/sh' >> semant
+	echo 'java -classpath ${CLASSPATH} Semant $$*' >> semant
+	chmod 755 semant
 
 symtab-example: Makefile ${CLS}
 	@rm -f symtab-example
@@ -56,9 +59,11 @@ symtab-example: Makefile ${CLS}
 	echo 'java -classpath ${CLASSPATH} SymtabExample $$*' >> symtab-example
 	chmod 755 symtab-example
 
-dotest:	cgen example.cl
-	@echo "\nRunning code generator on example.cl\n"
-	-./mycoolc example.cl
+dotest:	semant good.cl bad.cl
+	@echo "\nRunning semant on good.cl\n"
+	-./mysemant good.cl 
+	@echo "\nRunning semant on bad.cl\n"
+	-./mysemant bad.cl
 
 ## cool-tree.class is not a real class file, but we need to have it
 ## for dependency tracking
@@ -85,11 +90,7 @@ ${HSRC}:
 	-ln -s ${CLASSDIR}/include/PA${ASSN}/$@ $@
 
 submit-clean: ${OUTPUT}
-	-rm -f *.s core ${CLS} *~ ${CGEN} parser cgen semant lexer symtab-example
+	-rm -f *.s *.class core ${CLS} *~ ${CGEN} parser cgen semant lexer symtab-example
 
 clean :
-	-rm -f ${OUTPUT} *.s core ${CLS} ${CGEN} parser cgen semant lexer symtab-example *~ 
-
-
-
-
+	-rm -f ${OUTPUT} *.s *.class core ${CLS} ${CGEN} parser cgen semant lexer symtab-example *~ 
