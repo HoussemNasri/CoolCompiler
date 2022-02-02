@@ -1,5 +1,3 @@
-# CS143: Compilers
-### Assignment 2 : Lexical Analysis
-> **You got a score of 63 out of 63.**
-### Assignment 3 : Parsing
-> **You got a score of 70 out of 70.**
+# Cool Compiler
+I wrote this compiler while attending CS143 compiler construction course by Stanford on *edX.com*.
+The course is divided into four assignments. In each assignment, we implement one phase of the compilation process.
