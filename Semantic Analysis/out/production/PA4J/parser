@@ -1,2 +1,0 @@
-#!/bin/sh
-java -classpath /mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers/lib:.:/mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers/assignments/PA3J/classes/:`dirname $0` Parser $*

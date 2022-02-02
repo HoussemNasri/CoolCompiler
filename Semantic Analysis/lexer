@@ -1,2 +1,0 @@
-#!/bin/sh
-java -classpath /mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers/lib/java-cup-11a.jar:/mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers/lib/jlex.jar:/mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers/assignments/PA2J:/usr/java/lib/rt.jar:/mnt/c/Users/housi/Desktop/Stanford-Compilers/Stanford-CS143-Compilers/assignments/PA2J/classes:`dirname $0` Lexer $*

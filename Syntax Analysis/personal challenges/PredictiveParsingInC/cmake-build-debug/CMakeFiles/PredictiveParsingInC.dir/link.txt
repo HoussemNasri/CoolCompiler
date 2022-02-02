@@ -1,3 +1,0 @@
-C:\Users\housi\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\211.7442.42\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\PredictiveParsingInC.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\PredictiveParsingInC.dir/objects.a @CMakeFiles\PredictiveParsingInC.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\PredictiveParsingInC.dir/objects.a -Wl,--no-whole-archive -o PredictiveParsingInC.exe -Wl,--out-implib,libPredictiveParsingInC.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\PredictiveParsingInC.dir\linklibs.rsp

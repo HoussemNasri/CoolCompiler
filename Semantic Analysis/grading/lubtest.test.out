@@ -1,2 +1,0 @@
-lubtest.test:18: Inferred return type Z of method h does not conform to declared return type B.
-Compilation halted due to static semantic errors.
