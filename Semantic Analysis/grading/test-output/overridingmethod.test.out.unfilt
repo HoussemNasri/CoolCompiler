@@ -1,0 +1,49 @@
+Hello, World!
+Houssem Nasri
+#12
+_program
+  #7
+  _class
+    A
+    Object
+    "./overridingmethod.test"
+    (
+    #5
+    _method
+      foo
+      Int
+      #3
+      _int
+        6
+      : _no_type
+    )
+  #12
+  _class
+    B
+    A
+    "./overridingmethod.test"
+    (
+    #10
+    _method
+      foo
+      Int
+      #9
+      _int
+        7
+      : _no_type
+    )
+  #12
+  _class
+    Main
+    Object
+    "./overridingmethod.test"
+    (
+    #12
+    _method
+      main
+      Int
+      #12
+      _int
+        6
+      : _no_type
+    )

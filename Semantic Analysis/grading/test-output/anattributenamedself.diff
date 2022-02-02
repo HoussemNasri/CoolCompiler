@@ -1,0 +1,54 @@
+1,2c1,50
+< filename:line
+< Compilation halted due to static semantic errors.
+---
+> Hello, World!
+> Houssem Nasri
+> 
+> _program
+> 
+>   _class
+>     Main
+>     Object
+>     filename
+>     (
+> 
+>     _method
+>       main
+>       Int
+> 
+>       _int
+>         0
+>       : _no_type
+>     )
+> 
+>   _class
+>     A
+>     Object
+>     filename
+>     (
+> 
+>     _attr
+>       self
+>       A
+> 
+>       _new
+>         A
+>       : _no_type
+> 
+>     _method
+>       foo
+> 
+>       _formal
+>         x
+>         String
+>       String
+> 
+>       _assign
+>         x
+> 
+>         _string
+>           "a boy named sue"
+>         : _no_type
+>       : _no_type
+>     )

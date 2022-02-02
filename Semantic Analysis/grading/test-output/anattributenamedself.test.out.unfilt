@@ -1,0 +1,50 @@
+Hello, World!
+Houssem Nasri
+#6
+_program
+  #3
+  _class
+    Main
+    Object
+    "./anattributenamedself.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : _no_type
+    )
+  #6
+  _class
+    A
+    Object
+    "./anattributenamedself.test"
+    (
+    #5
+    _attr
+      self
+      A
+      #4
+      _new
+        A
+      : _no_type
+    #6
+    _method
+      foo
+      #5
+      _formal
+        x
+        String
+      String
+      #5
+      _assign
+        x
+        #5
+        _string
+          "a boy named sue"
+        : _no_type
+      : _no_type
+    )

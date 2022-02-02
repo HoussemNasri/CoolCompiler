@@ -1,0 +1,71 @@
+Hello, World!
+Houssem Nasri
+#11
+_program
+  #3
+  _class
+    Main
+    Object
+    "./badargs1.test"
+    (
+    #1
+    _method
+      main
+      Object
+      #1
+      _int
+        0
+      : _no_type
+    )
+  #9
+  _class
+    A
+    Object
+    "./badargs1.test"
+    (
+    #7
+    _method
+      bar
+      Object
+      #6
+      _dispatch
+        #5
+        _new
+          B
+        : _no_type
+        foo
+        (
+        #5
+        _object
+          self
+        : _no_type
+        #5
+        _int
+          29
+        : _no_type
+        )
+      : _no_type
+    )
+  #11
+  _class
+    B
+    A
+    "./badargs1.test"
+    (
+    #11
+    _method
+      foo
+      #10
+      _formal
+        b
+        B
+      #10
+      _formal
+        x
+        Int
+      String
+      #10
+      _string
+        "moo"
+      : _no_type
+    )

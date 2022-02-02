@@ -1,0 +1,96 @@
+Hello, World!
+Houssem Nasri
+
+_program
+
+  _class
+    Main
+    Object
+    filename
+    (
+
+    _method
+      main
+      Object
+
+      _int
+        42
+      : _no_type
+    )
+
+  _class
+    A
+    Object
+    filename
+    (
+
+    _method
+      foo
+
+      _formal
+        a
+        Int
+
+      _formal
+        b
+        B
+
+      _formal
+        c
+        A
+
+      _formal
+        d
+        B
+      A
+
+      _object
+        self
+      : _no_type
+    )
+
+  _class
+    B
+    A
+    filename
+    (
+
+    _method
+      moo
+      A
+
+      _let
+        b
+        B
+
+        _new
+          B
+        : _no_type
+
+        _dispatch
+
+          _object
+            self
+          : _no_type
+          foo
+          (
+
+          _int
+            4
+          : _no_type
+
+          _object
+            b
+          : _no_type
+
+          _object
+            b
+          : _no_type
+
+          _object
+            b
+          : _no_type
+          )
+        : _no_type
+      : _no_type
+    )

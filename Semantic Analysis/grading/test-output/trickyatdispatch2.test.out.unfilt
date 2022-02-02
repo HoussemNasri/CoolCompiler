@@ -1,0 +1,71 @@
+Hello, World!
+Houssem Nasri
+#11
+_program
+  #3
+  _class
+    Main
+    Object
+    "./trickyatdispatch2.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : _no_type
+    )
+  #6
+  _class
+    A
+    Object
+    "./trickyatdispatch2.test"
+    (
+    #5
+    _method
+      inky
+      Int
+      #4
+      _int
+        1
+      : _no_type
+    )
+  #9
+  _class
+    B
+    Object
+    "./trickyatdispatch2.test"
+    (
+    #8
+    _method
+      winky
+      Int
+      #7
+      _int
+        2
+      : _no_type
+    )
+  #11
+  _class
+    C
+    Object
+    "./trickyatdispatch2.test"
+    (
+    #11
+    _method
+      binky
+      Int
+      #10
+      _static_dispatch
+        #10
+        _new
+          A
+        : _no_type
+        B
+        winky
+        (
+        )
+      : _no_type
+    )

@@ -1,0 +1,233 @@
+0a1,2
+> Hello, World!
+> Houssem Nasri
+16c18
+<       : Bool
+---
+>       : _no_type
+28c30
+<           : SELF_TYPE
+---
+>           : _no_type
+32c34
+<         : Object
+---
+>         : _no_type
+36,37c38,39
+<         : Int
+<       : Int
+---
+>         : _no_type
+>       : _no_type
+49c51
+<           : SELF_TYPE
+---
+>           : _no_type
+53c55
+<         : Object
+---
+>         : _no_type
+57,58c59,60
+<         : SELF_TYPE
+<       : SELF_TYPE
+---
+>         : _no_type
+>       : _no_type
+72c74
+<         : Cons
+---
+>         : _no_type
+78c80
+<         : Int
+---
+>         : _no_type
+82c84
+<         : SELF_TYPE
+---
+>         : _no_type
+84c86
+<       : List
+---
+>       : _no_type
+113c115
+<       : Bool
+---
+>       : _no_type
+121c123
+<       : Int
+---
+>       : _no_type
+129c131
+<       : List
+---
+>       : _no_type
+150,151c152,153
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type
+158,159c160,161
+<           : List
+<         : List
+---
+>           : _no_type
+>         : _no_type
+163,164c165,166
+<         : SELF_TYPE
+<       : SELF_TYPE
+---
+>         : _no_type
+>       : _no_type
+194c196
+<           : List
+---
+>           : _no_type
+198c200
+<         : Bool
+---
+>         : _no_type
+204c206
+<           : SELF_TYPE
+---
+>           : _no_type
+210c212
+<           : String
+---
+>           : _no_type
+212c214
+<         : SELF_TYPE
+---
+>         : _no_type
+220c222
+<             : SELF_TYPE
+---
+>             : _no_type
+228c230
+<               : List
+---
+>               : _no_type
+232c234
+<             : Int
+---
+>             : _no_type
+234c236
+<           : SELF_TYPE
+---
+>           : _no_type
+240c242
+<             : SELF_TYPE
+---
+>             : _no_type
+246c248
+<             : String
+---
+>             : _no_type
+248c250
+<           : SELF_TYPE
+---
+>           : _no_type
+254c256
+<             : SELF_TYPE
+---
+>             : _no_type
+262c264
+<               : List
+---
+>               : _no_type
+266c268
+<             : List
+---
+>             : _no_type
+268,270c270,272
+<           : Object
+<         : Object
+<       : Object
+---
+>           : _no_type
+>         : _no_type
+>       : _no_type
+293c295
+<                     : List
+---
+>                     : _no_type
+299c301
+<                     : Int
+---
+>                     : _no_type
+301c303
+<                   : List
+---
+>                   : _no_type
+307c309
+<                   : Int
+---
+>                   : _no_type
+309c311
+<                 : List
+---
+>                 : _no_type
+315c317
+<                 : Int
+---
+>                 : _no_type
+317c319
+<               : List
+---
+>               : _no_type
+323c325
+<               : Int
+---
+>               : _no_type
+325c327
+<             : List
+---
+>             : _no_type
+331c333
+<             : Int
+---
+>             : _no_type
+333,334c335,336
+<           : List
+<         : List
+---
+>           : _no_type
+>         : _no_type
+344c346
+<               : List
+---
+>               : _no_type
+348,349c350,351
+<             : Bool
+<           : Bool
+---
+>             : _no_type
+>           : _no_type
+357c359
+<               : SELF_TYPE
+---
+>               : _no_type
+363c365
+<               : List
+---
+>               : _no_type
+365c367
+<             : Object
+---
+>             : _no_type
+374c376
+<                 : List
+---
+>                 : _no_type
+378,382c380,384
+<               : List
+<             : List
+<           : List
+<         : Object
+<       : Object
+---
+>               : _no_type
+>             : _no_type
+>           : _no_type
+>         : _no_type
+>       : _no_type

@@ -1,0 +1,58 @@
+Hello, World!
+Houssem Nasri
+#5
+_program
+  #3
+  _class
+    Main
+    Object
+    "./badmethodcallsitself.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : _no_type
+    )
+  #5
+  _class
+    A
+    Object
+    "./badmethodcallsitself.test"
+    (
+    #5
+    _method
+      f
+      #4
+      _formal
+        a
+        Int
+      Object
+      #4
+      _dispatch
+        #4
+        _object
+          self
+        : _no_type
+        f
+        (
+        #4
+        _dispatch
+          #4
+          _object
+            self
+          : _no_type
+          f
+          (
+          #4
+          _int
+            0
+          : _no_type
+          )
+        : _no_type
+        )
+      : _no_type
+    )
