@@ -8,12 +8,8 @@ The course is divided into four assignments. In each assignment, we implement on
 - [Java-CUP](http://www2.cs.tum.edu/projects/cup/) - Parser generator
 <!-- GETTING STARTED -->
 ## Getting Started
-### Prerequisites
-### Installation
-  
-
-<!-- USAGE EXAMPLES -->
-## Download
+### Prerequisites  
+### Download
 See the [releases](https://github.com/HoussemNasri/CoolCompiler/releases) page for the latest build
 
 [^cs]:
