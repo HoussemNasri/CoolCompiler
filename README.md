@@ -16,7 +16,7 @@ The course is divided into four assignments. In each assignment, we implement on
 ## Usage
 
 [^CS143]:
-      [CS143: Compilers][CS143] - Stanford's course in the practical and theoretical aspects of compiler construction
+    [CS143: Compilers][CS143] - Stanford's course in the practical and theoretical aspects of compiler construction
       
 [CS143]: https://www.edx.org/course/compilers 
 
