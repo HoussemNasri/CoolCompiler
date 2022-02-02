@@ -1,1 +1,0 @@
--- can they handle EOF in "--" state?
