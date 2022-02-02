@@ -6,6 +6,14 @@ The course is divided into four assignments. In each assignment, we implement on
 - [Java](https://dev.java/) - The main programming language
 - [JLex](https://www.cs.princeton.edu/~appel/modern/java/JLex/) - Scanner generator
 - [Java-CUP](http://www2.cs.tum.edu/projects/cup/) - Parser generator
+<!-- GETTING STARTED -->
+## Getting Started
+### Prerequisites
+### Installation
+  
+
+<!-- USAGE EXAMPLES -->
+## Usage
 
 [^CS143]:
       [CS143: Compilers][CS143] - Stanford's course in the practical and theoretical aspects of compiler construction
