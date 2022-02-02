@@ -1,0 +1,19 @@
+Hello, World!
+Houssem Nasri
+#3
+_program
+  #3
+  _class
+    Main
+    Object
+    "./returntypenoexist.test"
+    (
+    #3
+    _method
+      main
+      PinkElephant
+      #2
+      _new
+        PinkElephant
+      : _no_type
+    )

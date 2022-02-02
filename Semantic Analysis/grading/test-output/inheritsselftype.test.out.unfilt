@@ -1,0 +1,19 @@
+Hello, World!
+Houssem Nasri
+#1
+_program
+  #1
+  _class
+    Main
+    SELF_TYPE
+    "./inheritsselftype.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : _no_type
+    )

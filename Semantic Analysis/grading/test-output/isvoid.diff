@@ -1,0 +1,23 @@
+0a1,2
+> Hello, World!
+> Houssem Nasri
+27,28c29,30
+<           : Bool
+<         : Bool
+---
+>           : _no_type
+>         : _no_type
+34,35c36,37
+<           : Bool
+<         : Bool
+---
+>           : _no_type
+>         : _no_type
+41,43c43,45
+<           : Bool
+<         : Bool
+<       : Bool
+---
+>           : _no_type
+>         : _no_type
+>       : _no_type

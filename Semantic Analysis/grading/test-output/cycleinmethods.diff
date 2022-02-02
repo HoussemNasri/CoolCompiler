@@ -1,0 +1,43 @@
+0a1,2
+> Hello, World!
+> Houssem Nasri
+16c18
+<       : Int
+---
+>       : _no_type
+37c39
+<         : SELF_TYPE
+---
+>         : _no_type
+43c45
+<         : Int
+---
+>         : _no_type
+45c47
+<       : Int
+---
+>       : _no_type
+59c61
+<         : SELF_TYPE
+---
+>         : _no_type
+65c67
+<         : Int
+---
+>         : _no_type
+67c69
+<       : Int
+---
+>       : _no_type
+81c83
+<         : SELF_TYPE
+---
+>         : _no_type
+87c89
+<         : Int
+---
+>         : _no_type
+89c91
+<       : Int
+---
+>       : _no_type

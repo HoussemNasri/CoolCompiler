@@ -1,0 +1,45 @@
+Hello, World!
+Houssem Nasri
+#9
+_program
+  #3
+  _class
+    Main
+    Object
+    "./inheritsstring.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : _no_type
+    )
+  #8
+  _class
+    A
+    Object
+    "./inheritsstring.test"
+    (
+    #6
+    _method
+      foo
+      #4
+      _formal
+        x
+        Object
+      SELF_TYPE
+      #4
+      _object
+        self
+      : _no_type
+    )
+  #9
+  _class
+    B
+    String
+    "./inheritsstring.test"
+    (
+    )

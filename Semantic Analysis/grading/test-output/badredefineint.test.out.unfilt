@@ -1,0 +1,26 @@
+Hello, World!
+Houssem Nasri
+#4
+_program
+  #3
+  _class
+    Main
+    Object
+    "./badredefineint.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : _no_type
+    )
+  #4
+  _class
+    Int
+    Object
+    "./badredefineint.test"
+    (
+    )
