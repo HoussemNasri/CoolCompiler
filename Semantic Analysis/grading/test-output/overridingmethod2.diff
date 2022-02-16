@@ -1,21 +1,92 @@
-0a1,2
-> Hello, World!
-> Houssem Nasri
-16c18
+1,86c1,4
+< 
+< _program
+< 
+<   _class
+<     Main
+<     Object
+<     filename
+<     (
+< 
+<     _method
+<       main
+<       Int
+< 
+<       _int
+<         0
 <       : Int
----
->       : _no_type
-47c49
+<     )
+< 
+<   _class
+<     A
+<     Object
+<     filename
+<     (
+< 
+<     _method
+<       inky
+< 
+<       _formal
+<         a
+<         Int
+< 
+<       _formal
+<         b
+<         String
+< 
+<       _formal
+<         c
+<         A
+< 
+<       _formal
+<         d
+<         Bool
+<       Int
+< 
+<       _object
+<         a
 <       : Int
----
->       : _no_type
-80c82
+<     )
+< 
+<   _class
+<     B
+<     A
+<     filename
+<     (
+< 
+<     _method
+<       inky
+< 
+<       _formal
+<         a
+<         Int
+< 
+<       _formal
+<         b
+<         String
+< 
+<       _formal
+<         c
+<         A
+< 
+<       _formal
+<         d
+<         Bool
+<       Int
+< 
+<       _plus
+< 
+<         _object
+<           a
 <         : Int
----
->         : _no_type
-84,85c86,87
+< 
+<         _int
+<           1
 <         : Int
 <       : Int
+<     )
 ---
->         : _no_type
->       : _no_type
+> Error: Could not find or load main class Lexer
+> Caused by: java.lang.ClassNotFoundException: Lexer
+> Error: Could not find or load main class Parser
+> Caused by: java.lang.ClassNotFoundException: Parser

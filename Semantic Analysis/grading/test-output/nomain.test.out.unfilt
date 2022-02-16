@@ -1,11 +1,4 @@
-Hello, World!
-Houssem Nasri
-#3
-_program
-  #3
-  _class
-    A
-    Object
-    "./nomain.test"
-    (
-    )
+Error: Could not find or load main class Parser
+Caused by: java.lang.ClassNotFoundException: Parser
+Error: Could not find or load main class Lexer
+Caused by: java.lang.ClassNotFoundException: Lexer

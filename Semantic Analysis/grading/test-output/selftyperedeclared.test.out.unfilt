@@ -1,38 +1,4 @@
-Hello, World!
-Houssem Nasri
-#6
-_program
-  #3
-  _class
-    Main
-    Object
-    "./selftyperedeclared.test"
-    (
-    #1
-    _method
-      main
-      Int
-      #1
-      _int
-        0
-      : _no_type
-    )
-  #6
-  _class
-    SELF_TYPE
-    Object
-    "./selftyperedeclared.test"
-    (
-    #6
-    _method
-      foo
-      #4
-      _formal
-        x
-        Object
-      Object
-      #4
-      _object
-        x
-      : _no_type
-    )
+Error: Could not find or load main class Lexer
+Caused by: java.lang.ClassNotFoundException: Lexer
+Error: Could not find or load main class Parser
+Caused by: java.lang.ClassNotFoundException: Parser

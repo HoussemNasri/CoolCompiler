@@ -1,34 +1,4 @@
-Hello, World!
-Houssem Nasri
-#6
-_program
-  #6
-  _class
-    Main
-    Object
-    "./outofscope.test"
-    (
-    #6
-    _method
-      main
-      Object
-      #5
-      _block
-        #3
-        _let
-          x
-          Int
-          #3
-          _no_expr
-          : _no_type
-          #3
-          _int
-            10
-          : _no_type
-        : _no_type
-        #3
-        _object
-          x
-        : _no_type
-      : _no_type
-    )
+Error: Could not find or load main class Parser
+Caused by: java.lang.ClassNotFoundException: Parser
+Error: Could not find or load main class Lexer
+Caused by: java.lang.ClassNotFoundException: Lexer

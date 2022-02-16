@@ -1,63 +1,141 @@
-0a1,2
-> Hello, World!
-> Houssem Nasri
-16c18
+1,135c1,4
+< 
+< _program
+< 
+<   _class
+<     A
+<     Object
+<     filename
+<     (
+< 
+<     _attr
+<       a
+<       Int
+< 
+<       _int
+<         0
 <       : Int
----
->       : _no_type
-24c26
+< 
+<     _attr
+<       d
+<       Int
+< 
+<       _int
+<         1
 <       : Int
----
->       : _no_type
-37c39
+< 
+<     _method
+<       f
+<       Int
+< 
+<       _assign
+<         a
+< 
+<         _plus
+< 
+<           _object
+<             a
 <           : Int
----
->           : _no_type
-41,43c43,45
-<           : Int
-<         : Int
-<       : Int
----
->           : _no_type
->         : _no_type
->       : _no_type
-58c60
-<       : Int
----
->       : _no_type
-66c68
-<       : Int
----
->       : _no_type
-79c81
-<           : Int
----
->           : _no_type
-83,85c85,87
-<           : Int
-<         : Int
-<       : Int
----
->           : _no_type
->         : _no_type
->       : _no_type
-100c102
-<       : Int
----
->       : _no_type
-113c115
-<           : Int
----
->           : _no_type
-117,119c119,121
+< 
+<           _object
+<             d
 <           : Int
 <         : Int
 <       : Int
----
->           : _no_type
->         : _no_type
->       : _no_type
-134c136
+<     )
+< 
+<   _class
+<     B
+<     A
+<     filename
+<     (
+< 
+<     _attr
+<       b
+<       Int
+< 
+<       _int
+<         2
 <       : Int
+< 
+<     _method
+<       f
+<       Int
+< 
+<       _object
+<         a
+<       : Int
+< 
+<     _method
+<       g
+<       Int
+< 
+<       _assign
+<         a
+< 
+<         _sub
+< 
+<           _object
+<             a
+<           : Int
+< 
+<           _object
+<             b
+<           : Int
+<         : Int
+<       : Int
+<     )
+< 
+<   _class
+<     C
+<     A
+<     filename
+<     (
+< 
+<     _attr
+<       c
+<       Int
+< 
+<       _int
+<         3
+<       : Int
+< 
+<     _method
+<       h
+<       Int
+< 
+<       _assign
+<         a
+< 
+<         _sub
+< 
+<           _object
+<             a
+<           : Int
+< 
+<           _object
+<             c
+<           : Int
+<         : Int
+<       : Int
+<     )
+< 
+<   _class
+<     Main
+<     Object
+<     filename
+<     (
+< 
+<     _method
+<       main
+<       Int
+< 
+<       _int
+<         6
+<       : Int
+<     )
 ---
->       : _no_type
+> Error: Could not find or load main class Lexer
+> Caused by: java.lang.ClassNotFoundException: Lexer
+> Error: Could not find or load main class Parser
+> Caused by: java.lang.ClassNotFoundException: Parser

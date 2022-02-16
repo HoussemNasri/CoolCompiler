@@ -1,51 +1,88 @@
-0a1,2
-> Hello, World!
-> Houssem Nasri
-35c37
+1,82c1,4
+< 
+< _program
+< 
+<   _class
+<     Main
+<     IO
+<     filename
+<     (
+< 
+<     _attr
+<       x
+<       Int
+< 
+<       _no_expr
+<       : _no_type
+< 
+<     _method
+<       main
+<       Object
+< 
+<       _block
+< 
+<         _cond
+< 
+<           _eq
+< 
+<             _plus
+< 
+<               _let
+<                 x
+<                 Int
+< 
+<                 _int
+<                   5
 <                 : Int
----
->                 : _no_type
-41c43
+< 
+<                 _plus
+< 
+<                   _object
+<                     x
 <                   : Int
----
->                   : _no_type
-45,47c47,49
+< 
+<                   _int
+<                     3
 <                   : Int
 <                 : Int
 <               : Int
----
->                   : _no_type
->                 : _no_type
->               : _no_type
-51,52c53,54
+< 
+<               _int
+<                 3
 <               : Int
 <             : Int
----
->               : _no_type
->             : _no_type
-56,57c58,59
+< 
+<             _int
+<               9
 <             : Int
 <           : Bool
----
->             : _no_type
->           : _no_type
-61c63
+< 
+<           _int
+<             3
 <           : Int
----
->           : _no_type
-67c69
+< 
+<           _dispatch
+< 
+<             _object
+<               self
 <             : SELF_TYPE
----
->             : _no_type
-71,73c73,75
+<             foo
+<             (
+<             )
 <           : String
 <         : Object
 <       : Object
----
->           : _no_type
->         : _no_type
->       : _no_type
-81c83
+< 
+<     _method
+<       foo
+<       String
+< 
+<       _string
+<         "test"
 <       : String
+<     )
 ---
->       : _no_type
+> Error: Could not find or load main class Parser
+> Caused by: java.lang.ClassNotFoundException: Parser
+> Error: Could not find or load main class Lexer
+> Caused by: java.lang.ClassNotFoundException: Lexer

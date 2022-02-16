@@ -1,38 +1,4 @@
-Hello, World!
-Houssem Nasri
-#5
-_program
-  #3
-  _class
-    Main
-    Object
-    "./missingclass.test"
-    (
-    #1
-    _method
-      main
-      Int
-      #1
-      _int
-        0
-      : _no_type
-    )
-  #5
-  _class
-    A
-    D
-    "./missingclass.test"
-    (
-    #5
-    _method
-      foo
-      #4
-      _formal
-        x
-        Int
-      Object
-      #4
-      _int
-        5
-      : _no_type
-    )
+Error: Could not find or load main class Parser
+Caused by: java.lang.ClassNotFoundException: Parser
+Error: Could not find or load main class Lexer
+Caused by: java.lang.ClassNotFoundException: Lexer

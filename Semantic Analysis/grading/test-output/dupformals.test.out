@@ -1,39 +1,4 @@
-Hello, World!
-Houssem Nasri
-
-_program
-
-  _class
-    Main
-    Object
-    filename
-    (
-
-    _method
-      main
-      Int
-
-      _int
-        1
-      : _no_type
-
-    _method
-      foo
-
-      _formal
-        x
-        Int
-
-      _formal
-        x
-        Bool
-
-      _formal
-        x
-        String
-      Object
-
-      _new
-        Object
-      : _no_type
-    )
+Error: Could not find or load main class Parser
+Caused by: java.lang.ClassNotFoundException: Parser
+Error: Could not find or load main class Lexer
+Caused by: java.lang.ClassNotFoundException: Lexer
