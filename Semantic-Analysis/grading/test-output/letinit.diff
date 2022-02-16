@@ -1,0 +1,35 @@
+1,29c1,4
+< 
+< _program
+< 
+<   _class
+<     Main
+<     IO
+<     filename
+<     (
+< 
+<     _method
+<       main
+<       Object
+< 
+<       _block
+< 
+<         _let
+<           x
+<           Int
+< 
+<           _int
+<             5
+<           : Int
+< 
+<           _object
+<             x
+<           : Int
+<         : Int
+<       : Int
+<     )
+---
+> Error: Could not find or load main class Parser
+> Caused by: java.lang.ClassNotFoundException: Parser
+> Error: Could not find or load main class Lexer
+> Caused by: java.lang.ClassNotFoundException: Lexer

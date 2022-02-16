@@ -1,0 +1,8 @@
+1,2c1,4
+< filename:line
+< Compilation halted due to static semantic errors.
+---
+> Error: Could not find or load main class Parser
+> Caused by: java.lang.ClassNotFoundException: Parser
+> Error: Could not find or load main class Lexer
+> Caused by: java.lang.ClassNotFoundException: Lexer

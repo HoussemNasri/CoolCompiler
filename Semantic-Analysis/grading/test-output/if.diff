@@ -1,0 +1,88 @@
+1,82c1,4
+< 
+< _program
+< 
+<   _class
+<     Main
+<     IO
+<     filename
+<     (
+< 
+<     _attr
+<       x
+<       Int
+< 
+<       _no_expr
+<       : _no_type
+< 
+<     _method
+<       main
+<       Object
+< 
+<       _block
+< 
+<         _cond
+< 
+<           _eq
+< 
+<             _plus
+< 
+<               _let
+<                 x
+<                 Int
+< 
+<                 _int
+<                   5
+<                 : Int
+< 
+<                 _plus
+< 
+<                   _object
+<                     x
+<                   : Int
+< 
+<                   _int
+<                     3
+<                   : Int
+<                 : Int
+<               : Int
+< 
+<               _int
+<                 3
+<               : Int
+<             : Int
+< 
+<             _int
+<               9
+<             : Int
+<           : Bool
+< 
+<           _int
+<             3
+<           : Int
+< 
+<           _dispatch
+< 
+<             _object
+<               self
+<             : SELF_TYPE
+<             foo
+<             (
+<             )
+<           : String
+<         : Object
+<       : Object
+< 
+<     _method
+<       foo
+<       String
+< 
+<       _string
+<         "test"
+<       : String
+<     )
+---
+> Error: Could not find or load main class Lexer
+> Caused by: java.lang.ClassNotFoundException: Lexer
+> Error: Could not find or load main class Parser
+> Caused by: java.lang.ClassNotFoundException: Parser
