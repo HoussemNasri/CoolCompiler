@@ -44,7 +44,7 @@ class Main inherits IO {
 - [Java](https://dev.java/) - The main programming language
 - [JLex](https://www.cs.princeton.edu/~appel/modern/java/JLex/) - Scanner generator
 - [Java-CUP](http://www2.cs.tum.edu/projects/cup/) - Parser generator
-- [Perl](https://www.perl.org/) - Testing scripts, but why perl?
+- [Perl](https://www.perl.org/) - Testing, but why perl?
 <!-- GETTING STARTED -->
 ## Getting Started
 ### Prerequisites 
