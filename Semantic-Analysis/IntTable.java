@@ -21,6 +21,7 @@ PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 import java.io.PrintStream;
 
+@SuppressWarnings("ALL")
 class IntTable extends AbstractTable {
     /** Creates a new IntSymbol object.
      * 

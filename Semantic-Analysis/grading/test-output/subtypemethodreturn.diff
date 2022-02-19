@@ -1,78 +1,20 @@
-1,72c1,4
-< 
-< _program
-< 
-<   _class
-<     A
-<     Object
-<     filename
-<     (
-< 
-<     _method
-<       foo
-<       A
-< 
-<       _let
-<         x
-<         A
-< 
-<         _no_expr
-<         : _no_type
-< 
-<         _block
-< 
-<           _assign
-<             x
-< 
-<             _new
-<               A
+28,29c28,29
 <             : A
 <           : A
-< 
-<           _dispatch
-< 
-<             _object
-<               x
+---
+>             : _no_type
+>           : _no_type
+35c35
 <             : A
-<             foo
-<             (
-<             )
+---
+>             : _no_type
+39,40c39,40
 <           : A
 <         : A
-<       : A
-<     )
-< 
-<   _class
-<     B
-<     A
-<     filename
-<     (
-< 
-<     _method
-<       foo
-<       A
-< 
-<       _object
-<         self
-<       : SELF_TYPE
-<     )
-< 
-<   _class
-<     Main
-<     Object
-<     filename
-<     (
-< 
-<     _method
-<       main
-<       Int
-< 
-<       _int
-<         6
-<       : Int
-<     )
 ---
-> Error: Could not find or load main class Parser
-> Caused by: java.lang.ClassNotFoundException: Parser
-> Error: Could not find or load main class Lexer
-> Caused by: java.lang.ClassNotFoundException: Lexer
+>           : _no_type
+>         : _no_type
+56c56
+<       : SELF_TYPE
+---
+>       : A

@@ -1,4 +1,17 @@
-Error: Could not find or load main class Parser
-Caused by: java.lang.ClassNotFoundException: Parser
-Error: Could not find or load main class Lexer
-Caused by: java.lang.ClassNotFoundException: Lexer
+#3
+_program
+  #3
+  _class
+    Main
+    Object
+    "./returntypenoexist.test"
+    (
+    #3
+    _method
+      main
+      PinkElephant
+      #2
+      _new
+        PinkElephant
+      : PinkElephant
+    )

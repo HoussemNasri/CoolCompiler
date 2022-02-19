@@ -6,13 +6,11 @@
 //
 //////////////////////////////////////////////////////////
 
-import java.io.PrintStream;
 import java.util.Enumeration;
+import java.io.PrintStream;
 import java.util.Vector;
 
-/**
- * Defines simple phylum Program
- */
+/** Defines simple phylum Program */
 abstract class Program extends TreeNode {
     protected Program(int lineNumber) {
         super(lineNumber);
@@ -21,11 +19,12 @@ abstract class Program extends TreeNode {
     public abstract void dump_with_types(PrintStream out, int n);
 
     public abstract void semant();
+
+    public abstract void cgen(PrintStream s);
+
 }
 
-/**
- * Defines simple phylum Class_
- */
+/** Defines simple phylum Class_ */
 abstract class Class_ extends TreeNode {
     protected Class_(int lineNumber) {
         super(lineNumber);
@@ -33,7 +32,14 @@ abstract class Class_ extends TreeNode {
 
     public abstract void dump_with_types(PrintStream out, int n);
 
-    public abstract void semant(ClassTable classTable);
+    public abstract AbstractSymbol getName();
+
+    public abstract AbstractSymbol getParent();
+
+    public abstract AbstractSymbol getFilename();
+
+    public abstract Features getFeatures();
+
 }
 
 /**
@@ -44,9 +50,7 @@ abstract class Class_ extends TreeNode {
 class Classes extends ListNode {
     public final static Class elementClass = Class_.class;
 
-    /**
-     * Returns class of this lists's elements
-     */
+    /** Returns class of this lists's elements */
     public Class getElementClass() {
         return elementClass;
     }
@@ -55,29 +59,15 @@ class Classes extends ListNode {
         super(lineNumber, elements);
     }
 
-    /**
-     * Creates an empty "Classes" list
-     */
+    /** Creates an empty "Classes" list */
     public Classes(int lineNumber) {
         super(lineNumber);
     }
 
-    /**
-     * Appends "Class_" element to this list
-     */
+    /** Appends "Class_" element to this list */
     public Classes appendElement(TreeNode elem) {
-        if (!(elem instanceof Class_)) {
-            throw new IllegalArgumentException("elem should be a class");
-        }
         addElement(elem);
         return this;
-    }
-
-    public void semant(ClassTable classTable) {
-        Enumeration elements = getElements();
-        while (elements.hasMoreElements()) {
-            ((class_c) (elements.nextElement())).semant(classTable);
-        }
     }
 
     public TreeNode copy() {
@@ -85,15 +75,14 @@ class Classes extends ListNode {
     }
 }
 
-/**
- * Defines simple phylum Feature
- */
+/** Defines simple phylum Feature */
 abstract class Feature extends TreeNode {
     protected Feature(int lineNumber) {
         super(lineNumber);
     }
 
     public abstract void dump_with_types(PrintStream out, int n);
+
 }
 
 /**
@@ -104,9 +93,7 @@ abstract class Feature extends TreeNode {
 class Features extends ListNode {
     public final static Class elementClass = Feature.class;
 
-    /**
-     * Returns class of this lists's elements
-     */
+    /** Returns class of this lists's elements */
     public Class getElementClass() {
         return elementClass;
     }
@@ -115,16 +102,12 @@ class Features extends ListNode {
         super(lineNumber, elements);
     }
 
-    /**
-     * Creates an empty "Features" list
-     */
+    /** Creates an empty "Features" list */
     public Features(int lineNumber) {
         super(lineNumber);
     }
 
-    /**
-     * Appends "Feature" element to this list
-     */
+    /** Appends "Feature" element to this list */
     public Features appendElement(TreeNode elem) {
         addElement(elem);
         return this;
@@ -135,15 +118,14 @@ class Features extends ListNode {
     }
 }
 
-/**
- * Defines simple phylum Formal
- */
+/** Defines simple phylum Formal */
 abstract class Formal extends TreeNode {
     protected Formal(int lineNumber) {
         super(lineNumber);
     }
 
     public abstract void dump_with_types(PrintStream out, int n);
+
 }
 
 /**
@@ -154,9 +136,7 @@ abstract class Formal extends TreeNode {
 class Formals extends ListNode {
     public final static Class elementClass = Formal.class;
 
-    /**
-     * Returns class of this lists's elements
-     */
+    /** Returns class of this lists's elements */
     public Class getElementClass() {
         return elementClass;
     }
@@ -165,16 +145,12 @@ class Formals extends ListNode {
         super(lineNumber, elements);
     }
 
-    /**
-     * Creates an empty "Formals" list
-     */
+    /** Creates an empty "Formals" list */
     public Formals(int lineNumber) {
         super(lineNumber);
     }
 
-    /**
-     * Appends "Formal" element to this list
-     */
+    /** Appends "Formal" element to this list */
     public Formals appendElement(TreeNode elem) {
         addElement(elem);
         return this;
@@ -185,9 +161,7 @@ class Formals extends ListNode {
     }
 }
 
-/**
- * Defines simple phylum Expression
- */
+/** Defines simple phylum Expression */
 abstract class Expression extends TreeNode {
     protected Expression(int lineNumber) {
         super(lineNumber);
@@ -213,6 +187,9 @@ abstract class Expression extends TreeNode {
             out.println(Utilities.pad(n) + ": _no_type");
         }
     }
+
+    public abstract void code(PrintStream s);
+
 }
 
 /**
@@ -223,9 +200,7 @@ abstract class Expression extends TreeNode {
 class Expressions extends ListNode {
     public final static Class elementClass = Expression.class;
 
-    /**
-     * Returns class of this lists's elements
-     */
+    /** Returns class of this lists's elements */
     public Class getElementClass() {
         return elementClass;
     }
@@ -234,16 +209,12 @@ class Expressions extends ListNode {
         super(lineNumber, elements);
     }
 
-    /**
-     * Creates an empty "Expressions" list
-     */
+    /** Creates an empty "Expressions" list */
     public Expressions(int lineNumber) {
         super(lineNumber);
     }
 
-    /**
-     * Appends "Expression" element to this list
-     */
+    /** Appends "Expression" element to this list */
     public Expressions appendElement(TreeNode elem) {
         addElement(elem);
         return this;
@@ -254,15 +225,14 @@ class Expressions extends ListNode {
     }
 }
 
-/**
- * Defines simple phylum Case
- */
+/** Defines simple phylum Case */
 abstract class Case extends TreeNode {
     protected Case(int lineNumber) {
         super(lineNumber);
     }
 
     public abstract void dump_with_types(PrintStream out, int n);
+
 }
 
 /**
@@ -273,9 +243,7 @@ abstract class Case extends TreeNode {
 class Cases extends ListNode {
     public final static Class elementClass = Case.class;
 
-    /**
-     * Returns class of this lists's elements
-     */
+    /** Returns class of this lists's elements */
     public Class getElementClass() {
         return elementClass;
     }
@@ -284,16 +252,12 @@ class Cases extends ListNode {
         super(lineNumber, elements);
     }
 
-    /**
-     * Creates an empty "Cases" list
-     */
+    /** Creates an empty "Cases" list */
     public Cases(int lineNumber) {
         super(lineNumber);
     }
 
-    /**
-     * Appends "Case" element to this list
-     */
+    /** Appends "Case" element to this list */
     public Cases appendElement(TreeNode elem) {
         addElement(elem);
         return this;
@@ -316,7 +280,7 @@ class programc extends Program {
      * Creates "programc" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for classes
+     * @param a0         initial value for classes
      */
     public programc(int lineNumber, Classes a1) {
         super(lineNumber);
@@ -335,14 +299,13 @@ class programc extends Program {
     public void dump_with_types(PrintStream out, int n) {
         dump_line(out, n);
         out.println(Utilities.pad(n) + "_program");
-        for (Enumeration e = classes.getElements(); e.hasMoreElements(); ) {
-            // sm: changed 'n + 1' to 'n + 2' to match changes elsewhere
+        for (Enumeration e = classes.getElements(); e.hasMoreElements();) {
             ((Class_) e.nextElement()).dump_with_types(out, n + 2);
         }
     }
 
     /**
-     * This method is the entry point to the semantic checker.  You will
+     * This method is the entry point to the semantic checker. You will
      * need to complete it in programming assignment 4.
      * <p>
      * Your checker should do the following two things:
@@ -357,19 +320,29 @@ class programc extends Program {
      * errors. Part (2) can be done in a second stage when you want
      * to test the complete compiler.
      */
-    int i = 0;
-
     public void semant() {
         /* ClassTable constructor may do some semantic analysis */
         ClassTable classTable = new ClassTable(classes);
 
-        classes.semant(classTable);
+        /* some semantic analysis code may go here */
 
-        if (classTable.hasErrors()) {
+        if (classTable.errors()) {
             System.err.println("Compilation halted due to static semantic errors.");
             System.exit(1);
         }
     }
+
+    /**
+     * This method is the entry point to the code generator. All of the work
+     * of the code generator takes place within CgenClassTable constructor.
+     * 
+     * @param s the output stream
+     * @see CgenClassTable
+     */
+    public void cgen(PrintStream s) {
+        CgenClassTable codegen_classtable = new CgenClassTable(classes, s);
+    }
+
 }
 
 /**
@@ -387,10 +360,10 @@ class class_c extends Class_ {
      * Creates "class_c" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
-     * @param a2 initial value for parent
-     * @param a3 initial value for features
-     * @param a4 initial value for filename
+     * @param a0         initial value for name
+     * @param a1         initial value for parent
+     * @param a2         initial value for features
+     * @param a3         initial value for filename
      */
     public class_c(int lineNumber, AbstractSymbol a1, AbstractSymbol a2, Features a3, AbstractSymbol a4) {
         super(lineNumber);
@@ -401,7 +374,8 @@ class class_c extends Class_ {
     }
 
     public TreeNode copy() {
-        return new class_c(lineNumber, copy_AbstractSymbol(name), copy_AbstractSymbol(parent), (Features) features.copy(), copy_AbstractSymbol(filename));
+        return new class_c(lineNumber, copy_AbstractSymbol(name), copy_AbstractSymbol(parent),
+                (Features) features.copy(), copy_AbstractSymbol(filename));
     }
 
     public void dump(PrintStream out, int n) {
@@ -412,8 +386,18 @@ class class_c extends Class_ {
         dump_AbstractSymbol(out, n + 2, filename);
     }
 
-    public AbstractSymbol getFilename() {
-        return filename;
+    public void dump_with_types(PrintStream out, int n) {
+        dump_line(out, n);
+        out.println(Utilities.pad(n) + "_class");
+        dump_AbstractSymbol(out, n + 2, name);
+        dump_AbstractSymbol(out, n + 2, parent);
+        out.print(Utilities.pad(n + 2) + "\"");
+        Utilities.printEscapedString(out, filename.getString());
+        out.println("\"\n" + Utilities.pad(n + 2) + "(");
+        for (Enumeration e = features.getElements(); e.hasMoreElements();) {
+            ((Feature) e.nextElement()).dump_with_types(out, n + 2);
+        }
+        out.println(Utilities.pad(n + 2) + ")");
     }
 
     public AbstractSymbol getName() {
@@ -424,28 +408,14 @@ class class_c extends Class_ {
         return parent;
     }
 
-    public void dump_with_types(PrintStream out, int n) {
-        dump_line(out, n);
-        out.println(Utilities.pad(n) + "_class");
-        dump_AbstractSymbol(out, n + 2, name);
-        dump_AbstractSymbol(out, n + 2, parent);
-        out.print(Utilities.pad(n + 2) + "\"");
-        Utilities.printEscapedString(out, filename.getString());
-        out.println("\"\n" + Utilities.pad(n + 2) + "(");
-        for (Enumeration e = features.getElements(); e.hasMoreElements(); ) {
-            ((Feature) e.nextElement()).dump_with_types(out, n + 2);
-        }
-        out.println(Utilities.pad(n + 2) + ")");
+    public AbstractSymbol getFilename() {
+        return filename;
     }
 
-    @Override
-    public void semant(ClassTable classTable) {
-        if (!classTable.exists(parent)) {
-            classTable.semantError(this).printf("Class %s inherits from an undefined class %s%n", name.str, parent.str);
-        } else if (!classTable.canInherit(parent)) {
-            classTable.semantError(this).printf("Class %s cannot inherit class %s%n", name.str, parent.str);
-        }
+    public Features getFeatures() {
+        return features;
     }
+
 }
 
 /**
@@ -463,10 +433,10 @@ class method extends Feature {
      * Creates "method" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
-     * @param a1 initial value for formals
-     * @param a2 initial value for return_type
-     * @param a3 initial value for expr
+     * @param a0         initial value for name
+     * @param a1         initial value for formals
+     * @param a2         initial value for return_type
+     * @param a3         initial value for expr
      */
     public method(int lineNumber, AbstractSymbol a1, Formals a2, AbstractSymbol a3, Expression a4) {
         super(lineNumber);
@@ -474,11 +444,11 @@ class method extends Feature {
         formals = a2;
         return_type = a3;
         expr = a4;
-        expr.set_type(return_type);
     }
 
     public TreeNode copy() {
-        return new method(lineNumber, copy_AbstractSymbol(name), (Formals) formals.copy(), copy_AbstractSymbol(return_type), (Expression) expr.copy());
+        return new method(lineNumber, copy_AbstractSymbol(name), (Formals) formals.copy(),
+                copy_AbstractSymbol(return_type), (Expression) expr.copy());
     }
 
     public void dump(PrintStream out, int n) {
@@ -493,12 +463,13 @@ class method extends Feature {
         dump_line(out, n);
         out.println(Utilities.pad(n) + "_method");
         dump_AbstractSymbol(out, n + 2, name);
-        for (Enumeration e = formals.getElements(); e.hasMoreElements(); ) {
+        for (Enumeration e = formals.getElements(); e.hasMoreElements();) {
             ((Formal) e.nextElement()).dump_with_types(out, n + 2);
         }
         dump_AbstractSymbol(out, n + 2, return_type);
         expr.dump_with_types(out, n + 2);
     }
+
 }
 
 /**
@@ -515,9 +486,9 @@ class attr extends Feature {
      * Creates "attr" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
-     * @param a1 initial value for type_decl
-     * @param a2 initial value for init
+     * @param a0         initial value for name
+     * @param a1         initial value for type_decl
+     * @param a2         initial value for init
      */
     public attr(int lineNumber, AbstractSymbol a1, AbstractSymbol a2, Expression a3) {
         super(lineNumber);
@@ -527,7 +498,8 @@ class attr extends Feature {
     }
 
     public TreeNode copy() {
-        return new attr(lineNumber, copy_AbstractSymbol(name), copy_AbstractSymbol(type_decl), (Expression) init.copy());
+        return new attr(lineNumber, copy_AbstractSymbol(name), copy_AbstractSymbol(type_decl),
+                (Expression) init.copy());
     }
 
     public void dump(PrintStream out, int n) {
@@ -544,6 +516,7 @@ class attr extends Feature {
         dump_AbstractSymbol(out, n + 2, type_decl);
         init.dump_with_types(out, n + 2);
     }
+
 }
 
 /**
@@ -559,8 +532,8 @@ class formalc extends Formal {
      * Creates "formalc" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
-     * @param a1 initial value for type_decl
+     * @param a0         initial value for name
+     * @param a1         initial value for type_decl
      */
     public formalc(int lineNumber, AbstractSymbol a1, AbstractSymbol a2) {
         super(lineNumber);
@@ -584,6 +557,7 @@ class formalc extends Formal {
         dump_AbstractSymbol(out, n + 2, name);
         dump_AbstractSymbol(out, n + 2, type_decl);
     }
+
 }
 
 /**
@@ -600,9 +574,9 @@ class branch extends Case {
      * Creates "branch" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
-     * @param a1 initial value for type_decl
-     * @param a2 initial value for expr
+     * @param a0         initial value for name
+     * @param a1         initial value for type_decl
+     * @param a2         initial value for expr
      */
     public branch(int lineNumber, AbstractSymbol a1, AbstractSymbol a2, Expression a3) {
         super(lineNumber);
@@ -612,7 +586,8 @@ class branch extends Case {
     }
 
     public TreeNode copy() {
-        return new branch(lineNumber, copy_AbstractSymbol(name), copy_AbstractSymbol(type_decl), (Expression) expr.copy());
+        return new branch(lineNumber, copy_AbstractSymbol(name), copy_AbstractSymbol(type_decl),
+                (Expression) expr.copy());
     }
 
     public void dump(PrintStream out, int n) {
@@ -629,6 +604,7 @@ class branch extends Case {
         dump_AbstractSymbol(out, n + 2, type_decl);
         expr.dump_with_types(out, n + 2);
     }
+
 }
 
 /**
@@ -644,8 +620,8 @@ class assign extends Expression {
      * Creates "assign" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
-     * @param a1 initial value for expr
+     * @param a0         initial value for name
+     * @param a1         initial value for expr
      */
     public assign(int lineNumber, AbstractSymbol a1, Expression a2) {
         super(lineNumber);
@@ -670,6 +646,17 @@ class assign extends Expression {
         expr.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -687,10 +674,10 @@ class static_dispatch extends Expression {
      * Creates "static_dispatch" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for expr
-     * @param a1 initial value for type_name
-     * @param a2 initial value for name
-     * @param a3 initial value for actual
+     * @param a0         initial value for expr
+     * @param a1         initial value for type_name
+     * @param a2         initial value for name
+     * @param a3         initial value for actual
      */
     public static_dispatch(int lineNumber, Expression a1, AbstractSymbol a2, AbstractSymbol a3, Expressions a4) {
         super(lineNumber);
@@ -701,7 +688,8 @@ class static_dispatch extends Expression {
     }
 
     public TreeNode copy() {
-        return new static_dispatch(lineNumber, (Expression) expr.copy(), copy_AbstractSymbol(type_name), copy_AbstractSymbol(name), (Expressions) actual.copy());
+        return new static_dispatch(lineNumber, (Expression) expr.copy(), copy_AbstractSymbol(type_name),
+                copy_AbstractSymbol(name), (Expressions) actual.copy());
     }
 
     public void dump(PrintStream out, int n) {
@@ -719,12 +707,23 @@ class static_dispatch extends Expression {
         dump_AbstractSymbol(out, n + 2, type_name);
         dump_AbstractSymbol(out, n + 2, name);
         out.println(Utilities.pad(n + 2) + "(");
-        for (Enumeration e = actual.getElements(); e.hasMoreElements(); ) {
+        for (Enumeration e = actual.getElements(); e.hasMoreElements();) {
             ((Expression) e.nextElement()).dump_with_types(out, n + 2);
         }
         out.println(Utilities.pad(n + 2) + ")");
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -741,9 +740,9 @@ class dispatch extends Expression {
      * Creates "dispatch" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for expr
-     * @param a1 initial value for name
-     * @param a2 initial value for actual
+     * @param a0         initial value for expr
+     * @param a1         initial value for name
+     * @param a2         initial value for actual
      */
     public dispatch(int lineNumber, Expression a1, AbstractSymbol a2, Expressions a3) {
         super(lineNumber);
@@ -753,7 +752,8 @@ class dispatch extends Expression {
     }
 
     public TreeNode copy() {
-        return new dispatch(lineNumber, (Expression) expr.copy(), copy_AbstractSymbol(name), (Expressions) actual.copy());
+        return new dispatch(lineNumber, (Expression) expr.copy(), copy_AbstractSymbol(name),
+                (Expressions) actual.copy());
     }
 
     public void dump(PrintStream out, int n) {
@@ -769,12 +769,23 @@ class dispatch extends Expression {
         expr.dump_with_types(out, n + 2);
         dump_AbstractSymbol(out, n + 2, name);
         out.println(Utilities.pad(n + 2) + "(");
-        for (Enumeration e = actual.getElements(); e.hasMoreElements(); ) {
+        for (Enumeration e = actual.getElements(); e.hasMoreElements();) {
             ((Expression) e.nextElement()).dump_with_types(out, n + 2);
         }
         out.println(Utilities.pad(n + 2) + ")");
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -791,9 +802,9 @@ class cond extends Expression {
      * Creates "cond" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for pred
-     * @param a1 initial value for then_exp
-     * @param a2 initial value for else_exp
+     * @param a0         initial value for pred
+     * @param a1         initial value for then_exp
+     * @param a2         initial value for else_exp
      */
     public cond(int lineNumber, Expression a1, Expression a2, Expression a3) {
         super(lineNumber);
@@ -803,7 +814,8 @@ class cond extends Expression {
     }
 
     public TreeNode copy() {
-        return new cond(lineNumber, (Expression) pred.copy(), (Expression) then_exp.copy(), (Expression) else_exp.copy());
+        return new cond(lineNumber, (Expression) pred.copy(), (Expression) then_exp.copy(),
+                (Expression) else_exp.copy());
     }
 
     public void dump(PrintStream out, int n) {
@@ -821,6 +833,17 @@ class cond extends Expression {
         else_exp.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -836,8 +859,8 @@ class loop extends Expression {
      * Creates "loop" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for pred
-     * @param a1 initial value for body
+     * @param a0         initial value for pred
+     * @param a1         initial value for body
      */
     public loop(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -862,6 +885,17 @@ class loop extends Expression {
         body.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -877,8 +911,8 @@ class typcase extends Expression {
      * Creates "typcase" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for expr
-     * @param a1 initial value for cases
+     * @param a0         initial value for expr
+     * @param a1         initial value for cases
      */
     public typcase(int lineNumber, Expression a1, Cases a2) {
         super(lineNumber);
@@ -900,11 +934,22 @@ class typcase extends Expression {
         dump_line(out, n);
         out.println(Utilities.pad(n) + "_typcase");
         expr.dump_with_types(out, n + 2);
-        for (Enumeration e = cases.getElements(); e.hasMoreElements(); ) {
+        for (Enumeration e = cases.getElements(); e.hasMoreElements();) {
             ((Case) e.nextElement()).dump_with_types(out, n + 2);
         }
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -919,7 +964,7 @@ class block extends Expression {
      * Creates "block" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for body
+     * @param a0         initial value for body
      */
     public block(int lineNumber, Expressions a1) {
         super(lineNumber);
@@ -938,11 +983,22 @@ class block extends Expression {
     public void dump_with_types(PrintStream out, int n) {
         dump_line(out, n);
         out.println(Utilities.pad(n) + "_block");
-        for (Enumeration e = body.getElements(); e.hasMoreElements(); ) {
+        for (Enumeration e = body.getElements(); e.hasMoreElements();) {
             ((Expression) e.nextElement()).dump_with_types(out, n + 2);
         }
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -960,10 +1016,10 @@ class let extends Expression {
      * Creates "let" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for identifier
-     * @param a1 initial value for type_decl
-     * @param a2 initial value for init
-     * @param a3 initial value for body
+     * @param a0         initial value for identifier
+     * @param a1         initial value for type_decl
+     * @param a2         initial value for init
+     * @param a3         initial value for body
      */
     public let(int lineNumber, AbstractSymbol a1, AbstractSymbol a2, Expression a3, Expression a4) {
         super(lineNumber);
@@ -974,7 +1030,8 @@ class let extends Expression {
     }
 
     public TreeNode copy() {
-        return new let(lineNumber, copy_AbstractSymbol(identifier), copy_AbstractSymbol(type_decl), (Expression) init.copy(), (Expression) body.copy());
+        return new let(lineNumber, copy_AbstractSymbol(identifier), copy_AbstractSymbol(type_decl),
+                (Expression) init.copy(), (Expression) body.copy());
     }
 
     public void dump(PrintStream out, int n) {
@@ -994,6 +1051,17 @@ class let extends Expression {
         body.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1009,8 +1077,8 @@ class plus extends Expression {
      * Creates "plus" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
-     * @param a1 initial value for e2
+     * @param a0         initial value for e1
+     * @param a1         initial value for e2
      */
     public plus(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -1035,6 +1103,17 @@ class plus extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1050,8 +1129,8 @@ class sub extends Expression {
      * Creates "sub" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
-     * @param a1 initial value for e2
+     * @param a0         initial value for e1
+     * @param a1         initial value for e2
      */
     public sub(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -1076,6 +1155,17 @@ class sub extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1091,8 +1181,8 @@ class mul extends Expression {
      * Creates "mul" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
-     * @param a1 initial value for e2
+     * @param a0         initial value for e1
+     * @param a1         initial value for e2
      */
     public mul(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -1117,6 +1207,17 @@ class mul extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1132,8 +1233,8 @@ class divide extends Expression {
      * Creates "divide" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
-     * @param a1 initial value for e2
+     * @param a0         initial value for e1
+     * @param a1         initial value for e2
      */
     public divide(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -1158,6 +1259,17 @@ class divide extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1172,7 +1284,7 @@ class neg extends Expression {
      * Creates "neg" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
+     * @param a0         initial value for e1
      */
     public neg(int lineNumber, Expression a1) {
         super(lineNumber);
@@ -1194,6 +1306,17 @@ class neg extends Expression {
         e1.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1209,8 +1332,8 @@ class lt extends Expression {
      * Creates "lt" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
-     * @param a1 initial value for e2
+     * @param a0         initial value for e1
+     * @param a1         initial value for e2
      */
     public lt(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -1235,6 +1358,17 @@ class lt extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1250,8 +1384,8 @@ class eq extends Expression {
      * Creates "eq" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
-     * @param a1 initial value for e2
+     * @param a0         initial value for e1
+     * @param a1         initial value for e2
      */
     public eq(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -1276,6 +1410,17 @@ class eq extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1291,8 +1436,8 @@ class leq extends Expression {
      * Creates "leq" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
-     * @param a1 initial value for e2
+     * @param a0         initial value for e1
+     * @param a1         initial value for e2
      */
     public leq(int lineNumber, Expression a1, Expression a2) {
         super(lineNumber);
@@ -1317,6 +1462,17 @@ class leq extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1331,7 +1487,7 @@ class comp extends Expression {
      * Creates "comp" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
+     * @param a0         initial value for e1
      */
     public comp(int lineNumber, Expression a1) {
         super(lineNumber);
@@ -1353,6 +1509,17 @@ class comp extends Expression {
         e1.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1367,12 +1534,11 @@ class int_const extends Expression {
      * Creates "int_const" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for token
+     * @param a0         initial value for token
      */
     public int_const(int lineNumber, AbstractSymbol a1) {
         super(lineNumber);
         token = a1;
-        set_type(TreeConstants.Int);
     }
 
     public TreeNode copy() {
@@ -1390,6 +1556,18 @@ class int_const extends Expression {
         dump_AbstractSymbol(out, n + 2, token);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method method is provided
+     * to you as an example of code generation.
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+        CgenSupport.emitLoadInt(CgenSupport.ACC,
+                (IntSymbol) AbstractTable.inttable.lookup(token.getString()), s);
+    }
+
 }
 
 /**
@@ -1404,12 +1582,11 @@ class bool_const extends Expression {
      * Creates "bool_const" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for val
+     * @param a0         initial value for val
      */
     public bool_const(int lineNumber, Boolean a1) {
         super(lineNumber);
         val = a1;
-        set_type(TreeConstants.Bool);
     }
 
     public TreeNode copy() {
@@ -1427,6 +1604,17 @@ class bool_const extends Expression {
         dump_Boolean(out, n + 2, val);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method method is provided
+     * to you as an example of code generation.
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+        CgenSupport.emitLoadBool(CgenSupport.ACC, new BoolConst(val), s);
+    }
+
 }
 
 /**
@@ -1441,12 +1629,11 @@ class string_const extends Expression {
      * Creates "string_const" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for token
+     * @param a0         initial value for token
      */
     public string_const(int lineNumber, AbstractSymbol a1) {
         super(lineNumber);
         token = a1;
-        set_type(TreeConstants.Str);
     }
 
     public TreeNode copy() {
@@ -1466,6 +1653,18 @@ class string_const extends Expression {
         out.println("\"");
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method method is provided
+     * to you as an example of code generation.
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+        CgenSupport.emitLoadString(CgenSupport.ACC,
+                (StringSymbol) AbstractTable.stringtable.lookup(token.getString()), s);
+    }
+
 }
 
 /**
@@ -1480,7 +1679,7 @@ class new_ extends Expression {
      * Creates "new_" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for type_name
+     * @param a0         initial value for type_name
      */
     public new_(int lineNumber, AbstractSymbol a1) {
         super(lineNumber);
@@ -1502,6 +1701,17 @@ class new_ extends Expression {
         dump_AbstractSymbol(out, n + 2, type_name);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1516,7 +1726,7 @@ class isvoid extends Expression {
      * Creates "isvoid" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for e1
+     * @param a0         initial value for e1
      */
     public isvoid(int lineNumber, Expression a1) {
         super(lineNumber);
@@ -1538,6 +1748,17 @@ class isvoid extends Expression {
         e1.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1568,6 +1789,17 @@ class no_expr extends Expression {
         out.println(Utilities.pad(n) + "_no_expr");
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
 
 /**
@@ -1582,7 +1814,7 @@ class object extends Expression {
      * Creates "object" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
+     * @param a0         initial value for name
      */
     public object(int lineNumber, AbstractSymbol a1) {
         super(lineNumber);
@@ -1604,6 +1836,15 @@ class object extends Expression {
         dump_AbstractSymbol(out, n + 2, name);
         dump_type(out, n);
     }
+
+    /**
+     * Generates code for this expression. This method is to be completed
+     * in programming assignment 5. (You may add or remove parameters as
+     * you wish.)
+     * 
+     * @param s the output stream
+     */
+    public void code(PrintStream s) {
+    }
+
 }
-
-

@@ -1,66 +1,18 @@
-1,60c1,4
-< 
-< _program
-< 
-<   _class
-<     Main
-<     Object
-<     filename
-<     (
-< 
-<     _method
-<       main
-<       Object
-< 
-<       _block
-< 
-<         _plus
-< 
-<           _int
-<             5
-<           : Int
-< 
-<           _int
-<             4
-<           : Int
+25c25
 <         : Int
-< 
-<         _sub
-< 
-<           _int
-<             5
-<           : Int
-< 
-<           _int
-<             4
-<           : Int
+---
+>         : _no_type
+36c36
 <         : Int
-< 
-<         _mul
-< 
-<           _int
-<             3
-<           : Int
-< 
-<           _int
-<             2
-<           : Int
+---
+>         : _no_type
+47c47
 <         : Int
-< 
-<         _divide
-< 
-<           _int
-<             3
-<           : Int
-< 
-<           _int
-<             2
-<           : Int
+---
+>         : _no_type
+58,59c58,59
 <         : Int
 <       : Int
-<     )
 ---
-> Error: Could not find or load main class Parser
-> Caused by: java.lang.ClassNotFoundException: Parser
-> Error: Could not find or load main class Lexer
-> Caused by: java.lang.ClassNotFoundException: Lexer
+>         : _no_type
+>       : Object

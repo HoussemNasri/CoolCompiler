@@ -1,4 +1,66 @@
-Error: Could not find or load main class Lexer
-Caused by: java.lang.ClassNotFoundException: Lexer
-Error: Could not find or load main class Parser
-Caused by: java.lang.ClassNotFoundException: Parser
+#10
+_program
+  #3
+  _class
+    Main
+    Object
+    "./signaturechange.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : Int
+    )
+  #8
+  _class
+    A
+    Object
+    "./signaturechange.test"
+    (
+    #5
+    _attr
+      x
+      String
+      #5
+      _no_expr
+      : _no_type
+    #6
+    _method
+      foo
+      #5
+      _formal
+        x
+        A
+      A
+      #5
+      _object
+        x
+      : A
+    )
+  #10
+  _class
+    B
+    A
+    "./signaturechange.test"
+    (
+    #10
+    _method
+      foo
+      #9
+      _formal
+        x
+        A
+      #9
+      _formal
+        y
+        A
+      A
+      #9
+      _object
+        self
+      : A
+    )

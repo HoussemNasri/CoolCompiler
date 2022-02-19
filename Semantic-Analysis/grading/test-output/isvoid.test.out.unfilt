@@ -1,4 +1,2 @@
-Error: Could not find or load main class Parser
-Caused by: java.lang.ClassNotFoundException: Parser
-Error: Could not find or load main class Lexer
-Caused by: java.lang.ClassNotFoundException: Lexer
+./isvoid.test:6: Class Main cannot inherit class IO
+Compilation halted due to static semantic errors.

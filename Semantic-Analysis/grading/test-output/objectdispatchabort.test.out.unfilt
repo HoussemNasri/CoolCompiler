@@ -1,4 +1,38 @@
-Error: Could not find or load main class Parser
-Caused by: java.lang.ClassNotFoundException: Parser
-Error: Could not find or load main class Lexer
-Caused by: java.lang.ClassNotFoundException: Lexer
+#6
+_program
+  #6
+  _class
+    A
+    Object
+    "./objectdispatchabort.test"
+    (
+    #5
+    _method
+      foo
+      Object
+      #3
+      _dispatch
+        #3
+        _new
+          Object
+        : _no_type
+        abort
+        (
+        )
+      : Object
+    )
+  #6
+  _class
+    Main
+    Object
+    "./objectdispatchabort.test"
+    (
+    #6
+    _method
+      main
+      Int
+      #6
+      _int
+        6
+      : Int
+    )

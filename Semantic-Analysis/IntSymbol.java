@@ -28,6 +28,7 @@ import java.io.PrintStream;
  * 
  * @see AbstractSymbol
  * */
+@SuppressWarnings("ALL")
 class IntSymbol extends AbstractSymbol {
     /* Creates a new symbol.
      * 

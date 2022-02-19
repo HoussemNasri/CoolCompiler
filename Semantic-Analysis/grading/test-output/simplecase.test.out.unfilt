@@ -1,4 +1,69 @@
-Error: Could not find or load main class Parser
-Caused by: java.lang.ClassNotFoundException: Parser
-Error: Could not find or load main class Lexer
-Caused by: java.lang.ClassNotFoundException: Lexer
+#9
+_program
+  #3
+  _class
+    Main
+    Object
+    "./simplecase.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : Int
+    )
+  #9
+  _class
+    A
+    Object
+    "./simplecase.test"
+    (
+    #5
+    _attr
+      moo
+      Object
+      #5
+      _no_expr
+      : _no_type
+    #9
+    _method
+      boo
+      Object
+      #8
+      _block
+        #8
+        _typcase
+          #5
+          _object
+            moo
+          : _no_type
+          #6
+          _branch
+            i
+            Int
+            #5
+            _object
+              i
+            : _no_type
+          #7
+          _branch
+            b
+            Bool
+            #6
+            _object
+              b
+            : _no_type
+          #8
+          _branch
+            s
+            String
+            #7
+            _object
+              s
+            : _no_type
+        : _no_type
+      : Object
+    )

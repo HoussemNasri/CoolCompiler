@@ -41,6 +41,7 @@ import java.io.PrintStream;
  *
  * @see AbstractTable
  * */
+@SuppressWarnings("JavadocReference")
 abstract class AbstractSymbol {
     /** The stored string */
     protected String str;

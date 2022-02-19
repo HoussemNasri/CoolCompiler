@@ -1,4 +1,60 @@
-Error: Could not find or load main class Parser
-Caused by: java.lang.ClassNotFoundException: Parser
-Error: Could not find or load main class Lexer
-Caused by: java.lang.ClassNotFoundException: Lexer
+#3
+_program
+  #3
+  _class
+    Main
+    Object
+    "./simplearith.test"
+    (
+    #3
+    _method
+      main
+      Object
+      #2
+      _block
+        #2
+        _plus
+          #2
+          _int
+            5
+          : Int
+          #2
+          _int
+            4
+          : Int
+        : _no_type
+        #2
+        _sub
+          #2
+          _int
+            5
+          : Int
+          #2
+          _int
+            4
+          : Int
+        : _no_type
+        #2
+        _mul
+          #2
+          _int
+            3
+          : Int
+          #2
+          _int
+            2
+          : Int
+        : _no_type
+        #2
+        _divide
+          #2
+          _int
+            3
+          : Int
+          #2
+          _int
+            2
+          : Int
+        : _no_type
+      : Object
+    )

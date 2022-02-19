@@ -1,110 +1,32 @@
-1,104c1,4
-< 
-< _program
-< 
-<   _class
-<     Main
-<     Object
-<     filename
-<     (
-< 
-<     _method
-<       main
-<       Int
-< 
-<       _int
-<         0
-<       : Int
-<     )
-< 
-<   _class
-<     A
-<     Object
-<     filename
-<     (
-< 
-<     _attr
-<       x
-<       Int
-< 
-<       _no_expr
-<       : _no_type
-< 
-<     _method
-<       f
-< 
-<       _formal
-<         x
-<         A
-<       String
-< 
-<       _string
-<         "ab"
-<       : String
-< 
-<     _method
-<       g
-< 
-<       _formal
-<         x
-<         Bool
-<       A
-< 
-<       _object
-<         self
+54c54
 <       : SELF_TYPE
-< 
-<     _method
-<       h
-<       Object
-< 
-<       _let
-<         x
-<         String
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+---
+>       : A
+68c68
 <           : SELF_TYPE
-<           f
-<           (
-< 
-<           _let
-<             x
-<             Bool
-< 
-<             _no_expr
-<             : _no_type
-< 
-<             _dispatch
-< 
-<               _object
-<                 self
+---
+>           : _no_type
+83c83
 <               : SELF_TYPE
-<               g
-<               (
-< 
-<               _object
-<                 x
+---
+>               : _no_type
+89c89
 <               : Bool
-<               )
+---
+>               : _no_type
+91,92c91,92
 <             : A
 <           : A
-<           )
+---
+>             : _no_type
+>           : _no_type
+94c94
 <         : String
-< 
-<         _assign
-<           x
-< 
-<           _string
-<             "ab"
-<           : String
+---
+>         : _no_type
+102,103c102,103
 <         : String
 <       : String
-<     )
 ---
-> Error: Could not find or load main class Parser
-> Caused by: java.lang.ClassNotFoundException: Parser
-> Error: Could not find or load main class Lexer
-> Caused by: java.lang.ClassNotFoundException: Lexer
+>         : _no_type
+>       : Object

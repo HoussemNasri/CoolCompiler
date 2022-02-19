@@ -19,6 +19,7 @@ ON AN "AS IS" BASIS, AND THE UNIVERSITY OF CALIFORNIA HAS NO OBLIGATION TO
 PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 */
 
+@SuppressWarnings("ALL")
 class IdTable extends AbstractTable {
     /** Creates a new IdSymbol object. 
      * 

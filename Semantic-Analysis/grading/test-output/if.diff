@@ -1,4 +1,4 @@
-1,82c1,4
+1,82c1,2
 < 
 < _program
 < 
@@ -82,7 +82,5 @@
 <       : String
 <     )
 ---
-> Error: Could not find or load main class Lexer
-> Caused by: java.lang.ClassNotFoundException: Lexer
-> Error: Could not find or load main class Parser
-> Caused by: java.lang.ClassNotFoundException: Parser
+> filename:line
+> Compilation halted due to static semantic errors.

@@ -109,7 +109,6 @@ class ASTLexer implements java_cup.runtime.Scanner {
 			}
 			yy_buffer_read = yy_buffer_read + next_read;
 		}
-		System.out.println(yy_buffer_index);
 
 		return yy_buffer[yy_buffer_index++];
 	}

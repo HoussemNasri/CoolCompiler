@@ -1,116 +1,24 @@
-1,110c1,4
-< 
-< _program
-< 
-<   _class
-<     Main
-<     Object
-<     filename
-<     (
-< 
-<     _attr
-<       b
-<       B
-< 
-<       _new
-<         B
+16c16
 <       : B
-< 
-<     _method
-<       main
-<       Object
-< 
-<       _static_dispatch
-< 
-<         _object
-<           b
-<         : B
-<         A
-<         foo
-<         (
-< 
-<         _int
-<           5
-<         : Int
-< 
-<         _object
-<           b
-<         : B
-< 
-<         _object
-<           b
-<         : B
-< 
-<         _object
-<           b
-<         : B
-<         )
-<       : Int
-<     )
-< 
-<   _class
-<     A
-<     Object
-<     filename
-<     (
-< 
-<     _method
-<       foo
-< 
-<       _formal
-<         a
-<         Int
-< 
-<       _formal
-<         b
-<         B
-< 
-<       _formal
-<         c
-<         A
-< 
-<       _formal
-<         d
-<         B
-<       Int
-< 
-<       _int
-<         5
-<       : Int
-<     )
-< 
-<   _class
-<     B
-<     A
-<     filename
-<     (
-< 
-<     _method
-<       foo
-< 
-<       _formal
-<         a
-<         Int
-< 
-<       _formal
-<         b
-<         B
-< 
-<       _formal
-<         c
-<         A
-< 
-<       _formal
-<         d
-<         B
-<       Int
-< 
-<       _int
-<         6
-<       : Int
-<     )
 ---
-> Error: Could not find or load main class Parser
-> Caused by: java.lang.ClassNotFoundException: Parser
-> Error: Could not find or load main class Lexer
-> Caused by: java.lang.ClassNotFoundException: Lexer
+>       : _no_type
+26c26
+<         : B
+---
+>         : _no_type
+37c37
+<         : B
+---
+>         : _no_type
+41c41
+<         : B
+---
+>         : _no_type
+45c45
+<         : B
+---
+>         : _no_type
+47c47
+<       : Int
+---
+>       : Object

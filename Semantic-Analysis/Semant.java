@@ -19,7 +19,6 @@ ON AN "AS IS" BASIS, AND THE UNIVERSITY OF CALIFORNIA HAS NO OBLIGATION TO
 PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 */
 
-import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 /**
@@ -37,8 +36,6 @@ class Semant {
 
             ASTParser parser = new ASTParser(lexer);
             Object result = parser.parse().value;
-            System.out.println("Hello, World!");
-            System.out.println("Houssem Nasri");
             ((Program) result).semant();
             ((Program) result).dump_with_types(System.out, 0);
         }

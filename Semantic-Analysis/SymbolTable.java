@@ -57,6 +57,7 @@ import java.util.Hashtable;
  * @see AbstractSymbol
  * @see SymtabExample
  * */
+@SuppressWarnings("ALL")
 class SymbolTable {
     private Stack tbl;
     
