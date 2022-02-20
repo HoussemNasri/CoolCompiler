@@ -7,6 +7,7 @@
 //////////////////////////////////////////////////////////
 
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -34,6 +35,8 @@ abstract class Class_ extends TreeNode {
     public abstract void dump_with_types(PrintStream out, int n);
 
     public abstract void semant(ClassTable classTable);
+
+    public abstract void gatherTypeInformation(ClassTable classTable);
 }
 
 /**
@@ -73,6 +76,13 @@ class Classes extends ListNode {
         return this;
     }
 
+    public void gatherTypeInformation(ClassTable classTable) {
+        Enumeration elements = getElements();
+        while (elements.hasMoreElements()) {
+            ((class_c) (elements.nextElement())).gatherTypeInformation(classTable);
+        }
+    }
+
     public void semant(ClassTable classTable) {
         Enumeration elements = getElements();
         while (elements.hasMoreElements()) {
@@ -89,11 +99,25 @@ class Classes extends ListNode {
  * Defines simple phylum Feature
  */
 abstract class Feature extends TreeNode {
+    protected AbstractSymbol type = TreeConstants.No_type;
+
     protected Feature(int lineNumber) {
         super(lineNumber);
     }
 
+    public AbstractSymbol getExpressionType() {
+        return type;
+    }
+
+    public void setExpressionType(AbstractSymbol type) {
+        this.type = type;
+    }
+
     public abstract void dump_with_types(PrintStream out, int n);
+
+    public abstract void gatherTypeInformation(ClassTable classTable);
+
+    public abstract void semant(ClassTable classTable);
 }
 
 /**
@@ -133,6 +157,20 @@ class Features extends ListNode {
     public TreeNode copy() {
         return new Features(lineNumber, copyElements());
     }
+
+    public void gatherTypeInformation(ClassTable classTable) {
+        Enumeration elems = getElements();
+        while (elems.hasMoreElements()) {
+            ((Feature) elems.nextElement()).gatherTypeInformation(classTable);
+        }
+    }
+
+    public void semant(ClassTable classTable) {
+        Enumeration elems = getElements();
+        while (elems.hasMoreElements()) {
+            ((Feature) elems.nextElement()).semant(classTable);
+        }
+    }
 }
 
 /**
@@ -162,6 +200,7 @@ class Formals extends ListNode {
     }
 
     protected Formals(int lineNumber, Vector elements) {
+
         super(lineNumber, elements);
     }
 
@@ -191,6 +230,7 @@ class Formals extends ListNode {
 abstract class Expression extends TreeNode {
     protected Expression(int lineNumber) {
         super(lineNumber);
+        set_type(TreeConstants.No_type);
     }
 
     private AbstractSymbol type = null;
@@ -213,6 +253,10 @@ abstract class Expression extends TreeNode {
             out.println(Utilities.pad(n) + ": _no_type");
         }
     }
+
+    public abstract void gatherTypeInformation(ClassTable classTable);
+
+    public abstract void semant(ClassTable classTable);
 }
 
 /**
@@ -251,6 +295,19 @@ class Expressions extends ListNode {
 
     public TreeNode copy() {
         return new Expressions(lineNumber, copyElements());
+    }
+
+    public void gatherTypeInformation(ClassTable classTable) {
+        for (Enumeration e = getElements(); e.hasMoreElements(); ) {
+            ((Expression) (e.nextElement())).gatherTypeInformation(classTable);
+        }
+    }
+
+    public void semant(ClassTable classTable) {
+        Enumeration elems = getElements();
+        while (elems.hasMoreElements()) {
+            ((Expression) elems.nextElement()).semant(classTable);
+        }
     }
 }
 
@@ -363,6 +420,7 @@ class programc extends Program {
         /* ClassTable constructor may do some semantic analysis */
         ClassTable classTable = new ClassTable(classes);
 
+        classes.gatherTypeInformation(classTable);
         classes.semant(classTable);
 
         if (classTable.hasErrors()) {
@@ -439,11 +497,18 @@ class class_c extends Class_ {
     }
 
     @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        features.gatherTypeInformation(classTable);
+    }
+
+    @Override
     public void semant(ClassTable classTable) {
         if (!classTable.exists(parent)) {
             classTable.semantError(this).printf("Class %s inherits from an undefined class %s%n", name.str, parent.str);
         } else if (!classTable.canInherit(parent)) {
             classTable.semantError(this).printf("Class %s cannot inherit class %s%n", name.str, parent.str);
+        } else {
+            features.semant(classTable);
         }
     }
 }
@@ -474,7 +539,7 @@ class method extends Feature {
         formals = a2;
         return_type = a3;
         expr = a4;
-        expr.set_type(return_type);
+        setExpressionType(return_type);
     }
 
     public TreeNode copy() {
@@ -498,6 +563,22 @@ class method extends Feature {
         }
         dump_AbstractSymbol(out, n + 2, return_type);
         expr.dump_with_types(out, n + 2);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        expr.gatherTypeInformation(classTable);
+        if (expr.get_type().equals(TreeConstants.No_type)) {
+            expr.set_type(return_type);
+        } else {
+            expr.set_type(expr.get_type());
+        }
+        setExpressionType(expr.get_type());
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+        expr.semant(classTable);
     }
 }
 
@@ -543,6 +624,18 @@ class attr extends Feature {
         dump_AbstractSymbol(out, n + 2, name);
         dump_AbstractSymbol(out, n + 2, type_decl);
         init.dump_with_types(out, n + 2);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        init.gatherTypeInformation(classTable);
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+        if (!classTable.isLegalType(type_decl)) {
+            init.semant(classTable);
+        }
     }
 }
 
@@ -670,6 +763,16 @@ class assign extends Expression {
         expr.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -725,6 +828,16 @@ class static_dispatch extends Expression {
         out.println(Utilities.pad(n + 2) + ")");
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -775,6 +888,36 @@ class dispatch extends Expression {
         out.println(Utilities.pad(n + 2) + ")");
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        expr.gatherTypeInformation(classTable);
+        actual.gatherTypeInformation(classTable);
+
+        Features typeFeatures = classTable.getClassFeatures(expr.get_type());
+        if (typeFeatures != null) {
+            for (Enumeration e = typeFeatures.getElements(); e.hasMoreElements(); ) {
+                Feature f = (Feature) e.nextElement();
+                if (f instanceof method) {
+                    method method = (method) f;
+                    if (isLegalDispatch(method)) {
+                        set_type(method.return_type);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
+
+    public boolean isLegalDispatch(method m) {
+        //TODO('Check formal parameters')
+        return m.name.equals(name);
+    }
 }
 
 /**
@@ -821,6 +964,16 @@ class cond extends Expression {
         else_exp.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -861,6 +1014,16 @@ class loop extends Expression {
         pred.dump_with_types(out, n + 2);
         body.dump_with_types(out, n + 2);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -905,6 +1068,16 @@ class typcase extends Expression {
         }
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -926,6 +1099,10 @@ class block extends Expression {
         body = a1;
     }
 
+    private void setBlockType() {
+
+    }
+
     public TreeNode copy() {
         return new block(lineNumber, (Expressions) body.copy());
     }
@@ -942,6 +1119,24 @@ class block extends Expression {
             ((Expression) e.nextElement()).dump_with_types(out, n + 2);
         }
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        body.gatherTypeInformation(classTable);
+
+        Expression lasExpression = null;
+        for (Enumeration e = body.getElements(); e.hasMoreElements(); ) {
+            lasExpression = ((Expression) e.nextElement());
+        }
+        if (lasExpression != null) {
+            set_type(lasExpression.get_type());
+        }
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+        body.semant(classTable);
     }
 }
 
@@ -994,6 +1189,16 @@ class let extends Expression {
         body.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1034,6 +1239,16 @@ class plus extends Expression {
         e1.dump_with_types(out, n + 2);
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -1076,6 +1291,16 @@ class sub extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1116,6 +1341,16 @@ class mul extends Expression {
         e1.dump_with_types(out, n + 2);
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -1158,6 +1393,16 @@ class divide extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1193,6 +1438,16 @@ class neg extends Expression {
         out.println(Utilities.pad(n) + "_neg");
         e1.dump_with_types(out, n + 2);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -1235,6 +1490,16 @@ class lt extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1275,6 +1540,26 @@ class eq extends Expression {
         e1.dump_with_types(out, n + 2);
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        set_type(TreeConstants.Bool);
+        e1.gatherTypeInformation(classTable);
+        e2.gatherTypeInformation(classTable);
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+        if (isBoolOrStringOrInt(e1.get_type()) || isBoolOrStringOrInt(e2.get_type())) {
+            if (!e1.get_type().equals(e2.get_type())) {
+                classTable.semantError(AbstractTable.stringtable.getFilename(), this).printf("Illegal comparison with a basic type.%n");
+            }
+        }
+    }
+
+    private boolean isBoolOrStringOrInt(AbstractSymbol type) {
+        return Arrays.asList("Bool", "String", "Int").contains(type.str);
     }
 }
 
@@ -1317,6 +1602,16 @@ class leq extends Expression {
         e2.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1353,6 +1648,16 @@ class comp extends Expression {
         e1.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1372,7 +1677,6 @@ class int_const extends Expression {
     public int_const(int lineNumber, AbstractSymbol a1) {
         super(lineNumber);
         token = a1;
-        set_type(TreeConstants.Int);
     }
 
     public TreeNode copy() {
@@ -1389,6 +1693,16 @@ class int_const extends Expression {
         out.println(Utilities.pad(n) + "_int");
         dump_AbstractSymbol(out, n + 2, token);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        set_type(TreeConstants.Int);
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -1409,7 +1723,6 @@ class bool_const extends Expression {
     public bool_const(int lineNumber, Boolean a1) {
         super(lineNumber);
         val = a1;
-        set_type(TreeConstants.Bool);
     }
 
     public TreeNode copy() {
@@ -1426,6 +1739,16 @@ class bool_const extends Expression {
         out.println(Utilities.pad(n) + "_bool");
         dump_Boolean(out, n + 2, val);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        set_type(TreeConstants.Bool);
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -1446,7 +1769,6 @@ class string_const extends Expression {
     public string_const(int lineNumber, AbstractSymbol a1) {
         super(lineNumber);
         token = a1;
-        set_type(TreeConstants.Str);
     }
 
     public TreeNode copy() {
@@ -1465,6 +1787,16 @@ class string_const extends Expression {
         Utilities.printEscapedString(out, token.getString());
         out.println("\"");
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+        set_type(TreeConstants.Str);
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -1502,6 +1834,16 @@ class new_ extends Expression {
         dump_AbstractSymbol(out, n + 2, type_name);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1538,6 +1880,16 @@ class isvoid extends Expression {
         e1.dump_with_types(out, n + 2);
         dump_type(out, n);
     }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
+    }
 }
 
 /**
@@ -1567,6 +1919,16 @@ class no_expr extends Expression {
         dump_line(out, n);
         out.println(Utilities.pad(n) + "_no_expr");
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 
@@ -1603,6 +1965,16 @@ class object extends Expression {
         out.println(Utilities.pad(n) + "_object");
         dump_AbstractSymbol(out, n + 2, name);
         dump_type(out, n);
+    }
+
+    @Override
+    public void gatherTypeInformation(ClassTable classTable) {
+
+    }
+
+    @Override
+    public void semant(ClassTable classTable) {
+
     }
 }
 

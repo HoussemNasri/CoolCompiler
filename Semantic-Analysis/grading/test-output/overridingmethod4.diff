@@ -57,7 +57,7 @@
 > 
 >       _int
 >         1
->       : Object
+>       : Int
 >     )
 > 
 >   _class
@@ -76,5 +76,5 @@
 > 
 >       _int
 >         1
->       : Object
+>       : Int
 >     )

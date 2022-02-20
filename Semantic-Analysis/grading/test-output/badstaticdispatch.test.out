@@ -41,7 +41,7 @@ _program
 
         _bool
           1
-        : Bool
+        : _no_type
 
         _object
           x
@@ -61,7 +61,7 @@ _program
 
       _int
         10
-      : Object
+      : Int
     )
 
   _class

@@ -1,7 +1,3 @@
-16c16
-<       : Int
----
->       : Object
 47c47
 <       : SELF_TYPE
 ---
@@ -12,6 +8,10 @@
 >         : _no_type
 72c72
 <           : SELF_TYPE
+---
+>           : _no_type
+78c78
+<           : Int
 ---
 >           : _no_type
 82c82

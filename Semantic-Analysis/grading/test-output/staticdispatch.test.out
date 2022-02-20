@@ -30,7 +30,7 @@ _program
 
         _int
           5
-        : Int
+        : _no_type
 
         _object
           b

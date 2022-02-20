@@ -10,9 +10,3 @@
 <         : Bool
 ---
 >         : _no_type
-54,55c54,55
-<         : Int
-<       : Int
----
->         : _no_type
->       : Object

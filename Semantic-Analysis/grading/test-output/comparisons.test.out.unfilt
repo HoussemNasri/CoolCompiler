@@ -21,29 +21,29 @@ _program
           #2
           _int
             6
-          : Int
+          : _no_type
           #2
           _int
             7
-          : Int
+          : _no_type
         : _no_type
         #2
         _leq
           #2
           _int
             6
-          : Int
+          : _no_type
           #2
           _int
             7
-          : Int
+          : _no_type
         : _no_type
         #2
         _comp
           #2
           _bool
             1
-          : Bool
+          : _no_type
         : _no_type
       : Bool
     )

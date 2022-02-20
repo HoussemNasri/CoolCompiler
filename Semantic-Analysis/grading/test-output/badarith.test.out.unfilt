@@ -30,10 +30,10 @@ _program
         #4
         _int
           1
-        : Int
+        : _no_type
         #4
         _string
           "hello"
-        : String
+        : _no_type
       : Object
     )

@@ -41,7 +41,7 @@ _program
 
         _bool
           1
-        : Bool
+        : _no_type
 
         _dispatch
 

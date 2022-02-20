@@ -22,7 +22,7 @@ _program
           #3
           _int
             10
-          : Int
+          : _no_type
         : _no_type
         #3
         _object

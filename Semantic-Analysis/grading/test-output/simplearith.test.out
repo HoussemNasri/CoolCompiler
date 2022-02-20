@@ -17,44 +17,44 @@ _program
 
           _int
             5
-          : Int
+          : _no_type
 
           _int
             4
-          : Int
+          : _no_type
         : _no_type
 
         _sub
 
           _int
             5
-          : Int
+          : _no_type
 
           _int
             4
-          : Int
+          : _no_type
         : _no_type
 
         _mul
 
           _int
             3
-          : Int
+          : _no_type
 
           _int
             2
-          : Int
+          : _no_type
         : _no_type
 
         _divide
 
           _int
             3
-          : Int
+          : _no_type
 
           _int
             2
-          : Int
+          : _no_type
         : _no_type
       : Object
     )

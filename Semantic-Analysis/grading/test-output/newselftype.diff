@@ -10,3 +10,7 @@
 <       : Int
 ---
 >       : _no_type
+40c40
+<         : Int
+---
+>         : _no_type

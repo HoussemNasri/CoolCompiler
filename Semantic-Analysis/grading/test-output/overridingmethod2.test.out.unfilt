@@ -81,6 +81,6 @@ _program
         #8
         _int
           1
-        : Int
+        : _no_type
       : Int
     )

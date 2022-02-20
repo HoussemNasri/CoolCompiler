@@ -6,8 +6,6 @@
 	-1 (badargs1)	 Non-conforming parameter type in dispatch
 	-1 (badarith)	 Addition with non-int argument
 	-1 (baddispatch)	 Method only in child class, attempted dispatch from parent class
-	-1 (badequalitytest)	 Int compared to String
-	-1 (badequalitytest2)	 Int compared to Bool
 	-1 (badmethodcallsitself)	 Method called with itself as parameter (wrong type)
 	-1 (badstaticdispatch)	 Bad static dispatch
 	-1 (badwhilebody)	 While body has error
@@ -39,11 +37,9 @@
 	-1 (methodnameclash)	 Two children define a function differently (allowed)
 	-1 (neg)	 Negation of integer values
 	-1 (newselftype)	 Using a new SELF_TYPE expression (legal)
-	-1 (nomain)	 Missing Main class
 	-1 (objectdispatchabort)	 Calling abort() method on an object
 	-1 (outofscope)	 Using a name that exists but is out of scope
 	-1 (overridingmethod2)	 Another method override example
-	-1 (overriderenamearg)	 Overriding parent's method with new param names (legal)
 	-1 (overridingmethod4)	 Illegal method override - different param types
 	-1 (signaturechange)	 Method override with different number of params
 	-1 (redefinedclass)	 Redefinition of a class (illegal)
@@ -57,7 +53,6 @@
 	-1 (simplearith)	 Some simple arithmetic exprs
 	-1 (simplecase)	 A simple case expr
 	-1 (staticdispatch)	 Simple static dispatch
-	-1 (stringtest)	 String methods
 	-1 (subtypemethodreturn)	 Returning a subtype of the declared return type (legal)
 	-1 (trickyatdispatch)	 Tricky (legal) static dispatch
 	-1 (trickyatdispatch2)	 Tricky (illegal) static dispatch

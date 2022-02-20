@@ -13,6 +13,7 @@ class ClassTable extends AbstractTable {
     private int semantErrors;
     private PrintStream errorStream;
     private List<class_c> basicClasses = new ArrayList<>();
+    private List<class_c> classes = new ArrayList<>();
 
     /**
      * Creates data structures representing basic Cool classes (Object,
@@ -180,13 +181,15 @@ class ClassTable extends AbstractTable {
         }
     }
 
-    public ClassTable(Classes cls) {
+    public ClassTable(Classes classes) {
         semantErrors = 0;
         errorStream = System.err;
         /* fill this in */
+        class_c mainClass = checkForMainClass(classes);
+        checkForMainMethod(mainClass);
         installBasicClasses();
-        checkForBasicClassRedefinition(cls);
-        installOtherClasses(cls);
+        checkForBasicClassRedefinition(classes);
+        installOtherClasses(classes);
         checkForDuplicates();
     }
 
@@ -206,6 +209,35 @@ class ClassTable extends AbstractTable {
         // TODO('Handle class duplication')
     }
 
+    private class_c checkForMainClass(Classes classes) {
+        Enumeration elements = classes.getElements();
+        while (elements.hasMoreElements()) {
+            class_c classC = (class_c) elements.nextElement();
+            if (classC.name.str.equals("Main")) {
+                return classC;
+            }
+        }
+        semantError("Class Main is not defined.");
+        return null;
+    }
+
+    private void checkForMainMethod(class_c mainClass) {
+        if (mainClass == null) {
+            return;
+        }
+        Enumeration elements = mainClass.features.getElements();
+        while (elements.hasMoreElements()) {
+            Object feature = elements.nextElement();
+            if (feature instanceof method) {
+                method m = (method) feature;
+                if (m.name.str.equals("main")) {
+                    return;
+                }
+            }
+        }
+        semantError("Main method is not defined.");
+    }
+
     public void installOtherClasses(Classes classes) {
         Enumeration elements = classes.getElements();
         while (elements.hasMoreElements()) {
@@ -215,6 +247,7 @@ class ClassTable extends AbstractTable {
 
     private void addClass(class_c c) {
         addString(c.name.str);
+        classes.add(c);
     }
 
     /**
@@ -228,6 +261,10 @@ class ClassTable extends AbstractTable {
      */
     public PrintStream semantError(class_c c) {
         return semantError(c.getFilename(), c);
+    }
+
+    public PrintStream semantError(String message) {
+        return semantError().printf("%s%n", message);
     }
 
     /**
@@ -273,6 +310,27 @@ class ClassTable extends AbstractTable {
             }
         }
         return false;
+    }
+
+    public boolean isLegalType(AbstractSymbol type) {
+        Enumeration symbols = getSymbols();
+        while (symbols.hasMoreElements()) {
+            AbstractSymbol symbol = (AbstractSymbol) symbols.nextElement();
+            if (symbol.str.equals(type.str)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Features getClassFeatures(AbstractSymbol classType) {
+        for (class_c classC : classes) {
+            if (classC.name.equals(classType)) {
+                return classC.features;
+            }
+        }
+        return null;
+        //throw new IllegalStateException("Attempt to retrieve a missing class features: " + classType);
     }
 
     public boolean canInherit(AbstractSymbol symbol) {

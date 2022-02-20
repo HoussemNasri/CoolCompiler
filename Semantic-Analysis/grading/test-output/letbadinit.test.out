@@ -21,7 +21,7 @@ _program
 
         _int
           10
-        : Int
+        : _no_type
       : Object
     )
 

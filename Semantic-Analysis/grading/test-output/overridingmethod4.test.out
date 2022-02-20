@@ -53,7 +53,7 @@ _program
 
       _int
         1
-      : Object
+      : Int
     )
 
   _class
@@ -72,5 +72,5 @@ _program
 
       _int
         1
-      : Object
+      : Int
     )

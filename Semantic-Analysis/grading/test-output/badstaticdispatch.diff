@@ -45,7 +45,7 @@
 > 
 >         _bool
 >           1
->         : Bool
+>         : _no_type
 > 
 >         _object
 >           x
@@ -65,7 +65,7 @@
 > 
 >       _int
 >         10
->       : Object
+>       : Int
 >     )
 > 
 >   _class

@@ -13,7 +13,7 @@ _program
       #1
       _int
         0
-      : Object
+      : Int
     )
   #9
   _class

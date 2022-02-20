@@ -13,7 +13,7 @@ _program
       #2
       _int
         42
-      : Object
+      : Int
     )
   #12
   _class
@@ -75,7 +75,7 @@ _program
           #16
           _int
             4
-          : Int
+          : _no_type
           #16
           _object
             b

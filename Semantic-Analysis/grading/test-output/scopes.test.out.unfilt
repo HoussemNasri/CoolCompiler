@@ -98,7 +98,7 @@ _program
           #8
           _string
             "ab"
-          : String
+          : _no_type
         : _no_type
       : Object
     )

@@ -25,7 +25,7 @@
 > 
 >         _int
 >           10
->         : Int
+>         : _no_type
 >       : Object
 >     )
 > 

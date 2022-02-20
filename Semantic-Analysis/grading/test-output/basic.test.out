@@ -51,6 +51,6 @@ _program
           length
           (
           )
-        : _no_type
-      : Object
+        : Int
+      : Int
     )

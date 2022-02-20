@@ -24,9 +24,11 @@
 <         : String
 ---
 >         : _no_type
-102,103c102,103
+101,103c101,103
+<           : String
 <         : String
 <       : String
 ---
+>           : _no_type
 >         : _no_type
 >       : Object

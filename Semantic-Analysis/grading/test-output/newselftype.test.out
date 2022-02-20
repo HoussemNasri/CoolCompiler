@@ -37,7 +37,7 @@ _program
 
         _int
           7
-        : Int
+        : _no_type
       : Int
     )
 
