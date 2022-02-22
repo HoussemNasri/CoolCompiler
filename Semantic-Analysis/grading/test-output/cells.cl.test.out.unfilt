@@ -1,2 +1,0 @@
-./cells.cl.test:78: Class CellularAutomaton cannot inherit class IO
-Compilation halted due to static semantic errors.
