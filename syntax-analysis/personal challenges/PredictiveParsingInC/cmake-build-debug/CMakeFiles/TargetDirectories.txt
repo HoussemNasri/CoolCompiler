@@ -1,0 +1,3 @@
+C:/Users/housi/CLionProjects/PredictiveParsingInC/cmake-build-debug/CMakeFiles/PredictiveParsingInC.dir
+C:/Users/housi/CLionProjects/PredictiveParsingInC/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/housi/CLionProjects/PredictiveParsingInC/cmake-build-debug/CMakeFiles/rebuild_cache.dir

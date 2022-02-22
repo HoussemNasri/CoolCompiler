@@ -1,0 +1,29 @@
+1,2c1,25
+< filename:line
+< Compilation halted due to static semantic errors.
+---
+> 
+> _program
+> 
+>   _class
+>     Main
+>     Object
+>     filename
+>     (
+> 
+>     _method
+>       main
+>       Int
+> 
+>       _let
+>         self
+>         Int
+> 
+>         _no_expr
+>         : _no_type
+> 
+>         _int
+>           0
+>         : _no_type
+>       : Int
+>     )

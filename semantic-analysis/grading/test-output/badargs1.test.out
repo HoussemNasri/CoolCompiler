@@ -1,0 +1,69 @@
+
+_program
+
+  _class
+    Main
+    Object
+    filename
+    (
+
+    _method
+      main
+      Object
+
+      _int
+        0
+      : Int
+    )
+
+  _class
+    A
+    Object
+    filename
+    (
+
+    _method
+      bar
+      Object
+
+      _dispatch
+
+        _new
+          B
+        : _no_type
+        foo
+        (
+
+        _object
+          self
+        : _no_type
+
+        _int
+          29
+        : Int
+        )
+      : Object
+    )
+
+  _class
+    B
+    A
+    filename
+    (
+
+    _method
+      foo
+
+      _formal
+        b
+        B
+
+      _formal
+        x
+        Int
+      String
+
+      _string
+        "moo"
+      : String
+    )

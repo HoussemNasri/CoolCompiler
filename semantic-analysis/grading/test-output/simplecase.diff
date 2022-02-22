@@ -1,0 +1,18 @@
+42c42
+<           : Object
+---
+>           : _no_type
+50c50
+<             : Int
+---
+>             : _no_type
+58c58
+<             : Bool
+---
+>             : _no_type
+66,67c66,67
+<             : String
+<         : Object
+---
+>             : _no_type
+>         : _no_type

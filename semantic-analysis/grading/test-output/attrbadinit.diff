@@ -1,0 +1,50 @@
+1,2c1,46
+< filename:line
+< Compilation halted due to static semantic errors.
+---
+> 
+> _program
+> 
+>   _class
+>     Main
+>     Object
+>     filename
+>     (
+> 
+>     _method
+>       main
+>       Object
+> 
+>       _int
+>         0
+>       : Int
+>     )
+> 
+>   _class
+>     Cow
+>     Object
+>     filename
+>     (
+> 
+>     _attr
+>       moo
+>       Object
+> 
+>       _no_expr
+>       : _no_type
+>     )
+> 
+>   _class
+>     Chicken
+>     Object
+>     filename
+>     (
+> 
+>     _attr
+>       sound
+>       Object
+> 
+>       _object
+>         moo
+>       : _no_type
+>     )

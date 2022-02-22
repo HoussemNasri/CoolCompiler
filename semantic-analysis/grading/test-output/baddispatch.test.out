@@ -1,0 +1,69 @@
+
+_program
+
+  _class
+    Main
+    Object
+    filename
+    (
+
+    _method
+      main
+      Object
+
+      _int
+        0
+      : Int
+    )
+
+  _class
+    Animal
+    Object
+    filename
+    (
+    )
+
+  _class
+    Cow
+    Animal
+    filename
+    (
+
+    _method
+      moo
+      String
+
+      _string
+        "moo"
+      : String
+    )
+
+  _class
+    Blerg
+    Object
+    filename
+    (
+
+    _method
+      foo
+      Object
+
+      _let
+        cow
+        Animal
+
+        _new
+          Cow
+        : _no_type
+
+        _dispatch
+
+          _object
+            cow
+          : _no_type
+          moo
+          (
+          )
+        : _no_type
+      : Object
+    )

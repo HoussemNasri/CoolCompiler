@@ -1,0 +1,37 @@
+#4
+_program
+  #4
+  _class
+    Main
+    Object
+    "./dupformals.test"
+    (
+    #3
+    _method
+      main
+      Int
+      #2
+      _int
+        1
+      : Int
+    #4
+    _method
+      foo
+      #3
+      _formal
+        x
+        Int
+      #3
+      _formal
+        x
+        Bool
+      #3
+      _formal
+        x
+        String
+      Object
+      #3
+      _new
+        Object
+      : Object
+    )

@@ -1,0 +1,91 @@
+
+_program
+
+  _class
+    Main
+    Object
+    filename
+    (
+
+    _method
+      main
+      Int
+
+      _int
+        0
+      : Int
+    )
+
+  _class
+    A
+    Object
+    filename
+    (
+
+    _attr
+      x
+      String
+
+      _no_expr
+      : _no_type
+
+    _method
+      foo
+
+      _formal
+        x
+        Int
+      Object
+
+      _loop
+
+        _bool
+          1
+        : _no_type
+
+        _object
+          x
+        : _no_type
+      : Object
+    )
+
+  _class
+    C
+    B
+    filename
+    (
+
+    _method
+      bar
+      Object
+
+      _int
+        10
+      : Int
+    )
+
+  _class
+    B
+    A
+    filename
+    (
+
+    _method
+      foo
+
+      _formal
+        x
+        Int
+      Object
+
+      _static_dispatch
+
+        _object
+          self
+        : _no_type
+        C
+        bar
+        (
+        )
+      : Object
+    )

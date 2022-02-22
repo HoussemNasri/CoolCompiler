@@ -1,0 +1,48 @@
+1,2c1,44
+< filename:line
+< Compilation halted due to static semantic errors.
+---
+> 
+> _program
+> 
+>   _class
+>     Main
+>     Object
+>     filename
+>     (
+> 
+>     _method
+>       main
+>       Int
+> 
+>       _int
+>         0
+>       : Int
+>     )
+> 
+>   _class
+>     A
+>     Object
+>     filename
+>     (
+> 
+>     _attr
+>       x
+>       A
+> 
+>       _new
+>         A
+>       : _no_type
+> 
+>     _method
+>       foo
+> 
+>       _formal
+>         self
+>         String
+>       String
+> 
+>       _string
+>         "hoo-ah"
+>       : String
+>     )

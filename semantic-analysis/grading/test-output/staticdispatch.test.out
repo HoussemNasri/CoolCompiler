@@ -1,0 +1,110 @@
+
+_program
+
+  _class
+    Main
+    Object
+    filename
+    (
+
+    _attr
+      b
+      B
+
+      _new
+        B
+      : _no_type
+
+    _method
+      main
+      Object
+
+      _static_dispatch
+
+        _object
+          b
+        : _no_type
+        A
+        foo
+        (
+
+        _int
+          5
+        : _no_type
+
+        _object
+          b
+        : _no_type
+
+        _object
+          b
+        : _no_type
+
+        _object
+          b
+        : _no_type
+        )
+      : Object
+    )
+
+  _class
+    A
+    Object
+    filename
+    (
+
+    _method
+      foo
+
+      _formal
+        a
+        Int
+
+      _formal
+        b
+        B
+
+      _formal
+        c
+        A
+
+      _formal
+        d
+        B
+      Int
+
+      _int
+        5
+      : Int
+    )
+
+  _class
+    B
+    A
+    filename
+    (
+
+    _method
+      foo
+
+      _formal
+        a
+        Int
+
+      _formal
+        b
+        B
+
+      _formal
+        c
+        A
+
+      _formal
+        d
+        B
+      Int
+
+      _int
+        6
+      : Int
+    )

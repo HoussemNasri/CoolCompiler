@@ -1,0 +1,26 @@
+24c24
+<           : Int
+---
+>           : _no_type
+28,29c28,29
+<           : Int
+<         : Bool
+---
+>           : _no_type
+>         : _no_type
+35c35
+<           : Int
+---
+>           : _no_type
+39,40c39,40
+<           : Int
+<         : Bool
+---
+>           : _no_type
+>         : _no_type
+46,47c46,47
+<           : Bool
+<         : Bool
+---
+>           : _no_type
+>         : _no_type

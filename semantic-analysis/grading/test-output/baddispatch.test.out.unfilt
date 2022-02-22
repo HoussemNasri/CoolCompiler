@@ -1,0 +1,69 @@
+#14
+_program
+  #3
+  _class
+    Main
+    Object
+    "./baddispatch.test"
+    (
+    #1
+    _method
+      main
+      Object
+      #1
+      _int
+        0
+      : Int
+    )
+  #5
+  _class
+    Animal
+    Object
+    "./baddispatch.test"
+    (
+    )
+  #9
+  _class
+    Cow
+    Animal
+    "./baddispatch.test"
+    (
+    #7
+    _method
+      moo
+      String
+      #6
+      _string
+        "moo"
+      : String
+    )
+  #14
+  _class
+    Blerg
+    Object
+    "./baddispatch.test"
+    (
+    #14
+    _method
+      foo
+      Object
+      #13
+      _let
+        cow
+        Animal
+        #12
+        _new
+          Cow
+        : _no_type
+        #13
+        _dispatch
+          #12
+          _object
+            cow
+          : _no_type
+          moo
+          (
+          )
+        : _no_type
+      : Object
+    )

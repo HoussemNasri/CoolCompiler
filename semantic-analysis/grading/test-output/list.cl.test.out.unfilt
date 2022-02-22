@@ -1,0 +1,2 @@
+./list.cl.test:138: Class Main cannot inherit class IO
+Compilation halted due to static semantic errors.

@@ -1,0 +1,6 @@
+
+/src/**
+/.idea/**
+/examples/**
+/assignments/.idea/**
+**/classes

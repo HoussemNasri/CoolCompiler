@@ -1,0 +1,151 @@
+#19
+_program
+  #3
+  _class
+    Main
+    Object
+    "./lubtest.test"
+    (
+    #1
+    _method
+      main
+      Int
+      #1
+      _int
+        0
+      : Int
+    )
+  #4
+  _class
+    Z
+    Object
+    "./lubtest.test"
+    (
+    )
+  #5
+  _class
+    A
+    Z
+    "./lubtest.test"
+    (
+    )
+  #6
+  _class
+    B
+    Z
+    "./lubtest.test"
+    (
+    )
+  #7
+  _class
+    C
+    B
+    "./lubtest.test"
+    (
+    )
+  #9
+  _class
+    D
+    B
+    "./lubtest.test"
+    (
+    )
+  #19
+  _class
+    Test
+    Object
+    "./lubtest.test"
+    (
+    #11
+    _attr
+      a
+      A
+      #11
+      _no_expr
+      : _no_type
+    #12
+    _attr
+      b
+      B
+      #12
+      _no_expr
+      : _no_type
+    #13
+    _attr
+      c
+      C
+      #13
+      _no_expr
+      : _no_type
+    #14
+    _attr
+      d
+      D
+      #14
+      _no_expr
+      : _no_type
+    #16
+    _attr
+      z
+      Z
+      #16
+      _no_expr
+      : _no_type
+    #17
+    _method
+      f
+      Z
+      #16
+      _cond
+        #16
+        _bool
+          1
+        : _no_type
+        #16
+        _object
+          a
+        : _no_type
+        #16
+        _object
+          b
+        : _no_type
+      : Z
+    #18
+    _method
+      g
+      Object
+      #17
+      _cond
+        #17
+        _bool
+          1
+        : _no_type
+        #17
+        _object
+          a
+        : _no_type
+        #17
+        _object
+          b
+        : _no_type
+      : Object
+    #19
+    _method
+      h
+      B
+      #18
+      _cond
+        #18
+        _bool
+          1
+        : _no_type
+        #18
+        _object
+          c
+        : _no_type
+        #18
+        _object
+          a
+        : _no_type
+      : B
+    )

@@ -1,0 +1,30 @@
+37c37
+<           : Int
+---
+>           : _no_type
+41,42c41,42
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type
+79c79
+<           : Int
+---
+>           : _no_type
+83,84c83,84
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type
+113c113
+<           : Int
+---
+>           : _no_type
+117,118c117,118
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type

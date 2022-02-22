@@ -1,0 +1,21 @@
+1,2c1,17
+< filename:line
+< Compilation halted due to static semantic errors.
+---
+> 
+> _program
+> 
+>   _class
+>     Main
+>     Object
+>     filename
+>     (
+> 
+>     _method
+>       main
+>       PinkElephant
+> 
+>       _new
+>         PinkElephant
+>       : PinkElephant
+>     )
