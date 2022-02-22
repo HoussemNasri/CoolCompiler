@@ -1,7 +1,7 @@
 ASSN = 4J
 CLASS= cs143
 CLASSDIR= /mnt/c/Users/housi/Desktop/Stanford-Compilers/CS143
-MAKEFILEDIR = ${CLASSDIR}/Stanford-CS143-Compilers/Semantic-Analysis
+MAKEFILEDIR = ${CLASSDIR}/Stanford-CS143-Compilers/semantic-analysis
 SRC= ClassTable.java TreeConstants.java cool-tree.java good.cl bad.cl README
 CSRC = \
 	ASTConstants.java \

@@ -2,7 +2,7 @@
 ASSN = 2J
 CLASS= cs143
 CLASSDIR= /mnt/c/Users/housi/Desktop/Stanford-Compilers/CS143
-MAKEFILEDIR = ${CLASSDIR}/Stanford-CS143-Compilers/Lexical-Analysis
+MAKEFILEDIR = ${CLASSDIR}/Stanford-CS143-Compilers/lexical-analysis
 LIB= -L/usr/pubsw/lib -lfl -R/usr/pubsw/lib
 
 SRC= cool.lex test.cl README

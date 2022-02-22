@@ -2,7 +2,7 @@
 ASSN = 3J
 CLASS= cs143
 CLASSDIR= /mnt/c/Users/housi/Desktop/Stanford-Compilers/CS143
-MAKEFILEDIR = ${CLASSDIR}/Stanford-CS143-Compilers/Syntax-Analysis
+MAKEFILEDIR = ${CLASSDIR}/Stanford-CS143-Compilers/syntax-analysis
 LIB=  -lfl 
 AR= gar
 ARCHIVE_NEW= -cr
