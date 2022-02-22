@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PA4J.iml" filepath="$PROJECT_DIR$/PA4J.iml" />
+      <module fileurl="file://$PROJECT_DIR$/semantic-analysis.iml" filepath="$PROJECT_DIR$/semantic-analysis.iml" />
     </modules>
   </component>
 </project>

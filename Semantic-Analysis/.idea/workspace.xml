@@ -1,16 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39682ea6-edaf-4a30-b67b-339563705b75" name="Changes" comment="You got a score of 16 out of 74&#10;&#10;- Gather type information before starting semantic analysis&#10;- Implement type gathering for dispatch, eq, block and constant expressions&#10;- Detect Illegal basic type equality comparison" />
+    <list default="true" id="6108f3f0-40b7-483f-9520-d842a1c4d759" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/java_cup_11a.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/azure/azureSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/google-java-format.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/ktfmt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/libraries/java_cup_11a.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/palantir-java-format.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/ASTConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/ASTLexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/ASTParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/AbstractSymbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/AbstractTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/BoolConst.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/CUP$ASTParser$actions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Case.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Cases.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/CgenSupport.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/ClassTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Class_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Classes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Expressions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Feature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Features.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Flags.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Formal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Formals.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/IdSymbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/IdTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/InheritanceGraph.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/IntSymbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/IntTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/ListNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/NOTES.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/PA4J.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Semant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/StringSymbol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/StringTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/SymbolTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/SymtabExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/TokenConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/TreeConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/Utilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/assign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/attr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/bad.cl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/bool_const.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/branch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/cgen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/class_c.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/comp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/cond.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/cool-tree.aps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/dispatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/divide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/eq.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/formalc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/good.cl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/grading.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/int_const.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/isvoid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/leq.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/let.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/lexer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/loop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/lt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/method.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/mul.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/mycoolc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/mysemant" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/neg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/new_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/no_expr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/object.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/pa2-grading.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/pa3-grading - Copy.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/pa3-grading.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/plus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/programc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/semant" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/static_dispatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/string_const.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/sub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA4J/typcase.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="module" />
-    </option>
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
@@ -18,24 +116,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Semant.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ASTLexer.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectId" id="22zCESXwD7jE64cX3zHGYHW6thk" />
+  <component name="ProjectId" id="25U4GVUFLPUu4z8Ag79TwZxnTnK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -45,87 +136,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../lib/java-cup-11a.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.13175231" />
     <property name="project.structure.side.proportion" value="0.36532506" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
-  </component>
-  <component name="RunManager" selected="Application.Semant">
-    <configuration name="Semant (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Semant" />
-      <module name="PA4J" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Semant" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Semant" />
-      <module name="PA4J" />
-      <option name="PROGRAM_PARAMETERS" value="bad.cl" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Semant" />
-      <item itemvalue="Application.Semant (1)" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Semant" />
-        <item itemvalue="Application.Semant (1)" />
-      </list>
-    </recent_temporary>
+    <property name="settings.editor.selected.configurable" value="MTHome" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="39682ea6-edaf-4a30-b67b-339563705b75" name="Changes" comment="" />
-      <created>1640830923281</created>
+      <changelist id="6108f3f0-40b7-483f-9520-d842a1c4d759" name="Changes" comment="" />
+      <created>1645568236628</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1640830923281</updated>
-      <workItem from="1640830930021" duration="1477000" />
-      <workItem from="1640854951267" duration="63000" />
-      <workItem from="1645028721239" duration="3361000" />
-      <workItem from="1645034296066" duration="2432000" />
-      <workItem from="1645203652858" duration="2946000" />
-      <workItem from="1645208155546" duration="7365000" />
-      <workItem from="1645220051068" duration="17117000" />
-      <workItem from="1645382437651" duration="10650000" />
-      <workItem from="1645566314231" duration="46000" />
+      <updated>1645568236628</updated>
+      <workItem from="1645568240331" duration="84000" />
     </task>
-    <task id="LOCAL-00001" summary="Add NOTES.md">
-      <created>1645029605347</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1645029605347</updated>
-    </task>
-    <task id="LOCAL-00002" summary="You got a score of 11 out of 74&#10;&#10;- Detect inheriting undefined classes&#10;- Detect illegal inheritance of basic classes&#10;- Set expressions types for constants&#10;- Detect Basic class redefinition">
-      <created>1645228890906</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1645228890906</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Add semant">
-      <created>1645228916313</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1645228916313</updated>
-    </task>
-    <task id="LOCAL-00004" summary="You got a score of 16 out of 74&#10;&#10;- Gather type information before starting semantic analysis&#10;- Implement type gathering for dispatch, eq, block and constant expressions&#10;- Detect Illegal basic type equality comparison">
-      <created>1645395183931</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1645395183931</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,20 +167,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/../.." />
-    </ignored-roots>
-    <MESSAGE value="Add NOTES.md" />
-    <MESSAGE value="Rename folders" />
-    <MESSAGE value="You got a score of 11 out of 74&#10;&#10;- Detect inheriting undefined classes&#10;- Detect illegal inheritance of basic classes&#10;- Set expressions types for constants&#10;- Detect Basic class redefinition" />
-    <MESSAGE value="Add semant" />
-    <MESSAGE value="You got a score of 16 out of 74&#10;&#10;- Gather type information before starting semantic analysis&#10;- Implement type gathering for dispatch, eq, block and constant expressions&#10;- Detect Illegal basic type equality comparison" />
-    <option name="LAST_COMMIT_MESSAGE" value="You got a score of 16 out of 74&#10;&#10;- Gather type information before starting semantic analysis&#10;- Implement type gathering for dispatch, eq, block and constant expressions&#10;- Detect Illegal basic type equality comparison" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
