@@ -24,6 +24,6 @@
 > 
 >         _int
 >           0
->         : _no_type
+>         : Int
 >       : Int
 >     )

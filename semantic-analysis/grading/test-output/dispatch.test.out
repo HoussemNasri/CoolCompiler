@@ -63,7 +63,7 @@ _program
 
         _new
           B
-        : _no_type
+        : B
 
         _dispatch
 
@@ -75,7 +75,7 @@ _program
 
           _int
             4
-          : _no_type
+          : Int
 
           _object
             b
@@ -89,6 +89,6 @@ _program
             b
           : _no_type
           )
-        : _no_type
+        : A
       : A
     )

@@ -88,10 +88,10 @@ _program
                 x
               : _no_type
               )
-            : _no_type
+            : A
           : _no_type
           )
-        : _no_type
+        : String
 
         _assign
           x

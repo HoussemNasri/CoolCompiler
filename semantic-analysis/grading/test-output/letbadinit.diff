@@ -21,11 +21,11 @@
 > 
 >         _new
 >           A
->         : _no_type
+>         : A
 > 
 >         _int
 >           10
->         : _no_type
+>         : Int
 >       : Object
 >     )
 > 

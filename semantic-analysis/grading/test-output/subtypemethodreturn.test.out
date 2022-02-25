@@ -36,8 +36,8 @@ _program
             foo
             (
             )
-          : _no_type
-        : _no_type
+          : A
+        : A
       : A
     )
 

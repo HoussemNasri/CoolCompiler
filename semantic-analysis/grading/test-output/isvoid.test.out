@@ -1,2 +1,44 @@
-filename:line
-Compilation halted due to static semantic errors.
+
+_program
+
+  _class
+    Main
+    IO
+    filename
+    (
+
+    _attr
+      x
+      Bool
+
+      _no_expr
+      : _no_type
+
+    _method
+      main
+      Object
+
+      _block
+
+        _isvoid
+
+          _bool
+            1
+          : _no_type
+        : _no_type
+
+        _isvoid
+
+          _bool
+            0
+          : _no_type
+        : _no_type
+
+        _isvoid
+
+          _object
+            x
+          : _no_type
+        : _no_type
+      : Object
+    )

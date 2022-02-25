@@ -1,32 +1,10 @@
-1,28c1,2
-< 
-< _program
-< 
-<   _class
-<     Main
-<     IO
-<     filename
-<     (
-< 
-<     _attr
-<       x
-<       Main
-< 
-<       _object
-<         self
+16c16
 <       : SELF_TYPE
-< 
-<     _method
-<       main
-<       Object
-< 
-<       _block
-< 
-<         _object
-<           self
+---
+>       : _no_type
+26,27c26,27
 <         : SELF_TYPE
 <       : SELF_TYPE
-<     )
 ---
-> filename:line
-> Compilation halted due to static semantic errors.
+>         : _no_type
+>       : Object

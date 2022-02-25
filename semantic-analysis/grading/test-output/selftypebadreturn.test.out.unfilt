@@ -32,5 +32,5 @@ _program
       #4
       _new
         A
-      : SELF_TYPE
+      : A
     )

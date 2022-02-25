@@ -1,90 +1,30 @@
-1,86c1,2
-< 
-< _program
-< 
-<   _class
-<     Main
-<     IO
-<     filename
-<     (
-< 
-<     _attr
-<       x
-<       Int
-< 
-<       _no_expr
-<       : _no_type
-< 
-<     _attr
-<       y
-<       String
-< 
-<       _no_expr
-<       : _no_type
-< 
-<     _method
-<       main
-<       Object
-< 
-<       _block
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+34c34
 <           : SELF_TYPE
-<           out_string
-<           (
-< 
-<           _string
-<             "test"
-<           : String
-<           )
-<         : SELF_TYPE
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+---
+>           : _no_type
+48c48
 <           : SELF_TYPE
-<           out_int
-<           (
-< 
-<           _int
-<             5
-<           : Int
-<           )
-<         : SELF_TYPE
-< 
-<         _assign
-<           y
-< 
-<           _dispatch
-< 
-<             _object
-<               self
+---
+>           : _no_type
+65c65
 <             : SELF_TYPE
-<             in_string
-<             (
-<             )
+---
+>             : _no_type
+69,70c69,70
 <           : String
 <         : String
-< 
-<         _assign
-<           x
-< 
-<           _dispatch
-< 
-<             _object
-<               self
+---
+>           : _no_type
+>         : _no_type
+79c79
 <             : SELF_TYPE
-<             in_int
-<             (
-<             )
+---
+>             : _no_type
+83,85c83,85
 <           : Int
 <         : Int
 <       : Int
-<     )
 ---
-> filename:line
-> Compilation halted due to static semantic errors.
+>           : _no_type
+>         : _no_type
+>       : Object

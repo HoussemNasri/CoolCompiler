@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * This class may be used to contain the semantic information such as
@@ -10,10 +11,11 @@ import java.util.List;
  * here to provide a container for the supplied methods.
  */
 class ClassTable extends AbstractTable {
-    private int semantErrors;
-    private PrintStream errorStream;
+    private int semantErrors = 0;
+    private PrintStream errorStream = System.err;
     private List<class_c> basicClasses = new ArrayList<>();
     private List<class_c> classes = new ArrayList<>();
+    private List<class_c> userDefinedClasses = new ArrayList<>();
 
     /**
      * Creates data structures representing basic Cool classes (Object,
@@ -182,15 +184,42 @@ class ClassTable extends AbstractTable {
     }
 
     public ClassTable(Classes classes) {
-        semantErrors = 0;
-        errorStream = System.err;
-        /* fill this in */
         class_c mainClass = checkForMainClass(classes);
         checkForMainMethod(mainClass);
         installBasicClasses();
         checkForBasicClassRedefinition(classes);
-        installOtherClasses(classes);
-        checkForDuplicates();
+        installUserDefinedClasses(classes);
+        checkForInheritingMissingClass();
+        checkForIllegalInheritanceFromBasicClass();
+        checkForUserDefinedClassRedefinition();
+    }
+
+    private void checkForIllegalInheritanceFromBasicClass() {
+        for (class_c classC : userDefinedClasses) {
+            if (!canInheritFrom(classC.parent)) {
+                fatalSemantError(classC, "Class %s cannot inherit class %s%n", classC.name.str, classC.parent.str);
+            }
+        }
+    }
+
+    private void checkForInheritingMissingClass() {
+        for (class_c classC : userDefinedClasses) {
+            if (!exists(classC.parent)) {
+                fatalSemantError(classC, "Class %s inherits from an undefined class %s%n", classC.name.str, classC.parent.str);
+            }
+        }
+    }
+
+    private void fatalSemantError(class_c classC, String format, Object... args) {
+        semantError(classC).printf(format, args);
+        System.err.println("Compilation halted due to static semantic errors.");
+        System.exit(1);
+    }
+
+    private void fatalSemantError(String message) {
+        semantError(message);
+        System.err.println("Compilation halted due to static semantic errors.");
+        System.exit(1);
     }
 
     private void checkForBasicClassRedefinition(Classes classes) {
@@ -199,14 +228,17 @@ class ClassTable extends AbstractTable {
             class_c class_c = ((class_c) elements.nextElement());
             for (class_c basic : basicClasses) {
                 if (basic.name.str.equals(class_c.getName().str)) {
-                    semantError(class_c).printf("Redefinition of basic class %s.%n", basic.name.str);
+                    fatalSemantError(class_c, "Redefinition of basic class %s.%n", basic.name.str);
+                    System.exit(1);
                 }
             }
         }
     }
 
-    private void checkForDuplicates() {
+    private void checkForUserDefinedClassRedefinition() {
         // TODO('Handle class duplication')
+        //redefinedclass.test:9: Class A was previously defined.
+        //Compilation halted due to static semantic errors.
     }
 
     private class_c checkForMainClass(Classes classes) {
@@ -217,7 +249,9 @@ class ClassTable extends AbstractTable {
                 return classC;
             }
         }
-        semantError("Class Main is not defined.");
+
+        fatalSemantError("Class Main is not defined.");
+
         return null;
     }
 
@@ -235,13 +269,16 @@ class ClassTable extends AbstractTable {
                 }
             }
         }
-        semantError("Main method is not defined.");
+        fatalSemantError("Main method is not defined.");
+        System.exit(1);
     }
 
-    public void installOtherClasses(Classes classes) {
+    public void installUserDefinedClasses(Classes classes) {
         Enumeration elements = classes.getElements();
         while (elements.hasMoreElements()) {
-            addClass((class_c) elements.nextElement());
+            class_c classC = (class_c) elements.nextElement();
+            addClass(classC);
+            userDefinedClasses.add(classC);
         }
     }
 
@@ -323,23 +360,62 @@ class ClassTable extends AbstractTable {
         return false;
     }
 
-    public Features getClassFeatures(AbstractSymbol classType) {
+    /**
+     * @return the inherited and non-inherited features of {@code classType}.
+     */
+    public Features getAllClassFeatures(AbstractSymbol classType) {
         for (class_c classC : classes) {
             if (classC.name.equals(classType)) {
-                return classC.features;
+                Features allFeatures = new Features(0);
+                for (Enumeration e = classC.features.getElements(); e.hasMoreElements(); ) {
+                    allFeatures.addElement((TreeNode) e.nextElement());
+                }
+                for (Enumeration e = classC.getParentFeatures().getElements(); e.hasMoreElements(); ) {
+                    allFeatures.addElement((TreeNode) e.nextElement());
+                }
+                return allFeatures;
             }
         }
         return null;
-        //throw new IllegalStateException("Attempt to retrieve a missing class features: " + classType);
     }
 
-    public boolean canInherit(AbstractSymbol symbol) {
-        return !(symbol.str.equals("Bool") || symbol.str.equals("String") || symbol.str.equals("IO") || symbol.str.equals("Int"));
+    public boolean canInheritFrom(AbstractSymbol symbol) {
+        return !(symbol.str.equals("Bool") || symbol.str.equals("String") || symbol.str.equals("Int"));
+    }
+
+    public boolean canRedefine(AbstractSymbol symbol) {
+        return !(symbol.str.equals("Bool") || symbol.str.equals("String") || symbol.str.equals("Int") || symbol.str.equals("IO"));
     }
 
     @Override
     protected AbstractSymbol getNewSymbol(String s, int len, int index) {
         return new IdSymbol(s, len, index);
+    }
+
+    private class_c currentClass = null;
+
+    /**
+     * The dispatch type can be omitted if so the current class it is invoked in will be used.
+     */
+    public void enterClass(class_c classC) {
+        this.currentClass = classC;
+    }
+
+    public class_c getCurrentClass() {
+        return currentClass;
+    }
+
+    public class_c lookupClass(AbstractSymbol lookupName) {
+        for (class_c classC : classes) {
+            if (classC.name.equals(lookupName)) {
+                return classC;
+            }
+        }
+        return null;
+    }
+
+    public Classes getUserDefinedAndBasicClasses() {
+        return new Classes(0, new Vector<>(classes));
     }
 }
 			  

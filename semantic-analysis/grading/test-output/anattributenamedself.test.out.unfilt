@@ -28,7 +28,7 @@ _program
       #4
       _new
         A
-      : _no_type
+      : A
     #6
     _method
       foo

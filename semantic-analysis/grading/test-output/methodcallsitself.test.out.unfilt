@@ -68,9 +68,9 @@ _program
             f
             (
             )
-          : _no_type
+          : Int
           )
-        : _no_type
+        : Int
         )
       : Int
     #7
@@ -110,7 +110,7 @@ _program
             0
           : Int
           )
-        : _no_type
+        : Int
         #6
         _dispatch
           #6
@@ -128,7 +128,7 @@ _program
             f
             (
             )
-          : _no_type
+          : Int
           #6
           _dispatch
             #6
@@ -138,9 +138,9 @@ _program
             f
             (
             )
-          : _no_type
+          : Int
           )
-        : _no_type
+        : Int
         )
       : Int
     )

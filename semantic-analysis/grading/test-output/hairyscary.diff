@@ -1,451 +1,204 @@
-1,447c1,2
-< 
-< _program
-< 
-<   _class
-<     Foo
-<     Bazz
-<     filename
-<     (
-< 
-<     _attr
-<       a
-<       Razz
-< 
-<       _typcase
-< 
-<         _object
-<           self
+18c18
 <         : SELF_TYPE
-< 
-<         _branch
-<           n
-<           Razz
-< 
-<           _new
-<             Bar
-<           : Bar
-< 
-<         _branch
-<           n
-<           Foo
-< 
-<           _new
-<             Razz
-<           : Razz
-< 
-<         _branch
-<           n
-<           Bar
-< 
-<           _object
-<             n
-<           : Bar
-<       : Razz
-< 
-<     _attr
-<       b
-<       Int
-< 
-<       _plus
-< 
-<         _plus
-< 
-<           _plus
-< 
-<             _dispatch
-< 
-<               _object
-<                 a
-<               : Razz
-<               doh
-<               (
-<               )
-<             : Int
-< 
-<             _dispatch
-< 
-<               _object
-<                 g
-<               : Foo
-<               doh
-<               (
-<               )
-<             : Int
-<           : Int
-< 
-<           _dispatch
-< 
-<             _object
-<               self
-<             : SELF_TYPE
-<             doh
-<             (
-<             )
-<           : Int
-<         : Int
-< 
-<         _dispatch
-< 
-<           _object
-<             self
-<           : SELF_TYPE
-<           printh
-<           (
-<           )
-<         : Int
-<       : Int
-< 
-<     _method
-<       doh
-<       Int
-< 
-<       _let
-<         i
-<         Int
-< 
-<         _object
-<           h
-<         : Int
-< 
-<         _block
-< 
-<           _assign
-<             h
-< 
-<             _plus
-< 
-<               _object
-<                 h
-<               : Int
-< 
-<               _int
-<                 2
-<               : Int
-<             : Int
-<           : Int
-< 
-<           _object
-<             i
-<           : Int
-<         : Int
-<       : Int
-<     )
-< 
-<   _class
-<     Bar
-<     Razz
-<     filename
-<     (
-< 
-<     _attr
-<       c
-<       Int
-< 
-<       _dispatch
-< 
-<         _object
-<           self
-<         : SELF_TYPE
-<         doh
-<         (
-<         )
-<       : Int
-< 
-<     _attr
-<       d
-<       Object
-< 
-<       _dispatch
-< 
-<         _object
-<           self
-<         : SELF_TYPE
-<         printh
-<         (
-<         )
-<       : Int
-<     )
-< 
-<   _class
-<     Razz
-<     Foo
-<     filename
-<     (
-< 
-<     _attr
-<       e
-<       Bar
-< 
-<       _typcase
-< 
-<         _object
-<           self
-<         : SELF_TYPE
-< 
-<         _branch
-<           n
-<           Razz
-< 
-<           _new
-<             Bar
-<           : Bar
-< 
-<         _branch
-<           n
-<           Bar
-< 
-<           _object
-<             n
-<           : Bar
-<       : Bar
-< 
-<     _attr
-<       f
-<       Int
-< 
-<       _plus
-< 
-<         _plus
-< 
-<           _plus
-< 
-<             _plus
-< 
-<               _static_dispatch
-< 
-<                 _object
-<                   a
-<                 : Razz
-<                 Bazz
-<                 doh
-<                 (
-<                 )
-<               : Int
-< 
-<               _dispatch
-< 
-<                 _object
-<                   g
-<                 : Foo
-<                 doh
-<                 (
-<                 )
-<               : Int
-<             : Int
-< 
-<             _dispatch
-< 
-<               _object
-<                 e
-<               : Bar
-<               doh
-<               (
-<               )
-<             : Int
-<           : Int
-< 
-<           _dispatch
-< 
-<             _object
-<               self
-<             : SELF_TYPE
-<             doh
-<             (
-<             )
-<           : Int
-<         : Int
-< 
-<         _dispatch
-< 
-<           _object
-<             self
-<           : SELF_TYPE
-<           printh
-<           (
-<           )
-<         : Int
-<       : Int
-<     )
-< 
-<   _class
-<     Bazz
-<     IO
-<     filename
-<     (
-< 
-<     _attr
-<       h
-<       Int
-< 
-<       _int
-<         1
-<       : Int
-< 
-<     _attr
-<       g
-<       Foo
-< 
-<       _typcase
-< 
-<         _object
-<           self
-<         : SELF_TYPE
-< 
-<         _branch
-<           n
-<           Bazz
-< 
-<           _new
-<             Foo
-<           : Foo
-< 
-<         _branch
-<           n
-<           Razz
-< 
-<           _new
-<             Bar
-<           : Bar
-< 
-<         _branch
-<           n
-<           Foo
-< 
-<           _new
-<             Razz
-<           : Razz
-< 
-<         _branch
-<           n
-<           Bar
-< 
-<           _object
-<             n
-<           : Bar
-<       : Foo
-< 
-<     _attr
-<       i
-<       Object
-< 
-<       _dispatch
-< 
-<         _object
-<           self
-<         : SELF_TYPE
-<         printh
-<         (
-<         )
-<       : Int
-< 
-<     _method
-<       printh
-<       Int
-< 
-<       _block
-< 
-<         _dispatch
-< 
-<           _object
-<             self
-<           : SELF_TYPE
-<           out_int
-<           (
-< 
-<           _object
-<             h
-<           : Int
-<           )
-<         : SELF_TYPE
-< 
-<         _int
-<           0
-<         : Int
-<       : Int
-< 
-<     _method
-<       doh
-<       Int
-< 
-<       _let
-<         i
-<         Int
-< 
-<         _object
-<           h
-<         : Int
-< 
-<         _block
-< 
-<           _assign
-<             h
-< 
-<             _plus
-< 
-<               _object
-<                 h
-<               : Int
-< 
-<               _int
-<                 1
-<               : Int
-<             : Int
-<           : Int
-< 
-<           _object
-<             i
-<           : Int
-<         : Int
-<       : Int
-<     )
-< 
-<   _class
-<     Main
-<     Object
-<     filename
-<     (
-< 
-<     _attr
-<       a
-<       Bazz
-< 
-<       _new
-<         Bazz
-<       : Bazz
-< 
-<     _attr
-<       b
-<       Foo
-< 
-<       _new
-<         Foo
-<       : Foo
-< 
-<     _attr
-<       c
-<       Razz
-< 
-<       _new
-<         Razz
-<       : Razz
-< 
-<     _attr
-<       d
-<       Bar
-< 
-<       _new
-<         Bar
-<       : Bar
-< 
-<     _method
-<       main
-<       String
-< 
-<       _string
-<         "do nothing"
-<       : String
-<     )
 ---
-> filename:line
-> Compilation halted due to static semantic errors.
+>         : _no_type
+26c26
+<           : Bar
+---
+>           : _no_type
+34c34
+<           : Razz
+---
+>           : _no_type
+42,43c42,43
+<           : Bar
+<       : Razz
+---
+>           : _no_type
+>       : _no_type
+59c59
+<               : Razz
+---
+>               : _no_type
+63c63
+<             : Int
+---
+>             : _no_type
+69c69
+<               : Foo
+---
+>               : _no_type
+73,74c73,74
+<             : Int
+<           : Int
+---
+>             : _no_type
+>           : _no_type
+80c80
+<             : SELF_TYPE
+---
+>             : _no_type
+84,85c84,85
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type
+91c91
+<           : SELF_TYPE
+---
+>           : _no_type
+95,96c95,96
+<         : Int
+<       : Int
+---
+>         : _no_type
+>       : _no_type
+108c108
+<         : Int
+---
+>         : _no_type
+119c119
+<               : Int
+---
+>               : _no_type
+123,125c123,125
+<               : Int
+<             : Int
+<           : Int
+---
+>               : _no_type
+>             : _no_type
+>           : _no_type
+129,130c129,130
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type
+148c148
+<         : SELF_TYPE
+---
+>         : _no_type
+162c162
+<         : SELF_TYPE
+---
+>         : _no_type
+183c183
+<         : SELF_TYPE
+---
+>         : _no_type
+191c191
+<           : Bar
+---
+>           : _no_type
+199,200c199,200
+<           : Bar
+<       : Bar
+---
+>           : _no_type
+>       : _no_type
+218c218
+<                 : Razz
+---
+>                 : _no_type
+223c223
+<               : Int
+---
+>               : _no_type
+229c229
+<                 : Foo
+---
+>                 : _no_type
+233,234c233,234
+<               : Int
+<             : Int
+---
+>               : _no_type
+>             : _no_type
+240c240
+<               : Bar
+---
+>               : _no_type
+244,245c244,245
+<             : Int
+<           : Int
+---
+>             : _no_type
+>           : _no_type
+251c251
+<             : SELF_TYPE
+---
+>             : _no_type
+255,256c255,256
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type
+262c262
+<           : SELF_TYPE
+---
+>           : _no_type
+266,267c266,267
+<         : Int
+<       : Int
+---
+>         : _no_type
+>       : _no_type
+292c292
+<         : SELF_TYPE
+---
+>         : _no_type
+300c300
+<           : Foo
+---
+>           : _no_type
+308c308
+<           : Bar
+---
+>           : _no_type
+316c316
+<           : Razz
+---
+>           : _no_type
+324,325c324,325
+<           : Bar
+<       : Foo
+---
+>           : _no_type
+>       : _no_type
+335c335
+<         : SELF_TYPE
+---
+>         : _no_type
+351c351
+<           : SELF_TYPE
+---
+>           : _no_type
+357c357
+<           : Int
+---
+>           : _no_type
+376c376
+<         : Int
+---
+>         : _no_type
+387c387
+<               : Int
+---
+>               : _no_type
+391,393c391,393
+<               : Int
+<             : Int
+<           : Int
+---
+>               : _no_type
+>             : _no_type
+>           : _no_type
+397,398c397,398
+<           : Int
+<         : Int
+---
+>           : _no_type
+>         : _no_type

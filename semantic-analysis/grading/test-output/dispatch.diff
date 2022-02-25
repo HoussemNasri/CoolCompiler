@@ -2,16 +2,8 @@
 <       : SELF_TYPE
 ---
 >       : A
-66c66
-<         : B
----
->         : _no_type
 72c72
 <           : SELF_TYPE
----
->           : _no_type
-78c78
-<           : Int
 ---
 >           : _no_type
 82c82
@@ -26,7 +18,3 @@
 <           : B
 ---
 >           : _no_type
-92c92
-<         : A
----
->         : _no_type

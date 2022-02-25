@@ -1,610 +1,378 @@
-1,606c1,2
-< 
-< _program
-< 
-<   _class
-<     CellularAutomaton
-<     IO
-<     filename
-<     (
-< 
-<     _attr
-<       population_map
-<       String
-< 
-<       _no_expr
-<       : _no_type
-< 
-<     _method
-<       init
-< 
-<       _formal
-<         map
-<         String
-<       SELF_TYPE
-< 
-<       _block
-< 
-<         _assign
-<           population_map
-< 
-<           _object
-<             map
+32,33c32,33
 <           : String
 <         : String
-< 
-<         _object
-<           self
+---
+>           : _no_type
+>         : _no_type
+37c37
 <         : SELF_TYPE
-<       : SELF_TYPE
-< 
-<     _method
-<       print
-<       SELF_TYPE
-< 
-<       _block
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+---
+>         : _no_type
+50c50
 <           : SELF_TYPE
-<           out_string
-<           (
-< 
-<           _dispatch
-< 
-<             _object
-<               population_map
+---
+>           : _no_type
+58c58
 <             : String
-<             concat
-<             (
-< 
-<             _string
-<               "\n"
-<             : String
-<             )
+---
+>             : _no_type
+66c66
 <           : String
-<           )
+---
+>           : _no_type
+72c72
 <         : SELF_TYPE
-< 
-<         _object
-<           self
-<         : SELF_TYPE
-<       : SELF_TYPE
-< 
-<     _method
-<       num_cells
-<       Int
-< 
-<       _dispatch
-< 
-<         _object
-<           population_map
+---
+>         : _no_type
+83c83
 <         : String
-<         length
-<         (
-<         )
-<       : Int
-< 
-<     _method
-<       cell
-< 
-<       _formal
-<         position
-<         Int
-<       String
-< 
-<       _dispatch
-< 
-<         _object
-<           population_map
+---
+>         : _no_type
+101c101
 <         : String
-<         substr
-<         (
-< 
-<         _object
-<           position
+---
+>         : _no_type
+107c107
 <         : Int
-< 
-<         _int
-<           1
-<         : Int
-<         )
-<       : String
-< 
-<     _method
-<       cell_left_neighbor
-< 
-<       _formal
-<         position
-<         Int
-<       String
-< 
-<       _cond
-< 
-<         _eq
-< 
-<           _object
-<             position
+---
+>         : _no_type
+129c129
 <           : Int
-< 
-<           _int
-<             0
+---
+>           : _no_type
+133,134c133,134
 <           : Int
 <         : Bool
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+---
+>           : _no_type
+>         : _no_type
+140c140
 <           : SELF_TYPE
-<           cell
-<           (
-< 
-<           _sub
-< 
-<             _dispatch
-< 
-<               _object
-<                 self
+---
+>           : _no_type
+150c150
 <               : SELF_TYPE
-<               num_cells
-<               (
-<               )
+---
+>               : _no_type
+154c154
 <             : Int
-< 
-<             _int
-<               1
+---
+>             : _no_type
+158,159c158,159
 <             : Int
 <           : Int
-<           )
+---
+>             : _no_type
+>           : _no_type
+161c161
 <         : String
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+---
+>         : _no_type
+167c167
 <           : SELF_TYPE
-<           cell
-<           (
-< 
-<           _sub
-< 
-<             _object
-<               position
+---
+>           : _no_type
+175c175
 <             : Int
-< 
-<             _int
-<               1
+---
+>             : _no_type
+179,180c179,180
 <             : Int
 <           : Int
-<           )
+---
+>             : _no_type
+>           : _no_type
+182c182
 <         : String
-<       : String
-< 
-<     _method
-<       cell_right_neighbor
-< 
-<       _formal
-<         position
-<         Int
-<       String
-< 
-<       _cond
-< 
-<         _eq
-< 
-<           _object
-<             position
+---
+>         : _no_type
+199c199
 <           : Int
-< 
-<           _sub
-< 
-<             _dispatch
-< 
-<               _object
-<                 self
+---
+>           : _no_type
+207c207
 <               : SELF_TYPE
-<               num_cells
-<               (
-<               )
+---
+>               : _no_type
+211c211
 <             : Int
-< 
-<             _int
-<               1
+---
+>             : _no_type
+215,217c215,217
 <             : Int
 <           : Int
 <         : Bool
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+---
+>             : _no_type
+>           : _no_type
+>         : _no_type
+223c223
 <           : SELF_TYPE
-<           cell
-<           (
-< 
-<           _int
-<             0
+---
+>           : _no_type
+229c229
 <           : Int
-<           )
+---
+>           : _no_type
+231c231
 <         : String
-< 
-<         _dispatch
-< 
-<           _object
-<             self
+---
+>         : _no_type
+237c237
 <           : SELF_TYPE
-<           cell
-<           (
-< 
-<           _plus
-< 
-<             _object
-<               position
+---
+>           : _no_type
+245c245
 <             : Int
-< 
-<             _int
-<               1
+---
+>             : _no_type
+249,250c249,250
 <             : Int
 <           : Int
-<           )
+---
+>             : _no_type
+>           : _no_type
+252c252
 <         : String
-<       : String
-< 
-<     _method
-<       cell_at_next_evolution
-< 
-<       _formal
-<         position
-<         Int
-<       String
-< 
-<       _cond
-< 
-<         _eq
-< 
-<           _plus
-< 
-<             _plus
-< 
-<               _cond
-< 
-<                 _eq
-< 
-<                   _dispatch
-< 
-<                     _object
-<                       self
+---
+>         : _no_type
+279c279
 <                     : SELF_TYPE
-<                     cell
-<                     (
-< 
-<                     _object
-<                       position
+---
+>                     : _no_type
+285c285
 <                     : Int
-<                     )
+---
+>                     : _no_type
+287c287
 <                   : String
-< 
-<                   _string
-<                     "X"
+---
+>                   : _no_type
+291,292c291,292
 <                   : String
 <                 : Bool
-< 
-<                 _int
-<                   1
+---
+>                   : _no_type
+>                 : _no_type
+296c296
 <                 : Int
-< 
-<                 _int
-<                   0
+---
+>                 : _no_type
+300,301c300,301
 <                 : Int
 <               : Int
-< 
-<               _cond
-< 
-<                 _eq
-< 
-<                   _dispatch
-< 
-<                     _object
-<                       self
+---
+>                 : _no_type
+>               : _no_type
+311c311
 <                     : SELF_TYPE
-<                     cell_left_neighbor
-<                     (
-< 
-<                     _object
-<                       position
+---
+>                     : _no_type
+317c317
 <                     : Int
-<                     )
+---
+>                     : _no_type
+319c319
 <                   : String
-< 
-<                   _string
-<                     "X"
+---
+>                   : _no_type
+323,324c323,324
 <                   : String
 <                 : Bool
-< 
-<                 _int
-<                   1
+---
+>                   : _no_type
+>                 : _no_type
+328c328
 <                 : Int
-< 
-<                 _int
-<                   0
+---
+>                 : _no_type
+332,334c332,334
 <                 : Int
 <               : Int
 <             : Int
-< 
-<             _cond
-< 
-<               _eq
-< 
-<                 _dispatch
-< 
-<                   _object
-<                     self
+---
+>                 : _no_type
+>               : _no_type
+>             : _no_type
+344c344
 <                   : SELF_TYPE
-<                   cell_right_neighbor
-<                   (
-< 
-<                   _object
-<                     position
+---
+>                   : _no_type
+350c350
 <                   : Int
-<                   )
+---
+>                   : _no_type
+352c352
 <                 : String
-< 
-<                 _string
-<                   "X"
+---
+>                 : _no_type
+356,357c356,357
 <                 : String
 <               : Bool
-< 
-<               _int
-<                 1
+---
+>                 : _no_type
+>               : _no_type
+361c361
 <               : Int
-< 
-<               _int
-<                 0
+---
+>               : _no_type
+365,367c365,367
 <               : Int
 <             : Int
 <           : Int
-< 
-<           _int
-<             1
+---
+>               : _no_type
+>             : _no_type
+>           : _no_type
+371,372c371,372
 <           : Int
 <         : Bool
-< 
-<         _string
-<           "X"
+---
+>           : _no_type
+>         : _no_type
+376c376
 <         : String
-< 
-<         _string
-<           "."
+---
+>         : _no_type
+380c380
 <         : String
-<       : String
-< 
-<     _method
-<       evolve
-<       SELF_TYPE
-< 
-<       _let
-<         position
-<         Int
-< 
-<         _no_expr
-<         : _no_type
-< 
-<         _let
-<           num
-<           Int
-< 
-<           _dispatch
-< 
-<             _object
-<               self
+---
+>         : _no_type
+402c402
 <             : SELF_TYPE
-<             num_cells
-<             (
-<             )
-<           : Int
-< 
-<           _let
-<             temp
-<             String
-< 
-<             _no_expr
-<             : _no_type
-< 
-<             _block
-< 
-<               _loop
-< 
-<                 _lt
-< 
-<                   _object
-<                     position
+---
+>             : _no_type
+423c423
 <                   : Int
-< 
-<                   _object
-<                     num
+---
+>                   : _no_type
+427,428c427,428
 <                   : Int
 <                 : Bool
-< 
-<                 _block
-< 
-<                   _assign
-<                     temp
-< 
-<                     _dispatch
-< 
-<                       _object
-<                         temp
+---
+>                   : _no_type
+>                 : _no_type
+439c439
 <                       : String
-<                       concat
-<                       (
-< 
-<                       _dispatch
-< 
-<                         _object
-<                           self
+---
+>                       : _no_type
+447c447
 <                         : SELF_TYPE
-<                         cell_at_next_evolution
-<                         (
-< 
-<                         _object
-<                           position
+---
+>                         : _no_type
+453c453
 <                         : Int
-<                         )
+---
+>                         : _no_type
+455c455
 <                       : String
-<                       )
+---
+>                       : _no_type
+457,458c457,458
 <                     : String
 <                   : String
-< 
-<                   _assign
-<                     position
-< 
-<                     _plus
-< 
-<                       _object
-<                         position
+---
+>                     : _no_type
+>                   : _no_type
+467c467
 <                       : Int
-< 
-<                       _int
-<                         1
+---
+>                       : _no_type
+471,475c471,475
 <                       : Int
 <                     : Int
 <                   : Int
 <                 : Int
 <               : Object
-< 
-<               _assign
-<                 population_map
-< 
-<                 _object
-<                   temp
+---
+>                       : _no_type
+>                     : _no_type
+>                   : _no_type
+>                 : _no_type
+>               : _no_type
+482,483c482,483
 <                 : String
 <               : String
-< 
-<               _object
-<                 self
+---
+>                 : _no_type
+>               : _no_type
+487,490c487,490
 <               : SELF_TYPE
 <             : SELF_TYPE
 <           : SELF_TYPE
 <         : SELF_TYPE
-<       : SELF_TYPE
-<     )
-< 
-<   _class
-<     Main
-<     Object
-<     filename
-<     (
-< 
-<     _attr
-<       cells
-<       CellularAutomaton
-< 
-<       _no_expr
-<       : _no_type
-< 
-<     _method
-<       main
-<       SELF_TYPE
-< 
-<       _block
-< 
-<         _assign
-<           cells
-< 
-<           _dispatch
-< 
-<             _new
-<               CellularAutomaton
+---
+>               : _no_type
+>             : _no_type
+>           : _no_type
+>         : _no_type
+520c520
 <             : CellularAutomaton
-<             init
-<             (
-< 
-<             _string
-<               "         X         "
+---
+>             : _no_type
+526c526
 <             : String
-<             )
+---
+>             : _no_type
+528,529c528,529
 <           : CellularAutomaton
 <         : CellularAutomaton
-< 
-<         _dispatch
-< 
-<           _object
-<             cells
+---
+>           : _no_type
+>         : _no_type
+535c535
 <           : CellularAutomaton
-<           print
-<           (
-<           )
+---
+>           : _no_type
+539c539
 <         : CellularAutomaton
-< 
-<         _let
-<           countdown
-<           Int
-< 
-<           _int
-<             20
-<           : Int
-< 
-<           _loop
-< 
-<             _lt
-< 
-<               _int
-<                 0
+---
+>         : _no_type
+555c555
 <               : Int
-< 
-<               _object
-<                 countdown
+---
+>               : _no_type
+559,560c559,560
 <               : Int
 <             : Bool
-< 
-<             _block
-< 
-<               _dispatch
-< 
-<                 _object
-<                   cells
+---
+>               : _no_type
+>             : _no_type
+568c568
 <                 : CellularAutomaton
-<                 evolve
-<                 (
-<                 )
+---
+>                 : _no_type
+572c572
 <               : CellularAutomaton
-< 
-<               _dispatch
-< 
-<                 _object
-<                   cells
+---
+>               : _no_type
+578c578
 <                 : CellularAutomaton
-<                 print
-<                 (
-<                 )
+---
+>                 : _no_type
+582c582
 <               : CellularAutomaton
-< 
-<               _assign
-<                 countdown
-< 
-<                 _sub
-< 
-<                   _object
-<                     countdown
+---
+>               : _no_type
+591c591
 <                   : Int
-< 
-<                   _int
-<                     1
+---
+>                   : _no_type
+595,600c595,600
 <                   : Int
 <                 : Int
 <               : Int
 <             : Int
 <           : Object
 <         : Object
-< 
-<         _object
-<           self
-<         : SELF_TYPE
-<       : SELF_TYPE
-<     )
 ---
-> filename:line
-> Compilation halted due to static semantic errors.
+>                   : _no_type
+>                 : _no_type
+>               : _no_type
+>             : _no_type
+>           : _no_type
+>         : _no_type
+604c604
+<         : SELF_TYPE
+---
+>         : _no_type

@@ -8,12 +8,6 @@
 <             : A
 ---
 >             : _no_type
-39,40c39,40
-<           : A
-<         : A
----
->           : _no_type
->         : _no_type
 56c56
 <       : SELF_TYPE
 ---

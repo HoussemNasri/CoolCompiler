@@ -50,7 +50,7 @@ _program
             0
           : Int
           )
-        : _no_type
+        : Object
         )
       : Object
     )

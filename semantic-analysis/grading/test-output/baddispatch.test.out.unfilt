@@ -54,7 +54,7 @@ _program
         #12
         _new
           Cow
-        : _no_type
+        : Cow
         #13
         _dispatch
           #12

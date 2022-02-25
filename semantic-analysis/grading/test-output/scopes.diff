@@ -14,16 +14,10 @@
 <               : Bool
 ---
 >               : _no_type
-91,92c91,92
-<             : A
+92c92
 <           : A
 ---
->             : _no_type
 >           : _no_type
-94c94
-<         : String
----
->         : _no_type
 101,103c101,103
 <           : String
 <         : String

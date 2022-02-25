@@ -1,2 +1,86 @@
-./io.test:10: Class Main cannot inherit class IO
-Compilation halted due to static semantic errors.
+#10
+_program
+  #10
+  _class
+    Main
+    IO
+    "./io.test"
+    (
+    #3
+    _attr
+      x
+      Int
+      #3
+      _no_expr
+      : _no_type
+    #4
+    _attr
+      y
+      String
+      #4
+      _no_expr
+      : _no_type
+    #10
+    _method
+      main
+      Object
+      #9
+      _block
+        #5
+        _dispatch
+          #5
+          _object
+            self
+          : _no_type
+          out_string
+          (
+          #5
+          _string
+            "test"
+          : String
+          )
+        : SELF_TYPE
+        #6
+        _dispatch
+          #6
+          _object
+            self
+          : _no_type
+          out_int
+          (
+          #6
+          _int
+            5
+          : Int
+          )
+        : SELF_TYPE
+        #7
+        _assign
+          y
+          #7
+          _dispatch
+            #7
+            _object
+              self
+            : _no_type
+            in_string
+            (
+            )
+          : _no_type
+        : _no_type
+        #8
+        _assign
+          x
+          #8
+          _dispatch
+            #8
+            _object
+              self
+            : _no_type
+            in_int
+            (
+            )
+          : _no_type
+        : _no_type
+      : Object
+    )

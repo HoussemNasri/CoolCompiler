@@ -58,7 +58,7 @@
 > 
 >         _new
 >           Cow
->         : _no_type
+>         : Cow
 > 
 >         _dispatch
 > 

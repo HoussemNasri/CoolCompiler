@@ -13,7 +13,7 @@ _program
 
       _new
         B
-      : _no_type
+      : B
 
     _method
       main

@@ -21,9 +21,9 @@ _program
         #3
         _new
           SELF_TYPE
-        : _no_type
+        : SELF_TYPE
         )
-      : _no_type
+      : Int
     #7
     _method
       foo

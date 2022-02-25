@@ -30,7 +30,7 @@ _program
         #5
         _new
           B
-        : _no_type
+        : B
         foo
         (
         #5
@@ -42,7 +42,7 @@ _program
           29
         : Int
         )
-      : Object
+      : String
     )
   #11
   _class

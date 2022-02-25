@@ -14,14 +14,6 @@
 <             : SELF_TYPE
 ---
 >             : _no_type
-71c71
-<           : Int
----
->           : _no_type
-73c73
-<         : Int
----
->         : _no_type
 93c93
 <         : SELF_TYPE
 ---
@@ -30,10 +22,6 @@
 <           : SELF_TYPE
 ---
 >           : _no_type
-113c113
-<         : Int
----
->         : _no_type
 119c119
 <           : SELF_TYPE
 ---
@@ -42,19 +30,7 @@
 <             : SELF_TYPE
 ---
 >             : _no_type
-131c131
-<           : Int
----
->           : _no_type
 137c137
 <             : SELF_TYPE
 ---
 >             : _no_type
-141c141
-<           : Int
----
->           : _no_type
-143c143
-<         : Int
----
->         : _no_type

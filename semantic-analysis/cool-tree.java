@@ -76,6 +76,13 @@ class Classes extends ListNode {
         return this;
     }
 
+    public void gatherFeaturesInformation(ClassTable classTable) {
+        Enumeration elements = getElements();
+        while (elements.hasMoreElements()) {
+            ((class_c) (elements.nextElement())).gatherFeaturesInformation(classTable);
+        }
+    }
+
     public void gatherTypeInformation(ClassTable classTable) {
         Enumeration elements = getElements();
         while (elements.hasMoreElements()) {
@@ -420,6 +427,7 @@ class programc extends Program {
         /* ClassTable constructor may do some semantic analysis */
         ClassTable classTable = new ClassTable(classes);
 
+        classTable.getUserDefinedAndBasicClasses().gatherFeaturesInformation(classTable);
         classes.gatherTypeInformation(classTable);
         classes.semant(classTable);
 
@@ -439,23 +447,24 @@ class class_c extends Class_ {
     protected AbstractSymbol name;
     protected AbstractSymbol parent;
     protected Features features;
+    protected Features parentFeatures = new Features(0);
     protected AbstractSymbol filename;
 
     /**
      * Creates "class_c" AST node.
      *
      * @param lineNumber the line in the source file from which this node came.
-     * @param a1 initial value for name
-     * @param a2 initial value for parent
-     * @param a3 initial value for features
-     * @param a4 initial value for filename
+     * @param name initial value for name
+     * @param parent initial value for parent
+     * @param features initial value for features
+     * @param filename initial value for filename
      */
-    public class_c(int lineNumber, AbstractSymbol a1, AbstractSymbol a2, Features a3, AbstractSymbol a4) {
+    public class_c(int lineNumber, AbstractSymbol name, AbstractSymbol parent, Features features, AbstractSymbol filename) {
         super(lineNumber);
-        name = a1;
-        parent = a2;
-        features = a3;
-        filename = a4;
+        this.name = name;
+        this.parent = parent;
+        this.features = features;
+        this.filename = filename;
     }
 
     public TreeNode copy() {
@@ -482,6 +491,10 @@ class class_c extends Class_ {
         return parent;
     }
 
+    public Features getParentFeatures() {
+        return parentFeatures;
+    }
+
     public void dump_with_types(PrintStream out, int n) {
         dump_line(out, n);
         out.println(Utilities.pad(n) + "_class");
@@ -496,20 +509,30 @@ class class_c extends Class_ {
         out.println(Utilities.pad(n + 2) + ")");
     }
 
+    public void gatherFeaturesInformation(ClassTable classTable) {
+        class_c parentClass = classTable.lookupClass(parent);
+        // Only object don't have inherited features
+        if (!parent.equals(TreeConstants.No_class)) {
+            parentClass.gatherFeaturesInformation(classTable);
+            for (Enumeration e = parentClass.features.getElements(); e.hasMoreElements(); ) {
+                parentFeatures.appendElement((TreeNode) e.nextElement());
+            }
+            for (Enumeration e = parentClass.parentFeatures.getElements(); e.hasMoreElements(); ) {
+                parentFeatures.appendElement((TreeNode) e.nextElement());
+            }
+        }
+    }
+
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
+        classTable.enterClass(this);
         features.gatherTypeInformation(classTable);
     }
 
     @Override
     public void semant(ClassTable classTable) {
-        if (!classTable.exists(parent)) {
-            classTable.semantError(this).printf("Class %s inherits from an undefined class %s%n", name.str, parent.str);
-        } else if (!classTable.canInherit(parent)) {
-            classTable.semantError(this).printf("Class %s cannot inherit class %s%n", name.str, parent.str);
-        } else {
-            features.semant(classTable);
-        }
+        features.semant(classTable);
+
     }
 }
 
@@ -579,6 +602,11 @@ class method extends Feature {
     @Override
     public void semant(ClassTable classTable) {
         expr.semant(classTable);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s()", name.str);
     }
 }
 
@@ -894,16 +922,19 @@ class dispatch extends Expression {
         expr.gatherTypeInformation(classTable);
         actual.gatherTypeInformation(classTable);
 
-        Features typeFeatures = classTable.getClassFeatures(expr.get_type());
-        if (typeFeatures != null) {
-            for (Enumeration e = typeFeatures.getElements(); e.hasMoreElements(); ) {
-                Feature f = (Feature) e.nextElement();
-                if (f instanceof method) {
-                    method method = (method) f;
-                    if (isLegalDispatch(method)) {
-                        set_type(method.return_type);
-                        break;
-                    }
+        method method;
+        if (expr instanceof object) {
+            method = fetchMethodObject(classTable, classTable.getCurrentClass().name, name);
+        } else {
+            method = fetchMethodObject(classTable, expr.get_type(), name);
+        }
+
+        if (method != null) {
+            if (isLegalDispatch(method)) {
+                if (method.return_type.equals(TreeConstants.SELF_TYPE) && !(expr instanceof object)) {
+                    set_type(expr.get_type());
+                } else {
+                    set_type(method.return_type);
                 }
             }
         }
@@ -912,6 +943,23 @@ class dispatch extends Expression {
     @Override
     public void semant(ClassTable classTable) {
 
+    }
+
+    private method fetchMethodObject(ClassTable classTable, AbstractSymbol classType, AbstractSymbol methodName) {
+        Features classFeatures = classTable.getAllClassFeatures(classType);
+        if (classFeatures == null) {
+            return null;
+        }
+        for (Enumeration e = classFeatures.getElements(); e.hasMoreElements(); ) {
+            Feature feature = (Feature) e.nextElement();
+            if (feature instanceof method) {
+                method method = (method) feature;
+                if (method.name.equals(methodName)) {
+                    return method;
+                }
+            }
+        }
+        return null;
     }
 
     public boolean isLegalDispatch(method m) {
@@ -1192,7 +1240,8 @@ class let extends Expression {
 
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
-
+        init.gatherTypeInformation(classTable);
+        body.gatherTypeInformation(classTable);
     }
 
     @Override
@@ -1837,7 +1886,7 @@ class new_ extends Expression {
 
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
-
+        set_type(type_name);
     }
 
     @Override

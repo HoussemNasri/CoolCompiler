@@ -1,2 +1,29 @@
-filename:line
-Compilation halted due to static semantic errors.
+
+_program
+
+  _class
+    Main
+    IO
+    filename
+    (
+
+    _method
+      main
+      Object
+
+      _block
+
+        _let
+          x
+          Int
+
+          _int
+            5
+          : Int
+
+          _object
+            x
+          : _no_type
+        : _no_type
+      : Object
+    )

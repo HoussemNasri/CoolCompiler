@@ -34,7 +34,7 @@
 > 
 >         _new
 >           B
->         : _no_type
+>         : B
 >         foo
 >         (
 > 
@@ -46,7 +46,7 @@
 >           29
 >         : Int
 >         )
->       : Object
+>       : String
 >     )
 > 
 >   _class
