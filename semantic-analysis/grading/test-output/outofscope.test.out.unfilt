@@ -23,10 +23,10 @@ _program
           _int
             10
           : Int
-        : _no_type
+        : Int
         #3
         _object
           x
         : _no_type
-      : Object
+      : _no_type
     )

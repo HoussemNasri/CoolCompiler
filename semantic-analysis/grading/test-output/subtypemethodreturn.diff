@@ -4,11 +4,3 @@
 ---
 >             : _no_type
 >           : _no_type
-35c35
-<             : A
----
->             : _no_type
-56c56
-<       : SELF_TYPE
----
->       : A

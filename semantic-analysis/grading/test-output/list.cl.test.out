@@ -25,7 +25,7 @@ _program
 
           _object
             self
-          : _no_type
+          : SELF_TYPE
           abort
           (
           )
@@ -46,7 +46,7 @@ _program
 
           _object
             self
-          : _no_type
+          : SELF_TYPE
           abort
           (
           )
@@ -54,8 +54,8 @@ _program
 
         _object
           self
-        : _no_type
-      : List
+        : SELF_TYPE
+      : SELF_TYPE
 
     _method
       cons
@@ -79,7 +79,7 @@ _program
 
         _object
           self
-        : _no_type
+        : SELF_TYPE
         )
       : List
     )
@@ -160,8 +160,8 @@ _program
 
         _object
           self
-        : _no_type
-      : List
+        : SELF_TYPE
+      : SELF_TYPE
     )
 
   _class
@@ -267,7 +267,7 @@ _program
             )
           : _no_type
         : _no_type
-      : Object
+      : _no_type
 
     _method
       main
@@ -379,5 +379,5 @@ _program
             : _no_type
           : _no_type
         : _no_type
-      : Object
+      : _no_type
     )

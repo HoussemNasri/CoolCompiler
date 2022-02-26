@@ -42,5 +42,5 @@ _program
       #8
       _object
         moo
-      : _no_type
+      : Object
     )

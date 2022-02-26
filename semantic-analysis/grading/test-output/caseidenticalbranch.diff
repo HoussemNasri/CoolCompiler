@@ -55,5 +55,5 @@
 >           _object
 >             b
 >           : _no_type
->       : Object
+>       : _no_type
 >     )

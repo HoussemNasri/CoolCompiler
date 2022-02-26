@@ -50,7 +50,7 @@
 >         _object
 >           x
 >         : _no_type
->       : Object
+>       : _no_type
 >     )
 > 
 >   _class
@@ -91,5 +91,5 @@
 >         bar
 >         (
 >         )
->       : Object
+>       : _no_type
 >     )

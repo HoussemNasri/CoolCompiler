@@ -32,11 +32,11 @@ _program
             #4
             _object
               x
-            : _no_type
+            : String
             length
             (
             )
           : _no_type
         : _no_type
-      : Object
+      : _no_type
     )

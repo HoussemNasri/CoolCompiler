@@ -113,7 +113,7 @@
 >         _object
 >           b
 >         : _no_type
->       : Z
+>       : _no_type
 > 
 >     _method
 >       g
@@ -132,7 +132,7 @@
 >         _object
 >           b
 >         : _no_type
->       : Object
+>       : _no_type
 > 
 >     _method
 >       h
@@ -151,5 +151,5 @@
 >         _object
 >           a
 >         : _no_type
->       : B
+>       : _no_type
 >     )

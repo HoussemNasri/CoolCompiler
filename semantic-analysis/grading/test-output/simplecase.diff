@@ -10,9 +10,11 @@
 <             : Bool
 ---
 >             : _no_type
-66,67c66,67
+66,68c66,68
 <             : String
 <         : Object
+<       : Object
 ---
 >             : _no_type
 >         : _no_type
+>       : _no_type

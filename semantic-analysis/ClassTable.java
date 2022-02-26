@@ -1,6 +1,7 @@
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
@@ -16,6 +17,12 @@ class ClassTable extends AbstractTable {
     private List<class_c> basicClasses = new ArrayList<>();
     private List<class_c> classes = new ArrayList<>();
     private List<class_c> userDefinedClasses = new ArrayList<>();
+
+    private SymbolTable symbolTable = new SymbolTable();
+
+    public SymbolTable symbolTable() {
+        return symbolTable;
+    }
 
     /**
      * Creates data structures representing basic Cool classes (Object,
@@ -416,6 +423,58 @@ class ClassTable extends AbstractTable {
 
     public Classes getUserDefinedAndBasicClasses() {
         return new Classes(0, new Vector<>(classes));
+    }
+
+    public method lookupMethod(AbstractSymbol methodName, AbstractSymbol fromClass) {
+        Features classFeatures = getAllClassFeatures(fromClass);
+        if (classFeatures == null) {
+            return null;
+        }
+
+        List<Feature> allFeatures = Collections.list(getAllClassFeatures(fromClass).getElements());
+        for (Feature feature : allFeatures) {
+            if (feature.isMethod()) {
+                if (feature.asMethod().name.equals(methodName)) {
+                    return feature.asMethod();
+                }
+            }
+        }
+        return null;
+    }
+
+    public attr lookupAttribute(AbstractSymbol attrName) {
+        return lookupAttribute(attrName, currentClass.name);
+    }
+
+    public attr lookupAttribute(AbstractSymbol attrName, AbstractSymbol fromClass) {
+        if (fromClass == null) {
+            return null;
+        }
+        Features classFeatures = getAllClassFeatures(fromClass);
+        if (classFeatures == null) {
+            return null;
+        }
+
+        List<Feature> allFeatures = Collections.list(getAllClassFeatures(fromClass).getElements());
+        for (Feature feature : allFeatures) {
+            if (feature.isAttribute()) {
+                if (feature.asAttr().name.equals(attrName)) {
+                    return feature.asAttr();
+                }
+            }
+        }
+        return null;
+    }
+
+    public boolean isAttribute(AbstractSymbol name, AbstractSymbol clazz) {
+        return lookupAttribute(name, clazz) != null;
+    }
+
+    public boolean isAttribute(AbstractSymbol name) {
+        if (currentClass != null) {
+            return lookupAttribute(name, currentClass.name) != null;
+        }
+        return false;
     }
 }
 			  

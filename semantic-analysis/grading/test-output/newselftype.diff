@@ -1,8 +1,6 @@
-18c18
-<         : SELF_TYPE
----
->         : _no_type
-40c40
+40,41c40,41
 <         : Int
+<       : Int
 ---
 >         : _no_type
+>       : _no_type

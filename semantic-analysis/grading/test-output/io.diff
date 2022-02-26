@@ -1,11 +1,3 @@
-34c34
-<           : SELF_TYPE
----
->           : _no_type
-48c48
-<           : SELF_TYPE
----
->           : _no_type
 65c65
 <             : SELF_TYPE
 ---
@@ -27,4 +19,4 @@
 ---
 >           : _no_type
 >         : _no_type
->       : Object
+>       : _no_type

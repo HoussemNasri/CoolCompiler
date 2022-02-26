@@ -39,5 +39,5 @@
 >         _string
 >           "hello"
 >         : _no_type
->       : Object
+>       : _no_type
 >     )

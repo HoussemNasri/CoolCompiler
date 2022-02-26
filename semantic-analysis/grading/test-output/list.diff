@@ -1,23 +1,5 @@
-28c28
-<           : SELF_TYPE
----
->           : _no_type
-49c49
-<           : SELF_TYPE
----
->           : _no_type
-57,58c57,58
-<         : SELF_TYPE
-<       : SELF_TYPE
----
->         : _no_type
->       : List
 78c78
 <         : Int
----
->         : _no_type
-82c82
-<         : SELF_TYPE
 ---
 >         : _no_type
 150,151c150,151
@@ -32,12 +14,6 @@
 ---
 >           : _no_type
 >         : _no_type
-163,164c163,164
-<         : SELF_TYPE
-<       : SELF_TYPE
----
->         : _no_type
->       : List
 194c194
 <           : List
 ---
@@ -98,12 +74,14 @@
 <             : List
 ---
 >             : _no_type
-268,269c268,269
+268,270c268,270
 <           : Object
 <         : Object
+<       : Object
 ---
 >           : _no_type
 >         : _no_type
+>       : _no_type
 293c293
 <                     : List
 ---
@@ -176,13 +154,15 @@
 <                 : List
 ---
 >                 : _no_type
-378,381c378,381
+378,382c378,382
 <               : List
 <             : List
 <           : List
 <         : Object
+<       : Object
 ---
 >               : _no_type
 >             : _no_type
 >           : _no_type
 >         : _no_type
+>       : _no_type

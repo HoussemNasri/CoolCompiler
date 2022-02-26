@@ -32,5 +32,5 @@ _program
       #4
       _object
         x
-      : Object
+      : _no_type
     )

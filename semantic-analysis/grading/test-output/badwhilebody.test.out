@@ -52,5 +52,5 @@ _program
           (
           )
         : _no_type
-      : Object
+      : _no_type
     )

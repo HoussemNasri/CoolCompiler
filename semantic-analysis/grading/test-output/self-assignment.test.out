@@ -28,7 +28,7 @@ _program
 
       _object
         self
-      : _no_type
+      : SELF_TYPE
 
     _method
       foo
@@ -50,5 +50,5 @@ _program
           (
           )
         : _no_type
-      : A
+      : _no_type
     )

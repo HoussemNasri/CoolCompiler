@@ -34,9 +34,11 @@
 <             : SELF_TYPE
 ---
 >             : _no_type
-71,72c71,72
+71,73c71,73
 <           : String
 <         : Object
+<       : Object
 ---
 >           : _no_type
 >         : _no_type
+>       : _no_type

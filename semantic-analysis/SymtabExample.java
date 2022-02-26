@@ -23,7 +23,7 @@ PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class SymtabExample {
     public static void main(String args[]) {
 	// crate a new symbol table; entries will be name/age pairs
-	SymbolTable map = new SymbolTable();
+	/*SymbolTable map = new SymbolTable();
 
 	// create some names
 	AbstractSymbol fred = AbstractTable.stringtable.addString("Fred");
@@ -64,7 +64,7 @@ class SymtabExample {
 	System.out.println((map.probe(fred) != null) ? "Yes" : "No");
 
 	// check whether Miguel is in any scope; predicate is now false
-	System.out.println((map.lookup(miguel) != null) ? "Yes" : "No");
+	System.out.println((map.lookup(miguel) != null) ? "Yes" : "No");*/
     }	
 }
 

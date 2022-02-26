@@ -32,7 +32,7 @@
 > 
 >       _object
 >         self
->       : _no_type
+>       : SELF_TYPE
 > 
 >     _method
 >       foo
@@ -54,5 +54,5 @@
 >           (
 >           )
 >         : _no_type
->       : A
+>       : _no_type
 >     )

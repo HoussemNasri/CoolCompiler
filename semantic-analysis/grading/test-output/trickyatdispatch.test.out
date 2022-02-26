@@ -72,5 +72,5 @@ _program
         inky
         (
         )
-      : Int
+      : _no_type
     )

@@ -46,7 +46,7 @@ _program
         _object
           x
         : _no_type
-      : Object
+      : _no_type
     )
   #10
   _class
@@ -87,5 +87,5 @@ _program
         bar
         (
         )
-      : Object
+      : _no_type
     )

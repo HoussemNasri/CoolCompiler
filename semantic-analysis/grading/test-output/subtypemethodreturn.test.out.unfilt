@@ -32,7 +32,7 @@ _program
             #5
             _object
               x
-            : _no_type
+            : A
             foo
             (
             )
@@ -53,7 +53,7 @@ _program
       #15
       _object
         self
-      : A
+      : SELF_TYPE
     )
   #19
   _class

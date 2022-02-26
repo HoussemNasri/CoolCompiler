@@ -18,9 +18,11 @@
 ---
 >           : _no_type
 >         : _no_type
-46,47c46,47
+46,48c46,48
 <           : Bool
 <         : Bool
+<       : Bool
 ---
 >           : _no_type
 >         : _no_type
+>       : _no_type

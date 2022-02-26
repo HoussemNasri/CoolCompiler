@@ -51,7 +51,7 @@ _program
       #7
       _object
         self
-      : A
+      : SELF_TYPE
     #9
     _method
       h
@@ -65,7 +65,7 @@ _program
           #8
           _object
             self
-          : _no_type
+          : SELF_TYPE
           f
           (
           #8
@@ -80,16 +80,16 @@ _program
               #8
               _object
                 self
-              : _no_type
+              : SELF_TYPE
               g
               (
               #8
               _object
                 x
-              : _no_type
+              : Bool
               )
             : A
-          : _no_type
+          : A
           )
         : String
         #8
@@ -100,5 +100,5 @@ _program
             "ab"
           : _no_type
         : _no_type
-      : Object
+      : _no_type
     )

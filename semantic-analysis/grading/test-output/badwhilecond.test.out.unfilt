@@ -46,5 +46,5 @@ _program
         _int
           0
         : _no_type
-      : Object
+      : _no_type
     )

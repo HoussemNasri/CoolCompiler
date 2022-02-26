@@ -27,10 +27,10 @@
 >           _int
 >             10
 >           : Int
->         : _no_type
+>         : Int
 > 
 >         _object
 >           x
 >         : _no_type
->       : Object
+>       : _no_type
 >     )

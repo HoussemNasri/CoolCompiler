@@ -22,7 +22,7 @@ _program
         _int
           10
         : Int
-      : Object
+      : Int
     )
   #8
   _class

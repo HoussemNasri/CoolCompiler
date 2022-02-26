@@ -60,10 +60,10 @@ _program
 
           _object
             cow
-          : _no_type
+          : Animal
           moo
           (
           )
         : _no_type
-      : Object
+      : _no_type
     )

@@ -1,8 +1,14 @@
+47c47
+<       : Int
+---
+>       : _no_type
 80c80
 <         : Int
 ---
 >         : _no_type
-84c84
+84,85c84,85
 <         : Int
+<       : Int
 ---
 >         : _no_type
+>       : _no_type

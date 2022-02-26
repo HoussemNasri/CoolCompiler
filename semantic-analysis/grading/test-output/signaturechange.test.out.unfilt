@@ -39,7 +39,7 @@ _program
       #5
       _object
         x
-      : A
+      : String
     )
   #10
   _class
@@ -62,5 +62,5 @@ _program
       #9
       _object
         self
-      : A
+      : SELF_TYPE
     )

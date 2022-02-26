@@ -46,7 +46,7 @@ _program
         _object
           x
         : _no_type
-      : Object
+      : _no_type
     )
 
   _class

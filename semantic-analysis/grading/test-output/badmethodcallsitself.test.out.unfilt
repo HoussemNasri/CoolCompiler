@@ -34,7 +34,7 @@ _program
         #4
         _object
           self
-        : _no_type
+        : SELF_TYPE
         f
         (
         #4
@@ -42,7 +42,7 @@ _program
           #4
           _object
             self
-          : _no_type
+          : SELF_TYPE
           f
           (
           #4

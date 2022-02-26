@@ -38,7 +38,7 @@
 > 
 >         _object
 >           self
->         : _no_type
+>         : SELF_TYPE
 >         f
 >         (
 > 
@@ -46,7 +46,7 @@
 > 
 >           _object
 >             self
->           : _no_type
+>           : SELF_TYPE
 >           f
 >           (
 > 

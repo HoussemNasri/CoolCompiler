@@ -4,38 +4,22 @@
 ---
 >           : _no_type
 >         : _no_type
-37c37
-<         : SELF_TYPE
----
->         : _no_type
-50c50
-<           : SELF_TYPE
----
->           : _no_type
-58c58
-<             : String
----
->             : _no_type
 66c66
 <           : String
 ---
 >           : _no_type
-72c72
-<         : SELF_TYPE
+87c87
+<       : Int
 ---
->         : _no_type
-83c83
-<         : String
----
->         : _no_type
-101c101
-<         : String
----
->         : _no_type
+>       : _no_type
 107c107
 <         : Int
 ---
 >         : _no_type
+113c113
+<       : String
+---
+>       : _no_type
 129c129
 <           : Int
 ---
@@ -82,10 +66,12 @@
 ---
 >             : _no_type
 >           : _no_type
-182c182
+182,183c182,183
 <         : String
+<       : String
 ---
 >         : _no_type
+>       : _no_type
 199c199
 <           : Int
 ---
@@ -132,10 +118,12 @@
 ---
 >             : _no_type
 >           : _no_type
-252c252
+252,253c252,253
 <         : String
+<       : String
 ---
 >         : _no_type
+>       : _no_type
 279c279
 <                     : SELF_TYPE
 ---
@@ -234,14 +222,12 @@
 <         : String
 ---
 >         : _no_type
-380c380
+380,381c380,381
 <         : String
+<       : String
 ---
 >         : _no_type
-402c402
-<             : SELF_TYPE
----
->             : _no_type
+>       : _no_type
 423c423
 <                   : Int
 ---
@@ -296,16 +282,6 @@
 ---
 >                 : _no_type
 >               : _no_type
-487,490c487,490
-<               : SELF_TYPE
-<             : SELF_TYPE
-<           : SELF_TYPE
-<         : SELF_TYPE
----
->               : _no_type
->             : _no_type
->           : _no_type
->         : _no_type
 520c520
 <             : CellularAutomaton
 ---
@@ -320,10 +296,6 @@
 ---
 >           : _no_type
 >         : _no_type
-535c535
-<           : CellularAutomaton
----
->           : _no_type
 539c539
 <         : CellularAutomaton
 ---
@@ -371,8 +343,4 @@
 >               : _no_type
 >             : _no_type
 >           : _no_type
->         : _no_type
-604c604
-<         : SELF_TYPE
----
 >         : _no_type

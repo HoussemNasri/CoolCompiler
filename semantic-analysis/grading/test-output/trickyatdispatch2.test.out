@@ -65,5 +65,5 @@ _program
         winky
         (
         )
-      : Int
+      : _no_type
     )

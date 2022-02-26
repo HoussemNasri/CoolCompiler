@@ -43,7 +43,7 @@
 > 
 >       _object
 >         x
->       : A
+>       : String
 >     )
 > 
 >   _class
@@ -66,5 +66,5 @@
 > 
 >       _object
 >         self
->       : A
+>       : SELF_TYPE
 >     )

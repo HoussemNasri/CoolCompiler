@@ -44,7 +44,7 @@ _program
 
       _object
         a
-      : Int
+      : _no_type
     )
 
   _class
@@ -82,5 +82,5 @@ _program
         _int
           1
         : _no_type
-      : Int
+      : _no_type
     )

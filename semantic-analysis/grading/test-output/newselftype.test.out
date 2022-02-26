@@ -15,7 +15,7 @@ _program
 
         _object
           self
-        : _no_type
+        : SELF_TYPE
         foo
         (
 
@@ -38,7 +38,7 @@ _program
         _int
           7
         : _no_type
-      : Int
+      : _no_type
     )
 
   _class

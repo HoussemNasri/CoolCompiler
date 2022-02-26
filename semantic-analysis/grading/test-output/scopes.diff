@@ -1,23 +1,3 @@
-54c54
-<       : SELF_TYPE
----
->       : A
-68c68
-<           : SELF_TYPE
----
->           : _no_type
-83c83
-<               : SELF_TYPE
----
->               : _no_type
-89c89
-<               : Bool
----
->               : _no_type
-92c92
-<           : A
----
->           : _no_type
 101,103c101,103
 <           : String
 <         : String
@@ -25,4 +5,4 @@
 ---
 >           : _no_type
 >         : _no_type
->       : Object
+>       : _no_type

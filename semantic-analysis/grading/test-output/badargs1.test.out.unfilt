@@ -36,7 +36,7 @@ _program
         #5
         _object
           self
-        : _no_type
+        : SELF_TYPE
         #5
         _int
           29

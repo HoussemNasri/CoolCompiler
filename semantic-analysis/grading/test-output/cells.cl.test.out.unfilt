@@ -34,7 +34,7 @@ _program
         #11
         _object
           self
-        : _no_type
+        : SELF_TYPE
       : SELF_TYPE
     #22
     _method
@@ -47,7 +47,7 @@ _program
           #17
           _object
             self
-          : _no_type
+          : SELF_TYPE
           out_string
           (
           #17
@@ -55,7 +55,7 @@ _program
             #17
             _object
               population_map
-            : _no_type
+            : String
             concat
             (
             #17
@@ -69,7 +69,7 @@ _program
         #18
         _object
           self
-        : _no_type
+        : SELF_TYPE
       : SELF_TYPE
     #26
     _method
@@ -80,11 +80,11 @@ _program
         #23
         _object
           population_map
-        : _no_type
+        : String
         length
         (
         )
-      : Int
+      : _no_type
     #30
     _method
       cell
@@ -98,7 +98,7 @@ _program
         #27
         _object
           population_map
-        : _no_type
+        : String
         substr
         (
         #27
@@ -110,7 +110,7 @@ _program
           1
         : Int
         )
-      : String
+      : _no_type
     #38
     _method
       cell_left_neighbor
@@ -180,7 +180,7 @@ _program
           : _no_type
           )
         : _no_type
-      : String
+      : _no_type
     #48
     _method
       cell_right_neighbor
@@ -250,7 +250,7 @@ _program
           : _no_type
           )
         : _no_type
-      : String
+      : _no_type
     #60
     _method
       cell_at_next_evolution
@@ -378,7 +378,7 @@ _program
         _string
           "."
         : _no_type
-      : String
+      : _no_type
     #76
     _method
       evolve
@@ -399,7 +399,7 @@ _program
             #62
             _object
               self
-            : _no_type
+            : SELF_TYPE
             num_cells
             (
             )
@@ -484,10 +484,10 @@ _program
               #72
               _object
                 self
-              : _no_type
-            : _no_type
-          : _no_type
-        : _no_type
+              : SELF_TYPE
+            : SELF_TYPE
+          : SELF_TYPE
+        : SELF_TYPE
       : SELF_TYPE
     )
   #97
@@ -532,7 +532,7 @@ _program
           #84
           _object
             cells
-          : _no_type
+          : CellularAutomaton
           print
           (
           )
@@ -601,6 +601,6 @@ _program
         #94
         _object
           self
-        : _no_type
+        : SELF_TYPE
       : SELF_TYPE
     )

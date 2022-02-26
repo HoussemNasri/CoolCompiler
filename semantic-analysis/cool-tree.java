@@ -106,18 +106,9 @@ class Classes extends ListNode {
  * Defines simple phylum Feature
  */
 abstract class Feature extends TreeNode {
-    protected AbstractSymbol type = TreeConstants.No_type;
 
     protected Feature(int lineNumber) {
         super(lineNumber);
-    }
-
-    public AbstractSymbol getExpressionType() {
-        return type;
-    }
-
-    public void setExpressionType(AbstractSymbol type) {
-        this.type = type;
     }
 
     public abstract void dump_with_types(PrintStream out, int n);
@@ -125,6 +116,28 @@ abstract class Feature extends TreeNode {
     public abstract void gatherTypeInformation(ClassTable classTable);
 
     public abstract void semant(ClassTable classTable);
+
+    public boolean isMethod() {
+        return this instanceof method;
+    }
+
+    public boolean isAttribute() {
+        return this instanceof attr;
+    }
+
+    public method asMethod() {
+        if (!isMethod()) {
+            throw new IllegalStateException("Cannot cast to method");
+        }
+        return (method) this;
+    }
+
+    public attr asAttr() {
+        if (!isAttribute()) {
+            throw new IllegalStateException("Cannot cast to attr");
+        }
+        return (attr) this;
+    }
 }
 
 /**
@@ -235,6 +248,8 @@ class Formals extends ListNode {
  * Defines simple phylum Expression
  */
 abstract class Expression extends TreeNode {
+    protected boolean canRead = true;
+
     protected Expression(int lineNumber) {
         super(lineNumber);
         set_type(TreeConstants.No_type);
@@ -264,6 +279,23 @@ abstract class Expression extends TreeNode {
     public abstract void gatherTypeInformation(ClassTable classTable);
 
     public abstract void semant(ClassTable classTable);
+
+    /**
+     * This is used to check if an expression is initialized and can be read
+     *
+     * @return True by default
+     */
+    public boolean canRead() {
+        return canRead;
+    }
+
+    public boolean notCanRead() {
+        return !canRead;
+    }
+
+    public void setCanRead(boolean canRead) {
+        this.canRead = canRead;
+    }
 }
 
 /**
@@ -426,10 +458,14 @@ class programc extends Program {
     public void semant() {
         /* ClassTable constructor may do some semantic analysis */
         ClassTable classTable = new ClassTable(classes);
-
+        classTable.symbolTable().enterScope();
+        classTable.symbolTable().addId(TreeConstants.self, SymbolItem.newSelf());
         classTable.getUserDefinedAndBasicClasses().gatherFeaturesInformation(classTable);
+
         classes.gatherTypeInformation(classTable);
         classes.semant(classTable);
+
+        classTable.symbolTable().exitScope();
 
         if (classTable.hasErrors()) {
             System.err.println("Compilation halted due to static semantic errors.");
@@ -521,6 +557,21 @@ class class_c extends Class_ {
                 parentFeatures.appendElement((TreeNode) e.nextElement());
             }
         }
+
+        // Adding features to the symbol table, with no_expr as a default value
+        // Type information should be gathered in coming passes
+        for (Enumeration<TreeNode> e = features.getElements(); e.hasMoreElements(); ) {
+            Feature feature = (Feature) e.nextElement();
+            if (feature.isAttribute()) {
+                attr attr = feature.asAttr();
+                classTable.symbolTable().addId(attr.name, SymbolItem.newAttr(attr));
+            } else if (feature.isMethod()) {
+                method method = feature.asMethod();
+                classTable.symbolTable().addId(method.name, SymbolItem.newMethod(method));
+            } else {
+                throw new IllegalStateException("Feature is neither attr or method");
+            }
+        }
     }
 
     @Override
@@ -532,7 +583,6 @@ class class_c extends Class_ {
     @Override
     public void semant(ClassTable classTable) {
         features.semant(classTable);
-
     }
 }
 
@@ -562,7 +612,6 @@ class method extends Feature {
         formals = a2;
         return_type = a3;
         expr = a4;
-        setExpressionType(return_type);
     }
 
     public TreeNode copy() {
@@ -591,12 +640,6 @@ class method extends Feature {
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
         expr.gatherTypeInformation(classTable);
-        if (expr.get_type().equals(TreeConstants.No_type)) {
-            expr.set_type(return_type);
-        } else {
-            expr.set_type(expr.get_type());
-        }
-        setExpressionType(expr.get_type());
     }
 
     @Override
@@ -656,7 +699,16 @@ class attr extends Feature {
 
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
+        SymbolItem attrSymbol = classTable.symbolTable().lookup(name);
+        if (attrSymbol != null) {
+            attrSymbol.putBoolean(SymbolItem.Props.IS_INIT, !(init instanceof no_expr));
+        }
+
+        //TODO('Infer init expression type, verify it matches type_decl in semant()')
+        classTable.symbolTable().enterScope();
+        classTable.symbolTable().addId(name, SymbolItem.newAttr(this));
         init.gatherTypeInformation(classTable);
+        classTable.symbolTable().exitScope();
     }
 
     @Override
@@ -1241,7 +1293,16 @@ class let extends Expression {
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
         init.gatherTypeInformation(classTable);
+
+        classTable.symbolTable().enterScope();
+        SymbolItem letIdSymbol = SymbolItem.newLetID(type_decl)
+                .putBoolean(SymbolItem.Props.IS_INIT, !(init instanceof no_expr));
+
+        classTable.symbolTable().addId(identifier, letIdSymbol);
+
         body.gatherTypeInformation(classTable);
+        set_type(body.get_type());
+        classTable.symbolTable().exitScope();
     }
 
     @Override
@@ -1601,7 +1662,7 @@ class eq extends Expression {
     @Override
     public void semant(ClassTable classTable) {
         if (isBoolOrStringOrInt(e1.get_type()) || isBoolOrStringOrInt(e2.get_type())) {
-            if (!e1.get_type().equals(e2.get_type())) {
+            if (!e1.get_type().equals(e2.get_type()) || !e1.canRead() || !e2.canRead()) {
                 classTable.semantError(AbstractTable.stringtable.getFilename(), this).printf("Illegal comparison with a basic type.%n");
             }
         }
@@ -2018,7 +2079,17 @@ class object extends Expression {
 
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
-
+        SymbolItem symbolItem = classTable.symbolTable().lookup(name);
+        if (symbolItem != null) {
+            set_type(symbolItem.getType());
+            if (symbolItem.getKind() == SymbolItem.Kind.ATTR || symbolItem.getKind() == SymbolItem.Kind.LET_ID) {
+                setCanRead(symbolItem.getBoolean(SymbolItem.Props.IS_INIT));
+            }
+        }
+        //TODO('Check for all object names')
+        //If method formal parameter
+        // If let expression parameter
+        // If branch of case expression
     }
 
     @Override

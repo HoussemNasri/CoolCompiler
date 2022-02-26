@@ -1,8 +1,0 @@
-26,28c26,28
-<           : Int
-<         : Int
-<       : Int
----
->           : _no_type
->         : _no_type
->       : Object

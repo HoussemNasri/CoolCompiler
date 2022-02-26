@@ -40,7 +40,7 @@
 > 
 >         _object
 >           self
->         : _no_type
+>         : SELF_TYPE
 > 
 >         _int
 >           29

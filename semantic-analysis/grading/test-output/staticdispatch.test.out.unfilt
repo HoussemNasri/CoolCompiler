@@ -44,7 +44,7 @@ _program
           b
         : _no_type
         )
-      : Object
+      : _no_type
     )
   #13
   _class

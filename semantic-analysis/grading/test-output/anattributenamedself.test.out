@@ -44,5 +44,5 @@ _program
         _string
           "a boy named sue"
         : _no_type
-      : String
+      : _no_type
     )

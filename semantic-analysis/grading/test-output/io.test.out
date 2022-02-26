@@ -31,7 +31,7 @@ _program
 
           _object
             self
-          : _no_type
+          : SELF_TYPE
           out_string
           (
 
@@ -45,7 +45,7 @@ _program
 
           _object
             self
-          : _no_type
+          : SELF_TYPE
           out_int
           (
 
@@ -82,5 +82,5 @@ _program
             )
           : _no_type
         : _no_type
-      : Object
+      : _no_type
     )

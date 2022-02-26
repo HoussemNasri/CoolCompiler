@@ -2,3 +2,7 @@
 <         : B
 ---
 >         : _no_type
+75c75
+<       : Int
+---
+>       : _no_type

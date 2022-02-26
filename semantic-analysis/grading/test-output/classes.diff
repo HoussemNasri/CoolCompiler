@@ -2,29 +2,35 @@
 <           : Int
 ---
 >           : _no_type
-41,42c41,42
+41,43c41,43
 <           : Int
 <         : Int
+<       : Int
 ---
 >           : _no_type
 >         : _no_type
+>       : _no_type
 79c79
 <           : Int
 ---
 >           : _no_type
-83,84c83,84
+83,85c83,85
 <           : Int
 <         : Int
+<       : Int
 ---
 >           : _no_type
 >         : _no_type
+>       : _no_type
 113c113
 <           : Int
 ---
 >           : _no_type
-117,118c117,118
+117,119c117,119
 <           : Int
 <         : Int
+<       : Int
 ---
 >           : _no_type
 >         : _no_type
+>       : _no_type

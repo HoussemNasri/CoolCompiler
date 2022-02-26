@@ -45,7 +45,7 @@ _program
             1
           : _no_type
         : _no_type
-      : Bool
+      : _no_type
     )
 
   _class

@@ -31,7 +31,7 @@ _program
         _new
           A
         : _no_type
-      : Object
+      : _no_type
     )
   #8
   _class
