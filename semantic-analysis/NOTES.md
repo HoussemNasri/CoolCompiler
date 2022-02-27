@@ -18,4 +18,8 @@ When we want to print a class we call `features.dump_with_types()`.
 
 ###### Tasks Accomplished #1
 - Created a list of inherited features in classes that gets loaded at initialization.
-- 
+###### Tasks Accomplished #2
+- Gather type information for negation expressions (~)
+- Detect user defined classes redefinition
+- Gather type information for assignment expressions and detect invalid type assignment
+- Detect invalid type for let expression initialization

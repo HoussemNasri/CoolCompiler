@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 
 /**
@@ -244,6 +245,15 @@ class ClassTable extends AbstractTable {
 
     private void checkForUserDefinedClassRedefinition() {
         // TODO('Handle class duplication')
+        for (int i = 0; i < classes.size(); i++) {
+            class_c selectClass = classes.get(i);
+            for (int j = i + 1; j < classes.size(); j++) {
+                class_c compareClass = classes.get(j);
+                if (selectClass.name.equals(compareClass.name)) {
+                    fatalSemantError(compareClass, "Class %s was previously defined.%n", selectClass.name.str);
+                }
+            }
+        }
         //redefinedclass.test:9: Class A was previously defined.
         //Compilation halted due to static semantic errors.
     }
@@ -473,6 +483,22 @@ class ClassTable extends AbstractTable {
     public boolean isAttribute(AbstractSymbol name) {
         if (currentClass != null) {
             return lookupAttribute(name, currentClass.name) != null;
+        }
+        return false;
+    }
+
+    public boolean isSubtypeOfClass(AbstractSymbol subtype, AbstractSymbol superType) {
+        class_c _superclass = lookupClass(superType);
+        class_c _subtype = lookupClass(subtype);
+
+        Objects.requireNonNull(_superclass);
+        Objects.requireNonNull(_subtype);
+
+        while (_subtype != null && !(_subtype.name.equals(TreeConstants.No_type))) {
+            if (_subtype.name.equals(superType)) {
+                return true;
+            }
+            _subtype = lookupClass(_subtype.getParent());
         }
         return false;
     }

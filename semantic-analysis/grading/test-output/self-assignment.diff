@@ -1,58 +1,14 @@
-1,2c1,54
+1,2c1,10
 < filename:line
 < Compilation halted due to static semantic errors.
 ---
-> 
-> _program
-> 
->   _class
->     Main
->     Object
->     filename
->     (
-> 
->     _method
->       main
->       Int
-> 
->       _int
->         0
->       : Int
->     )
-> 
->   _class
->     A
->     Object
->     filename
->     (
-> 
->     _attr
->       x
->       A
-> 
->       _object
->         self
->       : SELF_TYPE
-> 
->     _method
->       foo
-> 
->       _formal
->         x
->         A
->       A
-> 
->       _assign
->         self
-> 
->         _dispatch
-> 
->           _object
->             self
->           : _no_type
->           copy
->           (
->           )
->         : _no_type
->       : _no_type
->     )
+> java.lang.NullPointerException
+> 	at java.base/java.util.Objects.requireNonNull(Objects.java:221)
+> 	at ClassTable.isSubtypeOfClass(ClassTable.java:494)
+> 	at assign.semant(cool-tree.java:859)
+> 	at method.semant(cool-tree.java:647)
+> 	at Features.semant(cool-tree.java:191)
+> 	at class_c.semant(cool-tree.java:585)
+> 	at Classes.semant(cool-tree.java:96)
+> 	at programc.semant(cool-tree.java:466)
+> 	at Semant.main(Semant.java:39)

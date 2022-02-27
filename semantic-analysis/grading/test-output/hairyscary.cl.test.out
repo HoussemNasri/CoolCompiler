@@ -1,6 +1,6 @@
 java.lang.NullPointerException
-	at object.gatherTypeInformation(cool-tree.java:2086)
-	at let.gatherTypeInformation(cool-tree.java:1295)
+	at object.gatherTypeInformation(cool-tree.java:2107)
+	at let.gatherTypeInformation(cool-tree.java:1308)
 	at method.gatherTypeInformation(cool-tree.java:642)
 	at Features.gatherTypeInformation(cool-tree.java:184)
 	at class_c.gatherTypeInformation(cool-tree.java:580)

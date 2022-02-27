@@ -40,7 +40,7 @@ _program
             d
           : _no_type
         : _no_type
-      : _no_type
+      : Int
     )
   #15
   _class
@@ -82,7 +82,7 @@ _program
             b
           : _no_type
         : _no_type
-      : _no_type
+      : Int
     )
   #19
   _class
@@ -116,7 +116,7 @@ _program
             c
           : _no_type
         : _no_type
-      : _no_type
+      : Int
     )
   #19
   _class

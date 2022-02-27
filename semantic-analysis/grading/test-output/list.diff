@@ -2,18 +2,14 @@
 <         : Int
 ---
 >         : _no_type
-150,151c150,151
+150c150
 <           : Int
-<         : Int
 ---
 >           : _no_type
->         : _no_type
-158,159c158,159
+158c158
 <           : List
-<         : List
 ---
 >           : _no_type
->         : _no_type
 194c194
 <           : List
 ---
@@ -82,52 +78,6 @@
 >           : _no_type
 >         : _no_type
 >       : _no_type
-293c293
-<                     : List
----
->                     : _no_type
-299c299
-<                     : Int
----
->                     : _no_type
-301c301
-<                   : List
----
->                   : _no_type
-307c307
-<                   : Int
----
->                   : _no_type
-309c309
-<                 : List
----
->                 : _no_type
-315c315
-<                 : Int
----
->                 : _no_type
-317c317
-<               : List
----
->               : _no_type
-323c323
-<               : Int
----
->               : _no_type
-325c325
-<             : List
----
->             : _no_type
-331c331
-<             : Int
----
->             : _no_type
-333,334c333,334
-<           : List
-<         : List
----
->           : _no_type
->         : _no_type
 344c344
 <               : List
 ---

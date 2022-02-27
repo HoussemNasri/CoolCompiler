@@ -1,6 +1,4 @@
 	-1 (anattributenamedself)	 An attribute named self
-	-1 (assignment)	 Valid assignments
-	-1 (assignnoconform)	 Assignment with non conforming expression
 	-1 (attrbadinit)	 Init attribute with undefined expression
 	-1 (attroverride)	 Attempt to override parent's attribute
 	-1 (badargs1)	 Non-conforming parameter type in dispatch
@@ -17,22 +15,16 @@
 	-1 (dupformals)	 Duplicate name in formal param list
 	-1 (hairyscary)	 Messy legal Cool program
 	-1 (if)	 If statement
-	-1 (io)	 IO methods
 	-1 (isvoid)	 isvoid expressions
 	-1 (letself)	 Let with self in binding (illegal)
-	-1 (letshadows)	 Let with a variable shadowing one in an outer scope
-	-1 (letbadinit)	 Let initization with nonconforming type
+	-1 (letselftype)	 Let with SELF_TYPE variables (legal)
 	-1 (list)	 List program
 	-1 (lubtest)	 LUB test using if statements
-	-1 (neg)	 Negation of integer values
-	-1 (newselftype)	 Using a new SELF_TYPE expression (legal)
 	-1 (outofscope)	 Using a name that exists but is out of scope
 	-1 (overridingmethod2)	 Another method override example
 	-1 (overridingmethod4)	 Illegal method override - different param types
 	-1 (signaturechange)	 Method override with different number of params
-	-1 (redefinedclass)	 Redefinition of a class (illegal)
 	-1 (returntypenoexist)	 Undefined return type
-	-1 (scopes)	 Scope test (legal)
 	-1 (self-assignment)	 Assignment to self (illegal)
 	-1 (selfinformalparameter)	 Self as name of a formal parameter (illegal)
 	-1 (selftypebadreturn)	 Non-conforming return type when SELF_TYPE is declared return type
@@ -41,6 +33,5 @@
 	-1 (simplearith)	 Some simple arithmetic exprs
 	-1 (simplecase)	 A simple case expr
 	-1 (staticdispatch)	 Simple static dispatch
-	-1 (subtypemethodreturn)	 Returning a subtype of the declared return type (legal)
 	-1 (trickyatdispatch)	 Tricky (legal) static dispatch
 	-1 (trickyatdispatch2)	 Tricky (illegal) static dispatch

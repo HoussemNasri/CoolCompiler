@@ -7,7 +7,7 @@ public class SymbolItem {
     }
 
     enum Kind {
-        ATTR, LET_ID, CASE_ID, FORMAL_PARAM, METHOD, SELF
+        ATTR, LET_ID, CASE_ID, FORMAL_PARAM, METHOD, SELF, ASSIGN
     }
 
     private final AbstractSymbol type;
@@ -74,5 +74,9 @@ public class SymbolItem {
 
     public static SymbolItem newMethod(method method) {
         return new SymbolItem(Kind.METHOD, method.return_type);
+    }
+
+    public static SymbolItem newAssign(assign assign) {
+        return new SymbolItem(Kind.ASSIGN, assign.get_type());
     }
 }

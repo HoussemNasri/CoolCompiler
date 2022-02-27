@@ -30,7 +30,7 @@ _program
           _object
             map
           : _no_type
-        : _no_type
+        : String
         #11
         _object
           self
@@ -63,7 +63,7 @@ _program
               "\n"
             : String
             )
-          : _no_type
+          : String
           )
         : SELF_TYPE
         #18
@@ -84,7 +84,7 @@ _program
         length
         (
         )
-      : _no_type
+      : Int
     #30
     _method
       cell
@@ -110,7 +110,7 @@ _program
           1
         : Int
         )
-      : _no_type
+      : String
     #38
     _method
       cell_left_neighbor
@@ -479,8 +479,8 @@ _program
                 #71
                 _object
                   temp
-                : _no_type
-              : _no_type
+                : String
+              : String
               #72
               _object
                 self
@@ -517,16 +517,16 @@ _program
             #83
             _new
               CellularAutomaton
-            : _no_type
+            : CellularAutomaton
             init
             (
             #83
             _string
               "         X         "
-            : _no_type
+            : String
             )
-          : _no_type
-        : _no_type
+          : CellularAutomaton
+        : CellularAutomaton
         #84
         _dispatch
           #84
@@ -536,7 +536,7 @@ _program
           print
           (
           )
-        : _no_type
+        : SELF_TYPE
         #93
         _let
           countdown

@@ -1,8 +1,0 @@
-39,41c39,41
-<           : Int
-<         : Int
-<       : Int
----
->           : _no_type
->         : _no_type
->       : _no_type

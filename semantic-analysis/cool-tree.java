@@ -846,12 +846,22 @@ class assign extends Expression {
 
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
-
+        expr.gatherTypeInformation(classTable);
+        SymbolItem variable = classTable.symbolTable().lookup(name);
+        if (variable != null) {
+            set_type(variable.getType());
+        }
     }
 
     @Override
     public void semant(ClassTable classTable) {
-
+        if (expr.get_type() != TreeConstants.No_type && get_type() != null && get_type() != TreeConstants.No_type) {
+            if (!classTable.isSubtypeOfClass(expr.get_type(), get_type())) {
+                classTable.semantError(AbstractTable.stringtable.getFilename(), this)
+                        .printf("Type %s of assigned expression does not conform to declared type %s of identifier %s.%n",
+                                expr.get_type(), get_type(), name.str);
+            }
+        }
     }
 }
 
@@ -975,7 +985,7 @@ class dispatch extends Expression {
         actual.gatherTypeInformation(classTable);
 
         method method;
-        if (expr instanceof object) {
+        if (expr.get_type().equals(TreeConstants.SELF_TYPE)) {
             method = fetchMethodObject(classTable, classTable.getCurrentClass().name, name);
         } else {
             method = fetchMethodObject(classTable, expr.get_type(), name);
@@ -1250,6 +1260,7 @@ class let extends Expression {
     protected AbstractSymbol type_decl;
     protected Expression init;
     protected Expression body;
+    private boolean isInitialized;
 
     /**
      * Creates "let" AST node.
@@ -1266,6 +1277,7 @@ class let extends Expression {
         type_decl = a2;
         init = a3;
         body = a4;
+        isInitialized = !(init instanceof no_expr);
     }
 
     public TreeNode copy() {
@@ -1292,7 +1304,9 @@ class let extends Expression {
 
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
-        init.gatherTypeInformation(classTable);
+        if (isInitialized) {
+            init.gatherTypeInformation(classTable);
+        }
 
         classTable.symbolTable().enterScope();
         SymbolItem letIdSymbol = SymbolItem.newLetID(type_decl)
@@ -1307,7 +1321,13 @@ class let extends Expression {
 
     @Override
     public void semant(ClassTable classTable) {
-
+        if (isInitialized) {
+            if (!classTable.isSubtypeOfClass(init.get_type(), type_decl)) {
+                classTable.semantError(AbstractTable.stringtable.getFilename(), this)
+                        .printf("Inferred type %s of initialization of %s does not conform to identifier's declared type %s.%n",
+                                init.get_type().str, identifier.str, type_decl.str);
+            }
+        }
     }
 }
 
@@ -1552,7 +1572,8 @@ class neg extends Expression {
 
     @Override
     public void gatherTypeInformation(ClassTable classTable) {
-
+        e1.gatherTypeInformation(classTable);
+        set_type(TreeConstants.Int);
     }
 
     @Override

@@ -1,25 +1,11 @@
-32,33c32,33
-<           : String
-<         : String
----
->           : _no_type
->         : _no_type
-66c66
+32c32
 <           : String
 ---
 >           : _no_type
-87c87
-<       : Int
----
->       : _no_type
 107c107
 <         : Int
 ---
 >         : _no_type
-113c113
-<       : String
----
->       : _no_type
 129c129
 <           : Int
 ---
@@ -276,30 +262,10 @@
 >                   : _no_type
 >                 : _no_type
 >               : _no_type
-482,483c482,483
-<                 : String
-<               : String
----
->                 : _no_type
->               : _no_type
-520c520
-<             : CellularAutomaton
----
->             : _no_type
-526c526
-<             : String
----
->             : _no_type
-528,529c528,529
-<           : CellularAutomaton
-<         : CellularAutomaton
----
->           : _no_type
->         : _no_type
 539c539
 <         : CellularAutomaton
 ---
->         : _no_type
+>         : SELF_TYPE
 555c555
 <               : Int
 ---
