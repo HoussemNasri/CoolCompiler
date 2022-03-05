@@ -54,7 +54,7 @@ class Main inherits IO {
 See the [releases](https://github.com/HoussemNasri/CoolCompiler/releases) page for the latest build
 
 [^cs]:
-    [CS143: Compilers][CS143] - Stanford's course in the practical and theoretical aspects of compiler construction
+    [CS143: Compilers][CS143] - Stanford's course on the practical and theoretical aspects of compiler construction
       
 [CS143]: https://www.edx.org/course/compilers 
 
