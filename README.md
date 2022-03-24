@@ -57,5 +57,4 @@ See the [releases](https://github.com/HoussemNasri/CoolCompiler/releases) page f
     [CS143: Compilers][CS143] - Stanford's course on the practical and theoretical aspects of compiler construction
       
 [CS143]: https://www.edx.org/course/compilers 
-:grinning:
 
