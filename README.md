@@ -58,3 +58,5 @@ See the [releases](https://github.com/HoussemNasri/CoolCompiler/releases) page f
       
 [CS143]: https://www.edx.org/course/compilers 
 
+### If you like it, please let me know :grinning:
+
