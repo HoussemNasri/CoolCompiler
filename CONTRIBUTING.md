@@ -3,7 +3,7 @@ When contributing to this repository, please first discuss the change you wish t
 method with the owner of this repository before making a change.
 
 # Pull Request Process
-1. Get the CoolCompiler code on your local machine
+1. Get the code on your local machine
 - Fork the CoolCompiler into your GitHub account.
 - Clone your forked repository on your local machine.
 2. Create a new branch (such as `fix-for-issue-007`).
